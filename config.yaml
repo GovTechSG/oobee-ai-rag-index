@@ -19,3 +19,14 @@ sources:
 
 output:
   base_dir: "frameworks"
+
+embedding:
+  model: "text-embedding-3-small"
+  dimensions: 1536
+  chunk_size: 1000      # tokens
+  chunk_overlap: 200    # tokens
+
+vector_db:
+  provider: "pinecone"
+  index_name: ""        # your Pinecone index name
+  namespace: ""         # optional namespace

@@ -14,6 +14,7 @@ import yaml
 
 from manifest import Manifest, FrameworkState, FileState
 from scrape import scrape_source, load_config
+from embed import Embedder, create_embed_callback
 
 logging.basicConfig(
     level=logging.INFO,
@@ -178,7 +179,8 @@ def sync_framework(
 def apply_changes(
     result: SyncResult,
     manifest: Manifest,
-    embed_callback=None
+    embed_callback=None,
+    delete_callback=None
 ) -> None:
     """
     Apply changes to manifest. Optionally call embed_callback for new/modified files.
@@ -187,6 +189,7 @@ def apply_changes(
         result: SyncResult from diff
         manifest: Manifest to update
         embed_callback: Optional callback(framework, file_path, content_hash) -> list[chunk_ids]
+        delete_callback: Optional callback(framework, file_path) -> None
     """
     framework = result.framework
 
@@ -199,8 +202,19 @@ def apply_changes(
     # Process deleted files
     for change in result.deleted_files:
         logger.info(f"Removing {change.file_path} ({len(change.old_chunk_ids)} chunks)")
+        if delete_callback:
+            delete_callback(framework, change.file_path)
         manifest.remove_file(framework, change.file_path)
-        # TODO: Call vector DB to delete chunks by old_chunk_ids
+
+    # Process modified files (delete old chunks first, then re-embed)
+    for change in result.modified_files:
+        if delete_callback and change.old_chunk_ids:
+            delete_callback(framework, change.file_path)
+        chunk_ids = []
+        if embed_callback:
+            chunk_ids = embed_callback(framework, change.file_path, change.content_hash)
+        manifest.set_file(framework, change.file_path, change.content_hash, chunk_ids)
+        logger.debug(f"Updated {change.file_path}")
 
     # Process new files
     for change in result.new_files:
@@ -210,20 +224,12 @@ def apply_changes(
         manifest.set_file(framework, change.file_path, change.content_hash, chunk_ids)
         logger.debug(f"Added {change.file_path}")
 
-    # Process modified files
-    for change in result.modified_files:
-        # TODO: Call vector DB to delete chunks by old_chunk_ids
-        chunk_ids = []
-        if embed_callback:
-            chunk_ids = embed_callback(framework, change.file_path, change.content_hash)
-        manifest.set_file(framework, change.file_path, change.content_hash, chunk_ids)
-        logger.debug(f"Updated {change.file_path}")
-
 
 def sync_all(
     config_path: Path,
     manifest_path: Path,
     dry_run: bool = False,
+    embed: bool = False,
     frameworks: list[str] = None
 ) -> dict[str, SyncResult]:
     """
@@ -233,6 +239,7 @@ def sync_all(
         config_path: Path to config.yaml
         manifest_path: Path to manifest.json
         dry_run: If True, don't modify manifest
+        embed: If True, embed files to vector DB
         frameworks: Optional list of frameworks to sync (default: all)
 
     Returns:
@@ -250,6 +257,35 @@ def sync_all(
     manifest = Manifest(manifest_path)
     manifest.load()
 
+    # Set up embedder if embedding is enabled
+    embed_callback = None
+    delete_callback = None
+
+    if embed and not dry_run:
+        embedding_config = config.get("embedding", {})
+        vector_db_config = config.get("vector_db", {})
+
+        index_name = vector_db_config.get("index_name")
+        if not index_name:
+            raise ValueError("vector_db.index_name must be set in config.yaml")
+
+        embedder = Embedder(
+            index_name=index_name,
+            namespace=vector_db_config.get("namespace", ""),
+            chunk_size=embedding_config.get("chunk_size", 1000),
+            chunk_overlap=embedding_config.get("chunk_overlap", 200),
+            embedding_model=embedding_config.get("model", "text-embedding-3-small"),
+            embedding_dimensions=embedding_config.get("dimensions", 1536)
+        )
+
+        # Build repo URLs for source linking
+        repo_urls = {name: cfg.get("repo", "") for name, cfg in sources.items()}
+
+        embed_callback = create_embed_callback(embedder, output_base, repo_urls)
+        delete_callback = lambda fw, fp: embedder.delete_file(fw, fp)
+
+        logger.info(f"Embedding enabled, using index: {index_name}")
+
     results = {}
 
     for name, source_config in sources.items():
@@ -264,7 +300,7 @@ def sync_all(
             results[name] = result
 
             if not dry_run:
-                apply_changes(result, manifest)
+                apply_changes(result, manifest, embed_callback, delete_callback)
 
         except Exception as e:
             logger.error(f"Failed to sync {name}: {e}")
@@ -306,6 +342,11 @@ def main():
         help="Show what would change without modifying manifest"
     )
     parser.add_argument(
+        "--embed",
+        action="store_true",
+        help="Embed files to vector DB (requires PINECONE_API_KEY and OPENAI_API_KEY)"
+    )
+    parser.add_argument(
         "-v", "--verbose",
         action="store_true",
         help="Enable verbose output"
@@ -323,6 +364,7 @@ def main():
         config_path=args.config,
         manifest_path=args.manifest,
         dry_run=args.dry_run,
+        embed=args.embed,
         frameworks=args.frameworks
     )
 
@@ -349,6 +391,8 @@ def main():
 
     if args.dry_run:
         print("\n  (dry run - no changes applied)")
+    elif args.embed:
+        print("\n  (embedded to vector DB)")
 
     return 0
 
