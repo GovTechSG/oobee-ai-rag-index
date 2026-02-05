@@ -209,9 +209,3 @@ __marimo__/
 # Agent Instructions (local only)
 CLAUDE.md
 agents.md
-
-# Scraped documentation (generated)
-frameworks/
-
-# Manifest (generated)
-manifest.json
