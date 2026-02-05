@@ -272,10 +272,8 @@ def sync_all(
         embedder = Embedder(
             index_name=index_name,
             namespace=vector_db_config.get("namespace", ""),
-            chunk_size=embedding_config.get("chunk_size", 1000),
-            chunk_overlap=embedding_config.get("chunk_overlap", 200),
-            embedding_model=embedding_config.get("model", "text-embedding-3-small"),
-            embedding_dimensions=embedding_config.get("dimensions", 1536)
+            chunk_size=embedding_config.get("chunk_size", 500),
+            chunk_overlap=embedding_config.get("chunk_overlap", 100)
         )
 
         # Build repo URLs for source linking

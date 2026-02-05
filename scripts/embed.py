@@ -1,20 +1,16 @@
 #!/usr/bin/env python3
 """
 Embedding and vector DB operations for documentation indexing.
-Chunks markdown files, generates embeddings, and upserts to Pinecone.
+Chunks markdown files and upserts to Pinecone using integrated inference.
 """
 
 import hashlib
 import logging
 import os
 import re
-import uuid
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Iterator
 
-import tiktoken
-from openai import OpenAI
 from pinecone import Pinecone
 
 logging.basicConfig(
@@ -25,10 +21,8 @@ logger = logging.getLogger(__name__)
 
 
 # Default configuration
-DEFAULT_CHUNK_SIZE = 1000  # tokens
-DEFAULT_CHUNK_OVERLAP = 200  # tokens
-DEFAULT_EMBEDDING_MODEL = "text-embedding-3-small"
-DEFAULT_EMBEDDING_DIMENSIONS = 1536
+DEFAULT_CHUNK_SIZE = 500  # characters (simpler than tokens for Pinecone inference)
+DEFAULT_CHUNK_OVERLAP = 100  # characters
 
 
 @dataclass
@@ -45,64 +39,55 @@ class MarkdownChunker:
     def __init__(
         self,
         chunk_size: int = DEFAULT_CHUNK_SIZE,
-        chunk_overlap: int = DEFAULT_CHUNK_OVERLAP,
-        model: str = DEFAULT_EMBEDDING_MODEL
+        chunk_overlap: int = DEFAULT_CHUNK_OVERLAP
     ):
         self.chunk_size = chunk_size
         self.chunk_overlap = chunk_overlap
-        try:
-            self.tokenizer = tiktoken.encoding_for_model(model)
-        except KeyError:
-            self.tokenizer = tiktoken.get_encoding("cl100k_base")
-
-    def count_tokens(self, text: str) -> int:
-        """Count tokens in text."""
-        return len(self.tokenizer.encode(text))
 
     def split_text(self, text: str) -> list[str]:
-        """Split text into chunks respecting token limits."""
+        """Split text into chunks respecting character limits."""
         chunks = []
 
         # Split by paragraphs first
         paragraphs = re.split(r'\n\n+', text)
 
         current_chunk = []
-        current_tokens = 0
+        current_size = 0
 
         for para in paragraphs:
-            para_tokens = self.count_tokens(para)
+            para_size = len(para)
 
             # If single paragraph exceeds chunk size, split it further
-            if para_tokens > self.chunk_size:
+            if para_size > self.chunk_size:
                 # Flush current chunk
                 if current_chunk:
                     chunks.append('\n\n'.join(current_chunk))
                     current_chunk = []
-                    current_tokens = 0
+                    current_size = 0
 
                 # Split large paragraph by sentences
                 sentences = re.split(r'(?<=[.!?])\s+', para)
                 for sentence in sentences:
-                    sent_tokens = self.count_tokens(sentence)
-                    if current_tokens + sent_tokens > self.chunk_size and current_chunk:
-                        chunks.append('\n\n'.join(current_chunk))
+                    sent_size = len(sentence)
+                    if current_size + sent_size > self.chunk_size and current_chunk:
+                        chunks.append(' '.join(current_chunk))
                         # Keep overlap
                         overlap_text = current_chunk[-1] if current_chunk else ""
                         current_chunk = [overlap_text] if overlap_text else []
-                        current_tokens = self.count_tokens(overlap_text) if overlap_text else 0
+                        current_size = len(overlap_text) if overlap_text else 0
                     current_chunk.append(sentence)
-                    current_tokens += sent_tokens
+                    current_size += sent_size
             else:
                 # Check if adding paragraph exceeds limit
-                if current_tokens + para_tokens > self.chunk_size and current_chunk:
+                if current_size + para_size > self.chunk_size and current_chunk:
                     chunks.append('\n\n'.join(current_chunk))
                     # Keep some overlap
                     overlap_text = current_chunk[-1] if current_chunk else ""
                     current_chunk = [overlap_text] if overlap_text else []
-                    current_tokens = self.count_tokens(overlap_text) if overlap_text else 0
+                    current_size = len(overlap_text) if overlap_text else 0
 
                 current_chunk.append(para)
-                current_tokens += para_tokens
+                current_size += para_size
 
         # Don't forget the last chunk
         if current_chunk:
@@ -147,8 +132,7 @@ class MarkdownChunker:
                     "file_hash": file_hash,
                     "chunk_index": i,
                     "total_chunks": len(text_chunks),
-                    "source_url": source_url,
-                    "token_count": self.count_tokens(text)
+                    "source_url": source_url
                 }
             )
             chunks.append(chunk)
@@ -161,38 +145,11 @@ class MarkdownChunker:
         return hashlib.sha256(content.encode()).hexdigest()[:16]
 
 
-class EmbeddingClient:
-    """Client for generating embeddings."""
-
-    def __init__(
-        self,
-        model: str = DEFAULT_EMBEDDING_MODEL,
-        dimensions: int = DEFAULT_EMBEDDING_DIMENSIONS
-    ):
-        self.client = OpenAI()
-        self.model = model
-        self.dimensions = dimensions
-
-    def embed(self, texts: list[str]) -> list[list[float]]:
-        """Generate embeddings for a list of texts."""
-        if not texts:
-            return []
-
-        response = self.client.embeddings.create(
-            model=self.model,
-            input=texts,
-            dimensions=self.dimensions
-        )
-
-        return [item.embedding for item in response.data]
-
-    def embed_single(self, text: str) -> list[float]:
-        """Generate embedding for a single text."""
-        return self.embed([text])[0]
-
-
-class PineconeIndex:
-    """Wrapper for Pinecone index operations."""
+class PineconeInferenceIndex:
+    """
+    Wrapper for Pinecone index with integrated inference.
+    Uses Pinecone's hosted embedding models - no OpenAI needed.
+    """
 
     def __init__(self, index_name: str, namespace: str = ""):
         api_key = os.environ.get("PINECONE_API_KEY")
@@ -201,38 +158,40 @@ class PineconeIndex:
 
         self.pc = Pinecone(api_key=api_key)
         self.index = self.pc.Index(index_name)
-        self.namespace = namespace
+        # Pinecone API 2025-04 requires "__default__" instead of empty string
+        self.namespace = namespace if namespace else "__default__"
+        self.index_name = index_name
 
-    def upsert_chunks(
+    def upsert_records(
         self,
         chunks: list[Chunk],
-        embeddings: list[list[float]],
-        batch_size: int = 100
+        batch_size: int = 96
     ) -> int:
         """
-        Upsert chunks with embeddings to Pinecone.
+        Upsert text records to Pinecone. Pinecone handles embedding via integrated inference.
 
         Args:
             chunks: List of Chunk objects
-            embeddings: Corresponding embeddings
             batch_size: Batch size for upsert
 
         Returns:
-            Number of vectors upserted
+            Number of records upserted
         """
-        vectors = [
+        # Format records for Pinecone integrated inference
+        # The "text" field will be automatically embedded by Pinecone
+        records = [
             {
-                "id": chunk.id,
-                "values": embedding,
-                "metadata": {**chunk.metadata, "text": chunk.text}
+                "_id": chunk.id,
+                "text": chunk.text,  # This gets embedded by Pinecone
+                **chunk.metadata
             }
-            for chunk, embedding in zip(chunks, embeddings)
+            for chunk in chunks
         ]
 
         total_upserted = 0
-        for i in range(0, len(vectors), batch_size):
-            batch = vectors[i:i + batch_size]
-            self.index.upsert(vectors=batch, namespace=self.namespace)
+        for i in range(0, len(records), batch_size):
+            batch = records[i:i + batch_size]
+            self.index.upsert_records(self.namespace, batch)
             total_upserted += len(batch)
             logger.debug(f"Upserted batch {i // batch_size + 1}")
 
@@ -240,6 +199,7 @@ class PineconeIndex:
 
     def delete_by_file(self, framework: str, file_path: str) -> None:
         """Delete all chunks for a specific file."""
+        # Use delete with filter for metadata-based deletion
         self.index.delete(
             filter={
                 "framework": {"$eq": framework},
@@ -255,37 +215,74 @@ class PineconeIndex:
             self.index.delete(ids=chunk_ids, namespace=self.namespace)
             logger.debug(f"Deleted {len(chunk_ids)} chunks by ID")
 
-    def delete_framework(self, framework: str) -> None:
-        """Delete all chunks for a framework."""
-        self.index.delete(
-            filter={"framework": {"$eq": framework}},
-            namespace=self.namespace
-        )
-        logger.info(f"Deleted all chunks for {framework}")
+    def search(self, query: str, top_k: int = 10, framework: str = None) -> list[dict]:
+        """
+        Search for similar documents using integrated inference.
+
+        Args:
+            query: Search query text
+            top_k: Number of results
+            framework: Optional filter by framework
+
+        Returns:
+            List of matching records
+        """
+        search_params = {
+            "namespace": self.namespace,
+            "query": {
+                "inputs": {"text": query},
+                "top_k": top_k
+            }
+        }
+
+        if framework:
+            search_params["query"]["filter"] = {"framework": {"$eq": framework}}
+
+        results = self.index.search_records(**search_params)
+
+        # Handle different response formats from Pinecone SDK
+        hits = []
+        if hasattr(results, 'result') and hasattr(results.result, 'hits'):
+            hits = results.result.hits
+        elif hasattr(results, 'result') and isinstance(results.result, dict):
+            hits = results.result.get("hits", [])
+        elif isinstance(results, dict):
+            hits = results.get("result", {}).get("hits", [])
+
+        # Convert hits to dicts
+        parsed = []
+        for hit in hits:
+            if hasattr(hit, '_id'):
+                # SDK object
+                parsed.append({
+                    '_id': hit._id,
+                    '_score': getattr(hit, '_score', None),
+                    'fields': dict(hit.fields) if hasattr(hit, 'fields') else {}
+                })
+            elif isinstance(hit, dict):
+                parsed.append(hit)
+            else:
+                # Try to convert
+                parsed.append({'raw': str(hit)})
+
+        return parsed
 
 
 class Embedder:
-    """Main class for embedding documentation files."""
+    """Main class for embedding documentation files using Pinecone integrated inference."""
 
     def __init__(
         self,
         index_name: str,
         namespace: str = "",
         chunk_size: int = DEFAULT_CHUNK_SIZE,
-        chunk_overlap: int = DEFAULT_CHUNK_OVERLAP,
-        embedding_model: str = DEFAULT_EMBEDDING_MODEL,
-        embedding_dimensions: int = DEFAULT_EMBEDDING_DIMENSIONS
+        chunk_overlap: int = DEFAULT_CHUNK_OVERLAP
     ):
         self.chunker = MarkdownChunker(
             chunk_size=chunk_size,
-            chunk_overlap=chunk_overlap,
-            model=embedding_model
+            chunk_overlap=chunk_overlap
         )
-        self.embedding_client = EmbeddingClient(
-            model=embedding_model,
-            dimensions=embedding_dimensions
-        )
-        self.pinecone = PineconeIndex(index_name, namespace)
+        self.pinecone = PineconeInferenceIndex(index_name, namespace)
 
     def embed_file(
         self,
@@ -320,12 +317,8 @@ class Embedder:
         if not chunks:
             return []
 
-        # Generate embeddings
-        texts = [chunk.text for chunk in chunks]
-        embeddings = self.embedding_client.embed(texts)
-
-        # Upsert to Pinecone
-        self.pinecone.upsert_chunks(chunks, embeddings)
+        # Upsert to Pinecone (embedding happens automatically)
+        self.pinecone.upsert_records(chunks)
 
         return [chunk.id for chunk in chunks]
 
@@ -336,6 +329,10 @@ class Embedder:
     def delete_chunks(self, chunk_ids: list[str]) -> None:
         """Delete chunks by ID."""
         self.pinecone.delete_by_ids(chunk_ids)
+
+    def search(self, query: str, top_k: int = 10, framework: str = None) -> list[dict]:
+        """Search for similar documents."""
+        return self.pinecone.search(query, top_k, framework)
 
 
 def create_embed_callback(
@@ -367,7 +364,6 @@ def create_embed_callback(
         repo_url = repo_urls.get(framework, "")
         source_url = ""
         if repo_url:
-            # This is approximate - actual path in repo may differ
             source_url = f"{repo_url}/blob/main/{file_path}"
 
         chunk_ids = embedder.embed_file(
@@ -385,28 +381,36 @@ def create_embed_callback(
 
 
 if __name__ == "__main__":
-    # Simple test
+    # Simple test / search CLI
     import argparse
+    import json
 
-    parser = argparse.ArgumentParser(description="Test embedding a single file")
-    parser.add_argument("file", type=Path, help="Markdown file to embed")
+    parser = argparse.ArgumentParser(description="Search or test embedding")
     parser.add_argument("--index", required=True, help="Pinecone index name")
-    parser.add_argument("--framework", default="test", help="Framework name")
+    parser.add_argument("--search", type=str, help="Search query")
+    parser.add_argument("--framework", type=str, help="Filter by framework")
+    parser.add_argument("--top-k", type=int, default=5, help="Number of results")
+    parser.add_argument("--debug", action="store_true", help="Show raw response")
     args = parser.parse_args()
 
-    if not args.file.exists():
-        print(f"File not found: {args.file}")
-        exit(1)
-
-    content = args.file.read_text()
-    file_hash = hashlib.sha256(content.encode()).hexdigest()
-
     embedder = Embedder(index_name=args.index)
-    chunk_ids = embedder.embed_file(
-        framework=args.framework,
-        file_path=str(args.file.name),
-        file_hash=file_hash,
-        content=content
-    )
 
-    print(f"Created {len(chunk_ids)} chunks: {chunk_ids}")
+    if args.search:
+        results = embedder.search(args.search, args.top_k, args.framework)
+
+        if args.debug:
+            print(json.dumps(results, indent=2, default=str))
+        else:
+            print(f"\nFound {len(results)} results:\n")
+            for r in results:
+                # Handle different response structures
+                fields = r.get('fields', r)
+                score = r.get('_score', r.get('score', 'N/A'))
+                framework = fields.get('framework', 'unknown')
+                file_path = fields.get('file_path', 'unknown')
+                text = fields.get('text', '')[:200]
+
+                print(f"- [{framework}/{file_path}]")
+                print(f"  Score: {score}")
+                print(f"  {text}...")
+                print()

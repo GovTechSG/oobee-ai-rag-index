@@ -21,12 +21,10 @@ output:
   base_dir: "frameworks"
 
 embedding:
-  model: "text-embedding-3-small"
-  dimensions: 1536
-  chunk_size: 1000      # tokens
-  chunk_overlap: 200    # tokens
+  chunk_size: 500 # characters per chunk
+  chunk_overlap: 100 # character overlap between chunks
 
 vector_db:
   provider: "pinecone"
-  index_name: ""        # your Pinecone index name
-  namespace: ""         # optional namespace
+  index_name: "docs-rag" # your Pinecone index name (with integrated inference)
+  namespace: "" # optional namespace
