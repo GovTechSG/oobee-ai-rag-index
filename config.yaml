@@ -11,5 +11,11 @@ sources:
     extensions: [".md"]
     ignore: ["node_modules", ".github", ".vitepress"]
 
+  angular:
+    repo: "https://github.com/angular/angular"
+    docs_path: "adev/src/content"
+    extensions: [".md"]
+    ignore: ["node_modules", ".github", "examples"]
+
 output:
   base_dir: "frameworks"
