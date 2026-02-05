@@ -23,6 +23,10 @@ logger = logging.getLogger(__name__)
 # Default configuration
 DEFAULT_CHUNK_SIZE = 500  # characters (simpler than tokens for Pinecone inference)
 DEFAULT_CHUNK_OVERLAP = 100  # characters
+DEFAULT_HEADER_LEVEL = 2  # split sections on headings at this level or deeper
+
+HEADER_RE = re.compile(r'^(#{1,6})\s+')
+FENCE_RE = re.compile(r'^(`{3,}|~{3,})')
 
 
 @dataclass
@@ -39,59 +43,209 @@ class MarkdownChunker:
     def __init__(
         self,
         chunk_size: int = DEFAULT_CHUNK_SIZE,
-        chunk_overlap: int = DEFAULT_CHUNK_OVERLAP
+        chunk_overlap: int = DEFAULT_CHUNK_OVERLAP,
+        header_level: int = DEFAULT_HEADER_LEVEL
     ):
         self.chunk_size = chunk_size
         self.chunk_overlap = chunk_overlap
+        self.header_level = max(1, header_level)
 
     def split_text(self, text: str) -> list[str]:
-        """Split text into chunks respecting character limits."""
-        chunks = []
+        """
+        Split markdown into chunks by header level and size.
+        Code blocks are kept intact (never split).
+        """
+        chunks: list[str] = []
+        sections = self._split_by_header(text)
+        for section in sections:
+            chunks.extend(self._chunk_section(section))
+        return [c for c in chunks if c.strip()]
 
-        # Split by paragraphs first
-        paragraphs = re.split(r'\n\n+', text)
+    def _is_header(self, line: str) -> bool:
+        match = HEADER_RE.match(line)
+        if not match:
+            return False
+        return len(match.group(1)) >= self.header_level
 
-        current_chunk = []
-        current_size = 0
+    def _split_by_header(self, text: str) -> list[str]:
+        """Split text into sections based on header level, ignoring headers inside code."""
+        lines = text.splitlines()
+        sections: list[str] = []
+        current: list[str] = []
+        in_code = False
+        fence = None
 
-        for para in paragraphs:
-            para_size = len(para)
+        for line in lines:
+            stripped = line.lstrip()
+            fence_match = FENCE_RE.match(stripped)
 
-            # If single paragraph exceeds chunk size, split it further
-            if para_size > self.chunk_size:
-                # Flush current chunk
-                if current_chunk:
-                    chunks.append('\n\n'.join(current_chunk))
-                    current_chunk = []
-                    current_size = 0
-
-                # Split large paragraph by sentences
-                sentences = re.split(r'(?<=[.!?])\s+', para)
-                for sentence in sentences:
-                    sent_size = len(sentence)
-                    if current_size + sent_size > self.chunk_size and current_chunk:
-                        chunks.append(' '.join(current_chunk))
-                        # Keep overlap
-                        overlap_text = current_chunk[-1] if current_chunk else ""
-                        current_chunk = [overlap_text] if overlap_text else []
-                        current_size = len(overlap_text) if overlap_text else 0
-                    current_chunk.append(sentence)
-                    current_size += sent_size
+            if not in_code and self._is_header(line):
+                if current:
+                    sections.append("\n".join(current).strip("\n"))
+                current = [line]
             else:
-                # Check if adding paragraph exceeds limit
-                if current_size + para_size > self.chunk_size and current_chunk:
-                    chunks.append('\n\n'.join(current_chunk))
-                    # Keep some overlap
-                    overlap_text = current_chunk[-1] if current_chunk else ""
-                    current_chunk = [overlap_text] if overlap_text else []
-                    current_size = len(overlap_text) if overlap_text else 0
+                current.append(line)
 
-                current_chunk.append(para)
-                current_size += para_size
+            if fence_match:
+                fence_marker = fence_match.group(1)
+                if not in_code:
+                    in_code = True
+                    fence = fence_marker
+                elif fence and stripped.startswith(fence):
+                    in_code = False
+                    fence = None
 
-        # Don't forget the last chunk
-        if current_chunk:
-            chunks.append('\n\n'.join(current_chunk))
+        if current:
+            sections.append("\n".join(current).strip("\n"))
+
+        return sections
+
+    def _split_section_into_blocks(self, section: str) -> list[tuple[str, str]]:
+        """Split a section into text and code blocks."""
+        lines = section.splitlines()
+        blocks: list[tuple[str, str]] = []
+        buffer: list[str] = []
+        in_code = False
+        fence = None
+
+        for line in lines:
+            stripped = line.lstrip()
+            fence_match = FENCE_RE.match(stripped)
+
+            if not in_code and fence_match:
+                if buffer:
+                    blocks.append(("text", "\n".join(buffer)))
+                    buffer = []
+                in_code = True
+                fence = fence_match.group(1)
+                buffer.append(line)
+                continue
+
+            if in_code:
+                buffer.append(line)
+                if fence and stripped.startswith(fence):
+                    blocks.append(("code", "\n".join(buffer)))
+                    buffer = []
+                    in_code = False
+                    fence = None
+                continue
+
+            buffer.append(line)
+
+        if buffer:
+            blocks.append(("code" if in_code else "text", "\n".join(buffer)))
+
+        return blocks
+
+    def _split_text_block(self, text: str) -> list[str]:
+        """Split a text block into chunk-sized pieces (paragraph/sentence aware)."""
+        pieces: list[str] = []
+        for para in re.split(r'\n\n+', text.strip()):
+            para = para.strip()
+            if not para:
+                continue
+            if len(para) <= self.chunk_size:
+                pieces.append(para)
+                continue
+
+            current: list[str] = []
+            current_len = 0
+            for sentence in re.split(r'(?<=[.!?])\s+', para):
+                sentence = sentence.strip()
+                if not sentence:
+                    continue
+                if len(sentence) > self.chunk_size:
+                    if current:
+                        pieces.append(" ".join(current))
+                        current = []
+                        current_len = 0
+                    pieces.append(sentence)
+                    continue
+                sep = 1 if current else 0
+                if current_len + sep + len(sentence) > self.chunk_size and current:
+                    pieces.append(" ".join(current))
+                    current = [sentence]
+                    current_len = len(sentence)
+                else:
+                    current.append(sentence)
+                    current_len += sep + len(sentence)
+            if current:
+                pieces.append(" ".join(current))
+
+        return pieces
+
+    def _chunk_section(self, section: str) -> list[str]:
+        """Chunk a section while keeping code blocks intact."""
+        blocks = self._split_section_into_blocks(section)
+        chunks: list[str] = []
+
+        current_parts: list[str] = []
+        current_len = 0
+        current_has_code = False
+        last_text_piece = ""
+
+        def flush(with_overlap: bool) -> None:
+            nonlocal current_parts, current_len, current_has_code, last_text_piece
+            if current_parts:
+                chunks.append("\n\n".join(current_parts).strip("\n"))
+            overlap_text = ""
+            if with_overlap and last_text_piece and self.chunk_overlap > 0:
+                overlap_text = last_text_piece[-self.chunk_overlap:]
+            current_parts = [overlap_text] if overlap_text else []
+            current_len = len(overlap_text) if overlap_text else 0
+            current_has_code = False
+            if not overlap_text:
+                last_text_piece = ""
+
+        def append_piece(piece: str, is_code: bool) -> None:
+            nonlocal current_parts, current_len, current_has_code, last_text_piece
+            if not piece.strip():
+                return
+            if not is_code:
+                piece = piece.strip()
+            piece_len = len(piece)
+            sep_len = 2 if current_parts else 0
+
+            if current_parts and current_len + sep_len + piece_len <= self.chunk_size:
+                current_parts.append(piece)
+                current_len += sep_len + piece_len
+                if is_code:
+                    current_has_code = True
+                else:
+                    last_text_piece = piece
+                return
+
+            if is_code:
+                flush(with_overlap=False)
+                if piece_len > self.chunk_size:
+                    chunks.append(piece)
+                    return
+                current_parts.append(piece)
+                current_len = piece_len
+                current_has_code = True
+                return
+
+            # text piece
+            flush(with_overlap=(self.chunk_overlap > 0 and not current_has_code))
+            if current_parts:
+                # If overlap is too big, drop it
+                sep_len = 2
+                if current_len + sep_len + piece_len > self.chunk_size:
+                    current_parts = []
+                    current_len = 0
+            current_parts.append(piece)
+            current_len += (2 if current_len > 0 else 0) + piece_len
+            last_text_piece = piece
+
+        for block_type, block in blocks:
+            if block_type == "code":
+                append_piece(block, is_code=True)
+                continue
+            for piece in self._split_text_block(block):
+                append_piece(piece, is_code=False)
+
+        if current_parts:
+            chunks.append("\n\n".join(current_parts).strip("\n"))
 
         return chunks
 
@@ -276,11 +430,13 @@ class Embedder:
         index_name: str,
         namespace: str = "",
         chunk_size: int = DEFAULT_CHUNK_SIZE,
-        chunk_overlap: int = DEFAULT_CHUNK_OVERLAP
+        chunk_overlap: int = DEFAULT_CHUNK_OVERLAP,
+        header_level: int = DEFAULT_HEADER_LEVEL
     ):
         self.chunker = MarkdownChunker(
             chunk_size=chunk_size,
-            chunk_overlap=chunk_overlap
+            chunk_overlap=chunk_overlap,
+            header_level=header_level
         )
         self.pinecone = PineconeInferenceIndex(index_name, namespace)
 

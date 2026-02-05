@@ -23,6 +23,7 @@ output:
 embedding:
   chunk_size: 500 # characters per chunk
   chunk_overlap: 100 # character overlap between chunks
+  header_level: 2 # split sections on headings at this level or deeper
 
 vector_db:
   provider: "pinecone"

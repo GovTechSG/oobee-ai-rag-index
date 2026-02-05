@@ -273,7 +273,8 @@ def sync_all(
             index_name=index_name,
             namespace=vector_db_config.get("namespace", ""),
             chunk_size=embedding_config.get("chunk_size", 500),
-            chunk_overlap=embedding_config.get("chunk_overlap", 100)
+            chunk_overlap=embedding_config.get("chunk_overlap", 100),
+            header_level=embedding_config.get("header_level", 2)
         )
 
         # Build repo URLs for source linking
