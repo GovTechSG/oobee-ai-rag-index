@@ -27,5 +27,6 @@ embedding:
 
 vector_db:
   provider: "pinecone"
-  index_name: "docs-rag" # your Pinecone index name (with integrated inference)
-  namespace: "" # optional namespace
+  index_name: "" # optional; prefer env PINECONE_INDEX_NAME or VECTOR_DB_INDEX_NAME
+  namespace: "" # optional default namespace
+  namespace_template: "{framework}-docs" # optional per-framework namespace

@@ -6,6 +6,7 @@ Compares scraped files against manifest to determine what needs updating.
 
 import argparse
 import logging
+import os
 from dataclasses import dataclass
 from enum import Enum
 from pathlib import Path
@@ -257,31 +258,33 @@ def sync_all(
     manifest = Manifest(manifest_path)
     manifest.load()
 
-    # Set up embedder if embedding is enabled
-    embed_callback = None
-    delete_callback = None
+    # Set up embedder config if embedding is enabled
+    embed_enabled = embed and not dry_run
+    embedding_config = {}
+    vector_db_config = {}
+    namespace_template = None
+    default_namespace = ""
+    repo_urls = {}
 
-    if embed and not dry_run:
+    if embed_enabled:
         embedding_config = config.get("embedding", {})
         vector_db_config = config.get("vector_db", {})
 
-        index_name = vector_db_config.get("index_name")
-        if not index_name:
-            raise ValueError("vector_db.index_name must be set in config.yaml")
-
-        embedder = Embedder(
-            index_name=index_name,
-            namespace=vector_db_config.get("namespace", ""),
-            chunk_size=embedding_config.get("chunk_size", 500),
-            chunk_overlap=embedding_config.get("chunk_overlap", 100),
-            header_level=embedding_config.get("header_level", 2)
+        index_name = (
+            os.environ.get("PINECONE_INDEX_NAME")
+            or os.environ.get("VECTOR_DB_INDEX_NAME")
+            or vector_db_config.get("index_name")
         )
+        if not index_name:
+            raise ValueError(
+                "vector_db.index_name must be set in config.yaml "
+                "or PINECONE_INDEX_NAME/VECTOR_DB_INDEX_NAME must be set"
+            )
+        namespace_template = vector_db_config.get("namespace_template")
+        default_namespace = vector_db_config.get("namespace", "")
 
         # Build repo URLs for source linking
         repo_urls = {name: cfg.get("repo", "") for name, cfg in sources.items()}
-
-        embed_callback = create_embed_callback(embedder, output_base, repo_urls)
-        delete_callback = lambda fw, fp: embedder.delete_file(fw, fp)
 
         logger.info(f"Embedding enabled, using index: {index_name}")
 
@@ -289,6 +292,27 @@ def sync_all(
 
     for name, source_config in sources.items():
         try:
+            embed_callback = None
+            delete_callback = None
+
+            if embed_enabled:
+                namespace = (
+                    namespace_template.format(framework=name)
+                    if namespace_template
+                    else default_namespace
+                )
+                embedder = Embedder(
+                    index_name=index_name,
+                    namespace=namespace,
+                    chunk_size=embedding_config.get("chunk_size", 500),
+                    chunk_overlap=embedding_config.get("chunk_overlap", 100),
+                    header_level=embedding_config.get("header_level", 2)
+                )
+
+                embed_callback = create_embed_callback(embedder, output_base, repo_urls)
+                delete_callback = lambda fw, fp, _embedder=embedder: _embedder.delete_file(fw, fp)
+                logger.info(f"Using namespace '{namespace or '__default__'}' for {name}")
+
             result = sync_framework(
                 name=name,
                 source_config=source_config,
