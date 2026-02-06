@@ -1,0 +1,32 @@
+sources:
+  react:
+    repo: "https://github.com/reactjs/react.dev"
+    docs_path: "src/content"
+    extensions: [".md", ".mdx"]
+    ignore: ["node_modules", ".github"]
+
+  vue:
+    repo: "https://github.com/vuejs/docs"
+    docs_path: "src"
+    extensions: [".md"]
+    ignore: ["node_modules", ".github", ".vitepress"]
+
+  angular:
+    repo: "https://github.com/angular/angular"
+    docs_path: "adev/src/content"
+    extensions: [".md"]
+    ignore: ["node_modules", ".github", "examples"]
+
+output:
+  base_dir: "frameworks"
+
+embedding:
+  chunk_size: 500 # characters per chunk
+  chunk_overlap: 100 # character overlap between chunks
+  header_level: 2 # split sections on headings at this level or deeper
+
+vector_db:
+  provider: "pinecone"
+  index_name: "" # optional; prefer env PINECONE_INDEX_NAME or VECTOR_DB_INDEX_NAME
+  namespace: "" # optional default namespace
+  namespace_template: "{framework}-docs" # optional per-framework namespace
