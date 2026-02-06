@@ -20,6 +20,13 @@ sources:
 output:
   base_dir: "frameworks"
 
+# Static reference files (downloaded, not scraped from git)
+static_sources:
+  wcag:
+    url: "https://www.w3.org/WAI/WCAG22/wcag.json"
+    local_path: "wcag.json"
+    description: "WCAG 2.2 success criteria with explanations and techniques"
+
 embedding:
   chunk_size: 500 # characters per chunk
   chunk_overlap: 100 # character overlap between chunks
