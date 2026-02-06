@@ -354,20 +354,38 @@ class PineconeInferenceIndex:
     def delete_by_file(self, framework: str, file_path: str) -> None:
         """Delete all chunks for a specific file."""
         # Use delete with filter for metadata-based deletion
-        self.index.delete(
-            filter={
-                "framework": {"$eq": framework},
-                "file_path": {"$eq": file_path}
-            },
-            namespace=self.namespace
-        )
-        logger.debug(f"Deleted chunks for {framework}/{file_path}")
+        try:
+            self.index.delete(
+                filter={
+                    "framework": {"$eq": framework},
+                    "file_path": {"$eq": file_path}
+                },
+                namespace=self.namespace
+            )
+            logger.debug(f"Deleted chunks for {framework}/{file_path}")
+        except Exception as e:
+            if self._is_namespace_missing(e):
+                logger.info(
+                    f"Namespace '{self.namespace}' not found; "
+                    f"skip delete for {framework}/{file_path}"
+                )
+                return
+            raise
 
     def delete_by_ids(self, chunk_ids: list[str]) -> None:
         """Delete chunks by their IDs."""
         if chunk_ids:
-            self.index.delete(ids=chunk_ids, namespace=self.namespace)
-            logger.debug(f"Deleted {len(chunk_ids)} chunks by ID")
+            try:
+                self.index.delete(ids=chunk_ids, namespace=self.namespace)
+                logger.debug(f"Deleted {len(chunk_ids)} chunks by ID")
+            except Exception as e:
+                if self._is_namespace_missing(e):
+                    logger.info(
+                        f"Namespace '{self.namespace}' not found; "
+                        "skip delete by IDs"
+                    )
+                    return
+                raise
 
     def search(self, query: str, top_k: int = 10, framework: str = None) -> list[dict]:
         """
@@ -420,6 +438,12 @@ class PineconeInferenceIndex:
                 parsed.append({'raw': str(hit)})
 
         return parsed
+
+    @staticmethod
+    def _is_namespace_missing(exc: Exception) -> bool:
+        """Best-effort check for namespace-not-found errors."""
+        msg = str(exc).lower()
+        return "namespace not found" in msg
 
 
 class Embedder:
