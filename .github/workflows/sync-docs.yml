@@ -4,6 +4,15 @@ on:
   schedule:
     - cron: "0 2 * * 1" # Runs 10:00 AM on Monday. UTC +8
   workflow_dispatch:
+    inputs:
+      pinecone_api_key:
+        description: "Pinecone API key (optional, overrides secret)"
+        required: false
+        type: string
+      pinecone_index_name:
+        description: "Pinecone index name (optional, overrides secret)"
+        required: false
+        type: string
 
 permissions:
   contents: write
@@ -29,8 +38,8 @@ jobs:
 
       - name: Sync docs and embed
         env:
-          PINECONE_API_KEY: ${{ secrets.PINECONE_API_KEY }}
-          PINECONE_INDEX_NAME: ${{ secrets.PINECONE_INDEX_NAME }}
+          PINECONE_API_KEY: ${{ inputs.pinecone_api_key || secrets.PINECONE_API_KEY }}
+          PINECONE_INDEX_NAME: ${{ inputs.pinecone_index_name || secrets.PINECONE_INDEX_NAME }}
         run: |
           python scripts/sync.py --embed
 
