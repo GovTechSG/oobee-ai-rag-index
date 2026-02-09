@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "last_sync": "2026-02-06T07:11:29.899250+00:00",
+  "last_sync": "2026-02-09T04:18:36.790663+00:00",
   "frameworks": {
     "react": {
       "commit": "bd87c394dc1daf0e54759126f847fcfa927e5a75",
@@ -14172,7 +14172,7 @@
       }
     },
     "angular": {
-      "commit": "6fa227031e4fa3d8fb297932ed7cca34e0caf562",
+      "commit": "63d828aa339365b7b563b42eec9c0b27a33babf0",
       "files": {
         "ai/ai-tutor.md": {
           "content_hash": "5e1cabceecf3a0c1c447334e4bfef5f2a3aff1bfae90b71bb21ab513b65d9d79",
@@ -15471,7 +15471,7 @@
           "last_synced": "2026-02-06T06:56:46.378431+00:00"
         },
         "guide/aria/menu.md": {
-          "content_hash": "99739809721834ce3f62a33e51b915154d2a4f58b8937acb8b2405c90111a55e",
+          "content_hash": "264757f86bb16c5253294a54ffaa8f5d3b78808b975f1b7a81ae94489a006fda",
           "chunk_ids": [
             "2ee313ef7d5ddf5a",
             "53bc18cd31c49850",
@@ -15516,7 +15516,7 @@
             "21d6dec6631754cd",
             "b5bb027efc22144b"
           ],
-          "last_synced": "2026-02-06T06:56:47.036623+00:00"
+          "last_synced": "2026-02-09T04:18:33.209851+00:00"
         },
         "guide/aria/menubar.md": {
           "content_hash": "41bd0f16636a5f0be03d174960326547e844345569c7d5fa22daa1b9eeea025c",
@@ -15797,7 +15797,7 @@
           "last_synced": "2026-02-06T06:56:53.551458+00:00"
         },
         "guide/components/advanced-configuration.md": {
-          "content_hash": "1002f6673740091e4256abd752f8e3350c1b91472aea1902ce862b94a40c47bc",
+          "content_hash": "007c3179c647d71f3f5244e2dcf6e520618f91b25138de44d23b43334dfc89ab",
           "chunk_ids": [
             "76baf0a6f1f4293c",
             "0a7422b06796b225",
@@ -15809,7 +15809,7 @@
             "c51938c071ff34f2",
             "091f7c7f9913641c"
           ],
-          "last_synced": "2026-02-06T06:56:53.915292+00:00"
+          "last_synced": "2026-02-09T04:18:33.843556+00:00"
         },
         "guide/components/anatomy-of-components.md": {
           "content_hash": "8d0de2c1d1d8b8615991667d168daaaa419e60cc239cc1ebeb660a41127b21f2",
@@ -16060,7 +16060,7 @@
           "last_synced": "2026-02-06T06:56:59.071721+00:00"
         },
         "guide/components/queries.md": {
-          "content_hash": "8e845afea3bce89472470511855ecbdc38bb2b72577be77fee8505937ed93155",
+          "content_hash": "b4030e9d618dfbc8934e248acc0ddc3792b47e1593987b0062e619ff3b45c4c8",
           "chunk_ids": [
             "8719dd29f91cfb61",
             "f9ed94b0008c2edb",
@@ -16107,7 +16107,7 @@
             "8ac406fda6c6f64d",
             "ba36530f2ecec312"
           ],
-          "last_synced": "2026-02-06T06:57:00.126908+00:00"
+          "last_synced": "2026-02-09T04:18:34.621552+00:00"
         },
         "guide/components/selectors.md": {
           "content_hash": "74a426bfd17f2fcead9e4b79a48584d1661f9f2d5f9db30ebc26ecfc39489e09",
@@ -17381,7 +17381,7 @@
           "last_synced": "2026-02-06T06:57:24.469904+00:00"
         },
         "guide/forms/signals/models.md": {
-          "content_hash": "4dc14082707ab989405a9e6b7bae016464f9fffc7de7ed9c485ed5dbb61d596e",
+          "content_hash": "9db023e90e59f7f4716df798508dbaa84157748072ed31bc02a6eec401a2385d",
           "chunk_ids": [
             "1b1bd4a8ac400e4e",
             "502c72011d84c91d",
@@ -17416,9 +17416,10 @@
             "d1cd340047d6b5ea",
             "f476f91f915668c3",
             "2fd0c60f3303c1cd",
-            "2831d08ca2f00e0c"
+            "2831d08ca2f00e0c",
+            "66fca2109d8dac8b"
           ],
-          "last_synced": "2026-02-06T06:57:25.069296+00:00"
+          "last_synced": "2026-02-09T04:18:35.317586+00:00"
         },
         "guide/forms/signals/overview.md": {
           "content_hash": "fa21efabbe4d94cadf6bfdffcfc2928cca2b4456602e76830f2f50b47d4ebcfa",
@@ -17436,7 +17437,7 @@
           "last_synced": "2026-02-06T06:57:25.406616+00:00"
         },
         "guide/forms/signals/validation.md": {
-          "content_hash": "ddfb9ffd2962624050e7f089eeffb9ae87d899b9cb2130f7a3e92b71d2c4843c",
+          "content_hash": "eb8e4557ad41d5214ec4f2ca956f1cbfd9fcae29b0bd10ff5fb93525c30f0734",
           "chunk_ids": [
             "05c7048e63d96d1e",
             "bd1523b67b92dd45",
@@ -17498,9 +17499,12 @@
             "7b5a06549df68bde",
             "397ab867a2a2fa95",
             "78412e31e8003557",
-            "b30f7f77f9992087"
+            "b30f7f77f9992087",
+            "b02e33a2339e8e8b",
+            "c26b8cf43e66df02",
+            "093893c7654ecf5f"
           ],
-          "last_synced": "2026-02-06T06:57:26.294681+00:00"
+          "last_synced": "2026-02-09T04:18:36.338972+00:00"
         },
         "guide/forms/template-driven-forms.md": {
           "content_hash": "50217f042da13b817fe1f0f803a7a76f62738fdc1797e60691c77b9c14704487",
@@ -22941,7 +22945,7 @@
           "last_synced": "2026-02-06T07:04:30.009447+00:00"
         },
         "tutorials/learn-angular/steps/11-optimizing-images/README.md": {
-          "content_hash": "1f1bd89361c09a1eb872c2bf54ad6a277cfb3f0d9b4dc88ded0d46736c97a0d6",
+          "content_hash": "278b4fa93a57f70cd8b6fda7f5b0d2c9753ca65dbaf452dc50a417b15ee70512",
           "chunk_ids": [
             "de8347e632727c9f",
             "99de8623cc2cdbb0",
@@ -22954,7 +22958,7 @@
             "77f07e5fdc6ee667",
             "f1d68909aba963c5"
           ],
-          "last_synced": "2026-02-06T07:04:30.387451+00:00"
+          "last_synced": "2026-02-09T04:18:36.790636+00:00"
         },
         "tutorials/learn-angular/steps/12-enable-routing/README.md": {
           "content_hash": "92659f3474258eed39b4347ae710c2bf653fca7e9243acb72f02aa448bad599d",
