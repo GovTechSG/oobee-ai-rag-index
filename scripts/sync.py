@@ -231,7 +231,8 @@ def sync_all(
     manifest_path: Path,
     dry_run: bool = False,
     embed: bool = False,
-    frameworks: list[str] = None
+    frameworks: list[str] = None,
+    force: bool = False
 ) -> dict[str, SyncResult]:
     """
     Sync all configured sources.
@@ -242,6 +243,7 @@ def sync_all(
         dry_run: If True, don't modify manifest
         embed: If True, embed files to vector DB
         frameworks: Optional list of frameworks to sync (default: all)
+        force: If True, clear namespaces and re-upload all chunks
 
     Returns:
         Dict mapping framework name to SyncResult
@@ -309,6 +311,11 @@ def sync_all(
                     header_level=embedding_config.get("header_level", 2)
                 )
 
+                # Clear namespace if force resync requested
+                if force:
+                    logger.info(f"Force resync: clearing namespace '{namespace or '__default__'}'")
+                    embedder.clear_namespace()
+
                 embed_callback = create_embed_callback(embedder, output_base, repo_urls)
                 delete_callback = lambda fw, fp, _embedder=embedder: _embedder.delete_file(fw, fp)
                 logger.info(f"Using namespace '{namespace or '__default__'}' for {name}")
@@ -370,6 +377,11 @@ def main():
         help="Embed files to vector DB (requires PINECONE_API_KEY and OPENAI_API_KEY)"
     )
     parser.add_argument(
+        "--force",
+        action="store_true",
+        help="Force full re-sync: clear namespaces and re-upload all chunks"
+    )
+    parser.add_argument(
         "-v", "--verbose",
         action="store_true",
         help="Enable verbose output"
@@ -388,7 +400,8 @@ def main():
         manifest_path=args.manifest,
         dry_run=args.dry_run,
         embed=args.embed,
-        frameworks=args.frameworks
+        frameworks=args.frameworks,
+        force=args.force
     )
 
     # Print summary

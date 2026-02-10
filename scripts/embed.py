@@ -427,6 +427,19 @@ class PineconeInferenceIndex:
                     return
                 raise
 
+    def clear_namespace(self) -> None:
+        """Delete all vectors in the namespace."""
+        try:
+            self.index.delete(delete_all=True, namespace=self.namespace)
+            logger.info(f"Cleared all vectors in namespace '{self.namespace}'")
+        except Exception as e:
+            if self._is_namespace_missing(e):
+                logger.info(
+                    f"Namespace '{self.namespace}' not found; nothing to clear"
+                )
+                return
+            raise
+
     def search(self, query: str, top_k: int = 10, framework: str = None) -> list[dict]:
         """
         Search for similar documents using integrated inference.
@@ -549,6 +562,10 @@ class Embedder:
     def delete_chunks(self, chunk_ids: list[str]) -> None:
         """Delete chunks by ID."""
         self.pinecone.delete_by_ids(chunk_ids)
+
+    def clear_namespace(self) -> None:
+        """Clear all vectors in the namespace."""
+        self.pinecone.clear_namespace()
 
     def search(self, query: str, top_k: int = 10, framework: str = None) -> list[dict]:
         """Search for similar documents."""
