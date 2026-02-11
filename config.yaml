@@ -17,8 +17,22 @@ sources:
     extensions: [".md"]
     ignore: ["node_modules", ".github", "examples", "ecosystem", "events", "ai"]
 
+  javascript:
+    repo: "https://github.com/mdn/content"
+    docs_path: "files/en-us/web/javascript"
+    extensions: [".md"]
+    ignore: ["node_modules", ".github"]
+    output_dir: "docs/languages"
+
+  typescript:
+    repo: "https://github.com/microsoft/TypeScript-Website"
+    docs_path: "packages/documentation/copy/en"
+    extensions: [".md"]
+    ignore: ["node_modules", ".github"]
+    output_dir: "docs/languages"
+
 output:
-  base_dir: "frameworks"
+  base_dir: "docs/frameworks"
 
 # Static reference files (downloaded, not scraped from git)
 static_sources:

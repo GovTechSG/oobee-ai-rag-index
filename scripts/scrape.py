@@ -159,7 +159,8 @@ def scrape_all(config_path: Path) -> dict:
     for name, source_config in sources.items():
         logger.info(f"Processing source: {name}")
         try:
-            results[name] = scrape_source(name, source_config, output_base)
+            source_output = Path(source_config["output_dir"]) if "output_dir" in source_config else output_base
+            results[name] = scrape_source(name, source_config, source_output)
             logger.info(f"Successfully scraped {name}: {results[name]['file_count']} files")
         except Exception as e:
             logger.error(f"Failed to scrape {name}: {e}")

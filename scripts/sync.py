@@ -294,6 +294,7 @@ def sync_all(
 
     for name, source_config in sources.items():
         try:
+            source_output = Path(source_config["output_dir"]) if "output_dir" in source_config else output_base
             embed_callback = None
             delete_callback = None
 
@@ -316,14 +317,14 @@ def sync_all(
                     logger.info(f"Force resync: clearing namespace '{namespace or '__default__'}'")
                     embedder.clear_namespace()
 
-                embed_callback = create_embed_callback(embedder, output_base, repo_urls)
+                embed_callback = create_embed_callback(embedder, source_output, repo_urls)
                 delete_callback = lambda fw, fp, _embedder=embedder: _embedder.delete_file(fw, fp)
                 logger.info(f"Using namespace '{namespace or '__default__'}' for {name}")
 
             result = sync_framework(
                 name=name,
                 source_config=source_config,
-                output_base=output_base,
+                output_base=source_output,
                 manifest=manifest,
                 dry_run=dry_run
             )
