@@ -47,6 +47,13 @@ jobs:
           echo "Force resync requested, removing manifest.json"
           rm -f manifest.json
 
+      - name: Remove legacy frameworks folder
+        run: |
+          if [ -d "frameworks" ]; then
+            echo "Removing legacy frameworks/ folder"
+            rm -rf frameworks
+          fi
+
       - name: Sync docs and embed
         env:
           PINECONE_API_KEY: ${{ inputs.pinecone_api_key || secrets.PINECONE_API_KEY }}
@@ -64,7 +71,8 @@ jobs:
           if [[ -n "$(git status --porcelain)" ]]; then
             git config user.name "github-actions[bot]"
             git config user.email "github-actions[bot]@users.noreply.github.com"
-            git add manifest.json frameworks
+            git add manifest.json docs/
+            git rm -r --cached frameworks 2>/dev/null || true
             git commit -m "chore: sync docs"
             git push
           else
