@@ -8,6 +8,7 @@ import hashlib
 import logging
 import os
 import re
+import time
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -319,7 +320,10 @@ class PineconeInferenceIndex:
     def upsert_records(
         self,
         chunks: list[Chunk],
-        batch_size: int = 96
+        batch_size: int = 96,
+        max_retries: int = 5,
+        base_delay: float = 1.0,
+        batch_delay: float = 0.5
     ) -> int:
         """
         Upsert text records to Pinecone. Pinecone handles embedding via integrated inference.
@@ -327,6 +331,9 @@ class PineconeInferenceIndex:
         Args:
             chunks: List of Chunk objects
             batch_size: Batch size for upsert
+            max_retries: Maximum retry attempts for rate-limited requests
+            base_delay: Base delay in seconds for exponential backoff
+            batch_delay: Delay between batches to avoid rate limits
 
         Returns:
             Number of records upserted
@@ -343,13 +350,46 @@ class PineconeInferenceIndex:
         ]
 
         total_upserted = 0
+        total_batches = (len(records) + batch_size - 1) // batch_size
+
         for i in range(0, len(records), batch_size):
             batch = records[i:i + batch_size]
-            self.index.upsert_records(self.namespace, batch)
-            total_upserted += len(batch)
-            logger.debug(f"Upserted batch {i // batch_size + 1}")
+            batch_num = i // batch_size + 1
+
+            # Retry loop with exponential backoff
+            for attempt in range(max_retries):
+                try:
+                    self.index.upsert_records(self.namespace, batch)
+                    total_upserted += len(batch)
+                    logger.debug(f"Upserted batch {batch_num}/{total_batches}")
+                    break
+                except Exception as e:
+                    if self._is_rate_limited(e):
+                        delay = base_delay * (2 ** attempt)
+                        logger.warning(
+                            f"Rate limited on batch {batch_num}/{total_batches}, "
+                            f"retrying in {delay:.1f}s (attempt {attempt + 1}/{max_retries})"
+                        )
+                        time.sleep(delay)
+                    else:
+                        raise
+            else:
+                # All retries exhausted
+                raise RuntimeError(
+                    f"Failed to upsert batch {batch_num} after {max_retries} retries"
+                )
+
+            # Delay between batches to avoid hitting rate limits
+            if i + batch_size < len(records):
+                time.sleep(batch_delay)
 
         return total_upserted
+
+    @staticmethod
+    def _is_rate_limited(exc: Exception) -> bool:
+        """Check if exception is a rate limit error."""
+        msg = str(exc).lower()
+        return "429" in msg or "rate" in msg or "too many" in msg
 
     def delete_by_file(self, framework: str, file_path: str) -> None:
         """Delete all chunks for a specific file."""
@@ -386,6 +426,19 @@ class PineconeInferenceIndex:
                     )
                     return
                 raise
+
+    def clear_namespace(self) -> None:
+        """Delete all vectors in the namespace."""
+        try:
+            self.index.delete(delete_all=True, namespace=self.namespace)
+            logger.info(f"Cleared all vectors in namespace '{self.namespace}'")
+        except Exception as e:
+            if self._is_namespace_missing(e):
+                logger.info(
+                    f"Namespace '{self.namespace}' not found; nothing to clear"
+                )
+                return
+            raise
 
     def search(self, query: str, top_k: int = 10, framework: str = None) -> list[dict]:
         """
@@ -509,6 +562,10 @@ class Embedder:
     def delete_chunks(self, chunk_ids: list[str]) -> None:
         """Delete chunks by ID."""
         self.pinecone.delete_by_ids(chunk_ids)
+
+    def clear_namespace(self) -> None:
+        """Clear all vectors in the namespace."""
+        self.pinecone.clear_namespace()
 
     def search(self, query: str, top_k: int = 10, framework: str = None) -> list[dict]:
         """Search for similar documents."""

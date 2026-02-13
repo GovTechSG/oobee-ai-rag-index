@@ -3,22 +3,43 @@ sources:
     repo: "https://github.com/reactjs/react.dev"
     docs_path: "src/content"
     extensions: [".md", ".mdx"]
-    ignore: ["node_modules", ".github"]
+    ignore: ["node_modules", ".github", "blog", "community", "errors", "warnings"]
 
   vue:
     repo: "https://github.com/vuejs/docs"
     docs_path: "src"
     extensions: [".md"]
-    ignore: ["node_modules", ".github", ".vitepress"]
+    ignore: ["node_modules", ".github", ".vitepress", "partners", "sponsor", "translations", "ecosystem", "error-reference", "about"]
 
   angular:
     repo: "https://github.com/angular/angular"
     docs_path: "adev/src/content"
     extensions: [".md"]
-    ignore: ["node_modules", ".github", "examples"]
+    ignore: ["node_modules", ".github", "examples", "ecosystem", "events", "ai"]
+
+  javascript:
+    repo: "https://github.com/mdn/content"
+    docs_path: "files/en-us/web/javascript"
+    extensions: [".md"]
+    ignore: ["node_modules", ".github"]
+    output_dir: "docs/languages"
+
+  typescript:
+    repo: "https://github.com/microsoft/TypeScript-Website"
+    docs_path: "packages/documentation/copy/en"
+    extensions: [".md"]
+    ignore: ["node_modules", ".github"]
+    output_dir: "docs/languages"
 
 output:
-  base_dir: "frameworks"
+  base_dir: "docs/frameworks"
+
+# Static reference files (downloaded, not scraped from git)
+static_sources:
+  wcag:
+    url: "https://www.w3.org/WAI/WCAG22/wcag.json"
+    local_path: "wcag.json"
+    description: "WCAG 2.2 success criteria with explanations and techniques"
 
 embedding:
   chunk_size: 500 # characters per chunk

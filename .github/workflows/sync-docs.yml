@@ -13,6 +13,11 @@ on:
         description: "Pinecone index name (optional, overrides secret)"
         required: false
         type: string
+      force_resync:
+        description: "Force full re-sync (ignore manifest, clear namespaces, re-upload all)"
+        required: false
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -36,12 +41,29 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: Clear manifest for force resync
+        if: ${{ inputs.force_resync == true }}
+        run: |
+          echo "Force resync requested, removing manifest.json"
+          rm -f manifest.json
+
+      - name: Remove legacy frameworks folder
+        run: |
+          if [ -d "frameworks" ]; then
+            echo "Removing legacy frameworks/ folder"
+            rm -rf frameworks
+          fi
+
       - name: Sync docs and embed
         env:
           PINECONE_API_KEY: ${{ inputs.pinecone_api_key || secrets.PINECONE_API_KEY }}
           PINECONE_INDEX_NAME: ${{ inputs.pinecone_index_name || secrets.PINECONE_INDEX_NAME }}
         run: |
-          python scripts/sync.py --embed
+          if [ "${{ inputs.force_resync }}" == "true" ]; then
+            python scripts/sync.py --embed --force
+          else
+            python scripts/sync.py --embed
+          fi
 
       - name: Commit changes
         shell: bash
@@ -49,7 +71,8 @@ jobs:
           if [[ -n "$(git status --porcelain)" ]]; then
             git config user.name "github-actions[bot]"
             git config user.email "github-actions[bot]@users.noreply.github.com"
-            git add manifest.json frameworks
+            git add manifest.json docs/
+            git rm -r --cached frameworks 2>/dev/null || true
             git commit -m "chore: sync docs"
             git push
           else
