@@ -1,9 +1,9 @@
 {
   "version": "1.0",
-  "last_sync": "2026-02-13T03:02:31.471190+00:00",
+  "last_sync": "2026-02-16T04:15:47.740623+00:00",
   "frameworks": {
     "react": {
-      "commit": "a19c98de4e9008729aa0be07c3bc00fa30b0b166",
+      "commit": "55a317d40781a0054a05a9f6c443ae0bd71f7d7e",
       "files": {
         "index.md": {
           "content_hash": "a683b9a35ceef6a4a5fed27bf833f25900066d3ea33767de855764f68a9f92b1",
@@ -5292,7 +5292,7 @@
           "last_synced": "2026-02-13T02:45:14.748070+00:00"
         },
         "reference/react/useActionState.md": {
-          "content_hash": "74785c7fcb6785f3ca9133378d4fbeb3cd01447ee1cd02fc2adaa8722aef6d13",
+          "content_hash": "9de42c2ee0e053d1d1d59910e14015098912725ba62bcbbc1283f02a271d1eec",
           "chunk_ids": [
             "cbee9085ada5abd9",
             "09ff3e187492417e",
@@ -5324,9 +5324,71 @@
             "6b88d9046e689663",
             "1571899df1477a02",
             "e932e875ee82947a",
-            "6655addeb82bc18f"
+            "6655addeb82bc18f",
+            "2723ca89937cf266",
+            "bfbd82a6f7373809",
+            "eae3edf56bc4f707",
+            "20bf63ee78e01f64",
+            "c50ebcdfd4673f1a",
+            "1e49bfab2f3aaafa",
+            "d1c129bf7b246bc7",
+            "831e56bb1ef12142",
+            "395b07733063c22d",
+            "fef29b9543c2c403",
+            "f1d4fabedc069686",
+            "283e7945b964c339",
+            "8a3b656a5a1aecf2",
+            "3d0ce29f2fb65b1f",
+            "b39fd8ebd0968123",
+            "49996bd53733ce4c",
+            "0d4f7ba04188eae5",
+            "1eb48aef99de2e5e",
+            "6e1b8fd05da07214",
+            "5b2813b26c9f5be0",
+            "bf600a97f39e2840",
+            "d303ddc4e5c0bc6e",
+            "3e41a531359d10e6",
+            "d6d2b8ac69b87fe0",
+            "4388a44ce37a3a79",
+            "3661f5184c493170",
+            "73fb938a70af838f",
+            "1c4a047b01696e40",
+            "0d3e01f87a361c2d",
+            "2d20c13e546b7362",
+            "ae62a60fb60a4003",
+            "b37325e9bb761089",
+            "2e63814da3bb93aa",
+            "3f9ce7377a475862",
+            "e74e87ed023ccbdd",
+            "1d9b54f9e96d285f",
+            "296de7e1b2af73d0",
+            "c0c76ffcf5da15d2",
+            "986350af3e24b1be",
+            "8d2fc5fd6a688903",
+            "fb9e02a9383e061f",
+            "bf57025656ba3c4e",
+            "ed8f524e85a07c58",
+            "52521605c0f6050c",
+            "893ca6a57dc505db",
+            "64c8848053e66e98",
+            "ac79df8df667b2c5",
+            "7f2a560d617a9d4a",
+            "50a3d632e39bb18f",
+            "7484f5cd79f1babd",
+            "4d48c863782cc501",
+            "390ee5ebcc5ee383",
+            "53233d03256a7fb0",
+            "cdeecb93d01821bd",
+            "a581fbdae7cb7a80",
+            "29feddf600d02911",
+            "f844a43bc4116f06",
+            "afa185ea45b36241",
+            "b3ec3de6f44a5046",
+            "b73374d0458fbd6a",
+            "b8f53ac0d9d7285e",
+            "93c1ef80d1c787bd"
           ],
-          "last_synced": "2026-02-13T02:45:15.456501+00:00"
+          "last_synced": "2026-02-16T04:15:32.531025+00:00"
         },
         "reference/react/useCallback.md": {
           "content_hash": "68c40978f5d5c8e2a387a4dc47fae278293f6a8e570feef6609ee494a2c3c577",
@@ -12063,7 +12125,7 @@
       }
     },
     "angular": {
-      "commit": "d5b35b1826fe87ccec0e59f4c5daaa7cb962fac3",
+      "commit": "815e1a03a958c3e6f5670c8f64955805fe3944a9",
       "files": {
         "best-practices/a11y.md": {
           "content_hash": "bc0445cff5cfc50e70d6aad5bbe973d2b715c28fca18ebe7f2e67ab23e887cab",
@@ -13848,7 +13910,7 @@
           "last_synced": "2026-02-13T02:48:33.711555+00:00"
         },
         "guide/directives/attribute-directives.md": {
-          "content_hash": "e604a81b28f4aef019100553e49995bb802c9142513f514a11ddb458203a624f",
+          "content_hash": "f63348f8fac74880ae40f5b871047ba378215d3dcda66357f11b03df711626c6",
           "chunk_ids": [
             "9cb0232f26d22b18",
             "c90262beb0cb0dc7",
@@ -13877,7 +13939,7 @@
             "e0e9761efc9aad6f",
             "2f2df13a4b338126"
           ],
-          "last_synced": "2026-02-13T02:48:34.539059+00:00"
+          "last_synced": "2026-02-16T04:15:38.272907+00:00"
         },
         "guide/directives/directive-composition-api.md": {
           "content_hash": "b3495714ff68bcff601a6c3183f440c6e793be29d51d4bad628308fa1290adc1",
@@ -16735,7 +16797,7 @@
           "last_synced": "2026-02-13T02:49:38.665717+00:00"
         },
         "guide/templates/pipes.md": {
-          "content_hash": "fcd9b27b5a125456719d6efdccf5e5404ce2bda88b0d688e2c5f80bca15fd477",
+          "content_hash": "395f08f7f3d7e9f6cd036c1fa32481a1895e43b7a60bb6064faec182d7b687c5",
           "chunk_ids": [
             "490bc1519cd6ec4f",
             "cc9a2439b93814cf",
@@ -16769,7 +16831,7 @@
             "8945c8060360e178",
             "084278b7c12620b6"
           ],
-          "last_synced": "2026-02-13T02:49:39.543637+00:00"
+          "last_synced": "2026-02-16T04:15:38.904408+00:00"
         },
         "guide/templates/two-way-binding.md": {
           "content_hash": "afac206cf7840fc16e866cfc726cb595fb58a24e5f7551ac440e6fe4a26d13a5",
@@ -20805,7 +20867,7 @@
       }
     },
     "javascript": {
-      "commit": "7afb60028792bba6b9c809867bc6c5304f9868a6",
+      "commit": "5ea9b7a35cf3a540b52b88eae986b4e593ee726f",
       "files": {
         "guide/closures/index.md": {
           "content_hash": "ae1a6ecd7f8e446bef7a1a689c082a88569e8b506f61e93b7dfdf2768a896fdd",
@@ -23507,7 +23569,7 @@
           "last_synced": "2026-02-13T02:52:00.641544+00:00"
         },
         "reference/errors/array_sort_argument/index.md": {
-          "content_hash": "344a6bd8caef87b686b7295b2a72ec6f8e228cc0630eb95c6b706bc3971a19c1",
+          "content_hash": "ce84aec075d7055c49bda502ee23fb2487f935654a6c8891c6c369a32ae8b7a4",
           "chunk_ids": [
             "d36d6dedbe3d4189",
             "e83f2fae5ece961b",
@@ -23520,7 +23582,7 @@
             "526d6c4597ece882",
             "e69d286e66ac8ada"
           ],
-          "last_synced": "2026-02-13T02:52:00.994853+00:00"
+          "last_synced": "2026-02-16T04:15:46.925624+00:00"
         },
         "reference/errors/await_yield_in_parameter/index.md": {
           "content_hash": "635bb4fd1d626aabca751a3f3f37034200c14a7c560d64578d1b7903ae80f87d",
@@ -52284,7 +52346,7 @@
       }
     },
     "typescript": {
-      "commit": "0612591abc2d8292c8ddd084b5fb264f203b7026",
+      "commit": "d701b1b995812804907ee6ad2883800426973e3e",
       "files": {
         "Nightly Builds.md": {
           "content_hash": "a29d65a6a3420baba9a99277964c07bc604cf1ff569c43743c9fdd6b31ca3d10",
