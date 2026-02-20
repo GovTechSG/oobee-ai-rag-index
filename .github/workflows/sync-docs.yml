@@ -18,6 +18,10 @@ on:
         required: false
         type: boolean
         default: false
+      framework:
+        description: "Sync only this source (e.g., 'react', 'wcag')"
+        required: false
+        type: string
 
 permissions:
   contents: write
@@ -59,11 +63,14 @@ jobs:
           PINECONE_API_KEY: ${{ inputs.pinecone_api_key || secrets.PINECONE_API_KEY }}
           PINECONE_INDEX_NAME: ${{ inputs.pinecone_index_name || secrets.PINECONE_INDEX_NAME }}
         run: |
+          EXTRA_ARGS=""
           if [ "${{ inputs.force_resync }}" == "true" ]; then
-            python scripts/sync.py --embed --force
-          else
-            python scripts/sync.py --embed
+            EXTRA_ARGS="$EXTRA_ARGS --force"
           fi
+          if [ -n "${{ inputs.framework }}" ]; then
+            EXTRA_ARGS="$EXTRA_ARGS -f ${{ inputs.framework }}"
+          fi
+          python scripts/sync.py --embed $EXTRA_ARGS
 
       - name: Commit changes
         shell: bash

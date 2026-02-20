@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "last_sync": "2026-02-16T04:15:47.740623+00:00",
+  "last_sync": "2026-02-20T02:30:20.405877+00:00",
   "frameworks": {
     "react": {
       "commit": "55a317d40781a0054a05a9f6c443ae0bd71f7d7e",
@@ -58618,6 +58618,446 @@
             "a942e043d65ec9a9"
           ],
           "last_synced": "2026-02-13T03:02:31.471166+00:00"
+        }
+      }
+    },
+    "wcag": {
+      "commit": "c4292f0e73f0d26223db9cb7603542d9e313a4716ee19139d8704d711cc13948",
+      "files": {
+        "2.0/1.1.1-non-text-content.md": {
+          "content_hash": "70b26f06e1f9c3ee5bbb7cff2214006ba7e5b02eda720d47eb9940f43876b3f4",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488742+00:00"
+        },
+        "2.0/1.2.1-audio-only-and-video-only-prerecorded.md": {
+          "content_hash": "77a5a2b2ce6c45a1258905f1e3d68ea535fb53c30aed71f37ea65c95f1820f35",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488757+00:00"
+        },
+        "2.0/1.2.2-captions-prerecorded.md": {
+          "content_hash": "3aa8242e0aff4490666f0d6d5d00f3274e5c03c8ff7423b97e7917615316fb6e",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488760+00:00"
+        },
+        "2.0/1.2.3-audio-description-or-media-alternative-prerecorded.md": {
+          "content_hash": "0e322cb802a3b2f1522dc6d1751d58f0a66b8e127f02f759dce4e050031ef820",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488762+00:00"
+        },
+        "2.0/1.2.4-captions-live.md": {
+          "content_hash": "1419d32e70913aff0483241b3a08664f401f9131194ac576d17cbae4262fa58f",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488764+00:00"
+        },
+        "2.0/1.2.5-audio-description-prerecorded.md": {
+          "content_hash": "cc3cf03e8ad42e323d104745e53d8bd1ff583881580f1c1bff4527e0bf028a1d",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488766+00:00"
+        },
+        "2.0/1.2.6-sign-language-prerecorded.md": {
+          "content_hash": "43b5ffea5375fe15d3d6cf348113b6740fef85003c293f1353995142f7967503",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488768+00:00"
+        },
+        "2.0/1.2.7-extended-audio-description-prerecorded.md": {
+          "content_hash": "e47c733aceb042618b7bfb174b5a50438d0c0d49476e5c5920c80f875d52bc67",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488770+00:00"
+        },
+        "2.0/1.2.8-media-alternative-prerecorded.md": {
+          "content_hash": "02de9576a6711d79c67c3efdb1ae404e9ce9abbd7259b03fef508d0764b26f9c",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488772+00:00"
+        },
+        "2.0/1.2.9-audio-only-live.md": {
+          "content_hash": "7ae6c017a7aa84991b459aae6a08679cffecd3089e2cd3e05adb216f777c6463",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488774+00:00"
+        },
+        "2.0/1.3.1-info-and-relationships.md": {
+          "content_hash": "aea995f417b7cee773f33d50324420a24470440d9efe014fb287ff0e50ce122c",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488776+00:00"
+        },
+        "2.0/1.3.2-meaningful-sequence.md": {
+          "content_hash": "2685c18fcedf70ee93221da4adf170583c46d7c48ddc4d2df25fd6b94d984582",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488778+00:00"
+        },
+        "2.0/1.3.3-sensory-characteristics.md": {
+          "content_hash": "7221d7a50de86aac04d2236039baa8f17605ddff9f4b1df75b399f79aae0e249",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488779+00:00"
+        },
+        "2.1/1.3.4-orientation.md": {
+          "content_hash": "e8119b9415cdffeec7854b45909875fcefb6eb853c4c99ecfcce4d2112715180",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488781+00:00"
+        },
+        "2.1/1.3.5-identify-input-purpose.md": {
+          "content_hash": "f508904c32857f10aec220fb640e4ee28d72423a0d86f4a313171900cfdbc04f",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488783+00:00"
+        },
+        "2.1/1.3.6-identify-purpose.md": {
+          "content_hash": "aee9ad215bada02fcc7c0601afb41e756b38b0b867d33b20fd1aeded6044547c",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488785+00:00"
+        },
+        "2.0/1.4.1-use-of-color.md": {
+          "content_hash": "b06f6ea179599492c8e576fe03e7635d80e0145c9933c32a1d168c75c53d445e",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488786+00:00"
+        },
+        "2.0/1.4.2-audio-control.md": {
+          "content_hash": "c503a13fe78e2a68b9dac31b9b9401fb02af8c98e9a1bec82985d2f4f132d66a",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488788+00:00"
+        },
+        "2.0/1.4.3-contrast-minimum.md": {
+          "content_hash": "73c8f8d5b60c722f0519e21ac8ca6ba23743f8674e5387c56212a4ab5fee3b4e",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488790+00:00"
+        },
+        "2.0/1.4.4-resize-text.md": {
+          "content_hash": "d81345fa7cbf45ab06e623440985799676a09fdee9e85daf992a637562a1a187",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488791+00:00"
+        },
+        "2.0/1.4.5-images-of-text.md": {
+          "content_hash": "15f537d59f4a49ff42fb1cbe3472f0972028531cbceb53e1127e4347bcba9576",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488793+00:00"
+        },
+        "2.0/1.4.6-contrast-enhanced.md": {
+          "content_hash": "0c2c8497bb766974c3876cc5ee45dd217245f740dc0de28767198f9dbacac354",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488795+00:00"
+        },
+        "2.0/1.4.7-low-or-no-background-audio.md": {
+          "content_hash": "d68141294c0444fe054063703bf9766ad3e16bf424d2310d372d94c0f288f9c6",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488797+00:00"
+        },
+        "2.0/1.4.8-visual-presentation.md": {
+          "content_hash": "27efdc6526de73804e878afcebb0f382fdd660f034b58d3a157b175c00ceb4f7",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488798+00:00"
+        },
+        "2.0/1.4.9-images-of-text-no-exception.md": {
+          "content_hash": "890da726f9f6ae9f8b44ac7d3a862090df1f5209dbb79aca9d01cf32c49fc6d0",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488800+00:00"
+        },
+        "2.1/1.4.10-reflow.md": {
+          "content_hash": "bf818a2ae905f3a4ff291cdd97046e7dda3bfb5013f5881661f8e6310fc08779",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488801+00:00"
+        },
+        "2.1/1.4.11-non-text-contrast.md": {
+          "content_hash": "2dc29e980cb17ffd055dda42c3a6f122817d3bfd698bc4f1a6daf7539517e25b",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488803+00:00"
+        },
+        "2.1/1.4.12-text-spacing.md": {
+          "content_hash": "06ded9cc6389be309f788d2872b104aefe9d4c528339b6e67c60246e0b9dd68f",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488805+00:00"
+        },
+        "2.1/1.4.13-content-on-hover-or-focus.md": {
+          "content_hash": "b4c3de19050b5babd2dd388f1eecb7d221751870f721b923421bf4ef2f6d4240",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488807+00:00"
+        },
+        "2.0/2.1.1-keyboard.md": {
+          "content_hash": "c095347d259b4b6cb4ece4775f3d21463fb5cd3cfdbdd2e11f63ada7cd822ffd",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488808+00:00"
+        },
+        "2.0/2.1.2-no-keyboard-trap.md": {
+          "content_hash": "557d04d8b09f8eed43bfb3d380260898455f3f2a5a6633e76e65e2c8d1ea998b",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488810+00:00"
+        },
+        "2.0/2.1.3-keyboard-no-exception.md": {
+          "content_hash": "2c183bb6d7ea94e8d72ee9daca26688e198b58090a0522674a238742f95585f6",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488812+00:00"
+        },
+        "2.1/2.1.4-character-key-shortcuts.md": {
+          "content_hash": "f9c394abf3dd3864e633d63b0c986e6bdaa24644e134a9c351cd94816d3c8ac7",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488813+00:00"
+        },
+        "2.0/2.2.1-timing-adjustable.md": {
+          "content_hash": "b894c32117c25dd2d0f1bcd73ccb3b70247e2700506ff40e87740e4a9ed26d28",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488815+00:00"
+        },
+        "2.0/2.2.2-pause-stop-hide.md": {
+          "content_hash": "9245fd76512357b5d36a898f29f0006ad0868ef65caea130dae63c17963d654c",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488817+00:00"
+        },
+        "2.0/2.2.3-no-timing.md": {
+          "content_hash": "5574fcfa752f77b3a48c184d995f11f3afae4fb0425f60956321d26ae3a6bbe9",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488818+00:00"
+        },
+        "2.0/2.2.4-interruptions.md": {
+          "content_hash": "b83d933161e3332f725d12e1bdb6b67e51724b4c29dae4596a7b7bbd12dc014d",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488820+00:00"
+        },
+        "2.0/2.2.5-re-authenticating.md": {
+          "content_hash": "4b9cf20c894b098e3f0f304e0fd861a5e142f96ff7e832c1f345aa665196b93e",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488822+00:00"
+        },
+        "2.1/2.2.6-timeouts.md": {
+          "content_hash": "3ac0e38f31116c86396604fb9f8eb49be56306c763d78a76d974b5d0aef397de",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488824+00:00"
+        },
+        "2.0/2.3.1-three-flashes-or-below-threshold.md": {
+          "content_hash": "fdc4a10dc38ce6bfe7647a917f15101bcf64fa2540cc84eb07631379379cce8e",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488825+00:00"
+        },
+        "2.0/2.3.2-three-flashes.md": {
+          "content_hash": "a9586a3d03b63e5a0787b05244c56c4478aec2e05e6d1beb72d75b38e5098b8b",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488827+00:00"
+        },
+        "2.1/2.3.3-animation-from-interactions.md": {
+          "content_hash": "9edabe319f219de00cac556706b590e301c64fdb90ffec9c843ad85056d7fbc0",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488829+00:00"
+        },
+        "2.0/2.4.1-bypass-blocks.md": {
+          "content_hash": "5995072a9ad939df2975883ef3ae52cd6f877b8fb55497845ce277468edb6bb8",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488830+00:00"
+        },
+        "2.0/2.4.2-page-titled.md": {
+          "content_hash": "0aa98d4ea14fa1073636b2687f81dd2961a8ea15841ccf5e4651ec8f64d175fd",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488833+00:00"
+        },
+        "2.0/2.4.3-focus-order.md": {
+          "content_hash": "a975bb0678cb38382d20b62b87461d550239599af6647d75eaaff156ecdf8c9e",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488834+00:00"
+        },
+        "2.0/2.4.4-link-purpose-in-context.md": {
+          "content_hash": "9ce0a5ec8cc6183c5b74b6f492108828ca64a42e09804a7a0dfd99add53d9ca1",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488836+00:00"
+        },
+        "2.0/2.4.5-multiple-ways.md": {
+          "content_hash": "4c3f490db9ebabf8d2caf06c1c659d358e785949fbfd78efd3cdd907995d8441",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488838+00:00"
+        },
+        "2.0/2.4.6-headings-and-labels.md": {
+          "content_hash": "d977baf396c6761d2258fe71b52708a7fac4da073e6d57b6242e03ed3fc549cd",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488839+00:00"
+        },
+        "2.0/2.4.7-focus-visible.md": {
+          "content_hash": "2af1e75859b74fcfc1c0b3a6223eff9c5864a55c341b49d61652be34007e883f",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488841+00:00"
+        },
+        "2.0/2.4.8-location.md": {
+          "content_hash": "b1b0a9d0b65198b4476338c8faedaf7ecd3a18df5ce6becc55dc53171f426c2f",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488843+00:00"
+        },
+        "2.0/2.4.9-link-purpose-link-only.md": {
+          "content_hash": "95b47690ceac93e51b46200af4aad8fb3df4d371380b755ff74b8ea8970cf500",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488844+00:00"
+        },
+        "2.0/2.4.10-section-headings.md": {
+          "content_hash": "7f3240f212ac290b471c1130ddb15437372fbbf4e71731a0e5c394350757ba48",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488846+00:00"
+        },
+        "2.2/2.4.11-focus-not-obscured-minimum.md": {
+          "content_hash": "56b484ef43bf825a859bf51fb3e91686f5b8104eb4a2076c6fc8fd675d109908",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488848+00:00"
+        },
+        "2.2/2.4.12-focus-not-obscured-enhanced.md": {
+          "content_hash": "a4e5f373945cc18168b9e5850a8d5dcd1f82db53426d97a93235373dbc629659",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488849+00:00"
+        },
+        "2.2/2.4.13-focus-appearance.md": {
+          "content_hash": "a1ac0fe2ef7044e1a2521d09e24ddafde28060a68194128f9e0bd27becb8efd8",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488851+00:00"
+        },
+        "2.1/2.5.1-pointer-gestures.md": {
+          "content_hash": "e627de934184b194dcf58d121ad6fb0473ebc207f07e6abc2ca64e385cc8d70b",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488852+00:00"
+        },
+        "2.1/2.5.2-pointer-cancellation.md": {
+          "content_hash": "3589145a572d08a13ad5d7df4008d021e0720f17e17f694848926a8aae0180e4",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488854+00:00"
+        },
+        "2.1/2.5.3-label-in-name.md": {
+          "content_hash": "9d4df8327d045eb11e9679874999b77cba891aaee5662f4b23f7ae2610db5f39",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488856+00:00"
+        },
+        "2.1/2.5.4-motion-actuation.md": {
+          "content_hash": "9f3ae6af8deab0acbf20fc8597a47bdb1079f1c18a895acf20f998afdc0b0c66",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488857+00:00"
+        },
+        "2.1/2.5.5-target-size-enhanced.md": {
+          "content_hash": "bc1a7547e92e250cd25f35bd4f715c48b825e3ea546a6ea9c3cc878552389de0",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488859+00:00"
+        },
+        "2.1/2.5.6-concurrent-input-mechanisms.md": {
+          "content_hash": "a174ed2e99b7275fec1c32d47034932a8e3655c422cf8aabb25eb6e57de87e7e",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488861+00:00"
+        },
+        "2.2/2.5.7-dragging-movements.md": {
+          "content_hash": "7d3a7c870263513435b420d3d04defb4f781f2d4b057d122e67e7f4151e9c23a",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488862+00:00"
+        },
+        "2.2/2.5.8-target-size-minimum.md": {
+          "content_hash": "4d8a4419617465227f2ad877702d91645c38fd7e1d51060e1c59598462963398",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488864+00:00"
+        },
+        "2.0/3.1.1-language-of-page.md": {
+          "content_hash": "567197db40030a6e5b35cd5a9d0be3a581dbf424a21f0202dcdda4979be42e87",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488866+00:00"
+        },
+        "2.0/3.1.2-language-of-parts.md": {
+          "content_hash": "267102ece0aadfec6653d0fbd20a01ab6feb8f4ab0e1ce90dfef1e334eb0b29f",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488867+00:00"
+        },
+        "2.0/3.1.3-unusual-words.md": {
+          "content_hash": "b2ce0f82f25813b08d7cf08112b74166e9f35c307bcef75b7500896647f53260",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488869+00:00"
+        },
+        "2.0/3.1.4-abbreviations.md": {
+          "content_hash": "121729bd56c8313150fb21895db3babe7dd4b33b553418b59478ec5dea2bd97e",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488870+00:00"
+        },
+        "2.0/3.1.5-reading-level.md": {
+          "content_hash": "821dc639d68794ae0c6165bfae0deb3e567ccb00ed76d27c58329aa1ea17f523",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488872+00:00"
+        },
+        "2.0/3.1.6-pronunciation.md": {
+          "content_hash": "4528c731b9cb849fcfc53571ea9962cbcd56b651acaa44234dd2c2bc02e0e35d",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488874+00:00"
+        },
+        "2.0/3.2.1-on-focus.md": {
+          "content_hash": "6866badd3f9abe7e1e66f29a4712cccbbdadcca35fd78ce0c4b984f1a5c1f0d9",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488876+00:00"
+        },
+        "2.0/3.2.2-on-input.md": {
+          "content_hash": "84def84a97a9d45bbc51c096fd2410727ebf08d1abf93d8f5f4169dd5909a20f",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488878+00:00"
+        },
+        "2.0/3.2.3-consistent-navigation.md": {
+          "content_hash": "d0cf0a8af4b3d0d488950aa6769f2ffb218332e4440eb17235e405b33d5aca1f",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488879+00:00"
+        },
+        "2.0/3.2.4-consistent-identification.md": {
+          "content_hash": "325c2ae8388f3dc32cf37ad4526fb9d23e4d2287582cb0bbbeb8e35e2d48acfd",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488881+00:00"
+        },
+        "2.0/3.2.5-change-on-request.md": {
+          "content_hash": "761bff5a35ee5e30678915f78c743ecf8ba02ad1b946893959c042c4a5f3e158",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488882+00:00"
+        },
+        "2.2/3.2.6-consistent-help.md": {
+          "content_hash": "7125db4b4e98d95289b82e86464cf257d57bf27dd445cf43d104a716ab452b08",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488884+00:00"
+        },
+        "2.0/3.3.1-error-identification.md": {
+          "content_hash": "c7fc55ed439148c12a2b9bc2495382e7dc1e099a826ec10ce72fb8023b52aa62",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488886+00:00"
+        },
+        "2.0/3.3.2-labels-or-instructions.md": {
+          "content_hash": "41b482e233326041a1aa6d05bc261841409410437639d3fd38d75c59fe3526fb",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488887+00:00"
+        },
+        "2.0/3.3.3-error-suggestion.md": {
+          "content_hash": "71ab2a802fd4da8d52c553a410be0b6926cf9046c612a6a866e4597c620e51b8",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488889+00:00"
+        },
+        "2.0/3.3.4-error-prevention-legal-financial-data.md": {
+          "content_hash": "b3ce2243eaf41c9153ab0017fbafb3c3607f94316c1b5c8176ab8e696daad61d",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488891+00:00"
+        },
+        "2.0/3.3.5-help.md": {
+          "content_hash": "1b3e7becb41655cc5a75ceffb16ca460c4e10b3fbc08ff285474c3725c49ee80",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488892+00:00"
+        },
+        "2.0/3.3.6-error-prevention-all.md": {
+          "content_hash": "3f8e5a98c87d4b3543a901cd2290b43775c41b45ffdacbf9302c20bdc37fe949",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488894+00:00"
+        },
+        "2.2/3.3.7-redundant-entry.md": {
+          "content_hash": "88b490b6a3f7c162d113c6d997d34bdc537c89b6c9ca10a5dfa583c282cfe597",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488896+00:00"
+        },
+        "2.2/3.3.8-accessible-authentication-minimum.md": {
+          "content_hash": "654a294e30457cfe5c82209f0602373fc07e01bd8c3467e43c1bda624422284f",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488897+00:00"
+        },
+        "2.2/3.3.9-accessible-authentication-enhanced.md": {
+          "content_hash": "5e3bc891eaf93d6780e3d6a7c6580c1ae13692967f417be837e07279c5842cf1",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488899+00:00"
+        },
+        "2.0/4.1.1-parsing.md": {
+          "content_hash": "29331dcc10659e87daa5ea83b56dc207133167f3dd39753d7d483f696b03c940",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488901+00:00"
+        },
+        "2.0/4.1.2-name-role-value.md": {
+          "content_hash": "3be0c40ebed517f1939f23a879bfa62e47e72ffd171b4bd629b3e8540f3b773c",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488902+00:00"
+        },
+        "2.1/4.1.3-status-messages.md": {
+          "content_hash": "61cd4e64d3fc887157c3086cae7cbfc0c184ac105fc921cd34ca682827bd1300",
+          "chunk_ids": [],
+          "last_synced": "2026-02-20T02:30:16.488905+00:00"
         }
       }
     }

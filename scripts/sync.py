@@ -15,6 +15,7 @@ import yaml
 
 from manifest import Manifest, FrameworkState, FileState
 from scrape import scrape_source, load_config
+from scrape_wcag import scrape_wcag
 from embed import Embedder, create_embed_callback
 
 logging.basicConfig(
@@ -177,6 +178,44 @@ def sync_framework(
     return result
 
 
+def sync_static_source(
+    name: str,
+    source_config: dict,
+    output_base: Path,
+    manifest: Manifest,
+    dry_run: bool = False
+) -> SyncResult:
+    """
+    Sync a static source (non-git): download, generate files, diff against manifest.
+
+    Args:
+        name: Source name (e.g., "wcag")
+        source_config: Config for this static source
+        output_base: Base output directory
+        manifest: Manifest instance
+        dry_run: If True, don't modify manifest
+
+    Returns:
+        SyncResult with changes
+    """
+    logger.info(f"Scraping static source {name}...")
+    scrape_result = scrape_wcag(name, source_config, output_base)
+
+    if "error" in scrape_result:
+        raise RuntimeError(f"Scrape failed: {scrape_result['error']}")
+
+    # Diff against manifest (reuse existing diff_framework)
+    result = diff_framework(
+        framework_name=name,
+        scraped_files=scrape_result["files"],
+        commit=scrape_result["commit"],
+        manifest=manifest
+    )
+
+    logger.info(result.summary())
+    return result
+
+
 def apply_changes(
     result: SyncResult,
     manifest: Manifest,
@@ -250,11 +289,13 @@ def sync_all(
     """
     config = load_config(config_path)
     sources = config.get("sources", {})
+    static_sources = config.get("static_sources", {})
     output_base = Path(config.get("output", {}).get("base_dir", "frameworks"))
 
-    # Filter sources if specified
+    # Filter sources if specified (check both sources and static_sources)
     if frameworks:
         sources = {k: v for k, v in sources.items() if k in frameworks}
+        static_sources = {k: v for k, v in static_sources.items() if k in frameworks}
 
     # Load manifest
     manifest = Manifest(manifest_path)
@@ -335,6 +376,53 @@ def sync_all(
 
         except Exception as e:
             logger.error(f"Failed to sync {name}: {e}")
+            results[name] = None
+
+    # Process static sources (non-git, e.g. WCAG)
+    for name, source_config in static_sources.items():
+        try:
+            source_output = Path(source_config.get("output_dir", "docs/standards"))
+            embed_callback = None
+            delete_callback = None
+
+            if embed_enabled:
+                namespace = (
+                    namespace_template.format(framework=name)
+                    if namespace_template
+                    else default_namespace
+                )
+                embedder = Embedder(
+                    index_name=index_name,
+                    namespace=namespace,
+                    chunk_size=embedding_config.get("chunk_size", 500),
+                    chunk_overlap=embedding_config.get("chunk_overlap", 100),
+                    header_level=embedding_config.get("header_level", 2)
+                )
+
+                if force:
+                    logger.info(f"Force resync: clearing namespace '{namespace or '__default__'}'")
+                    embedder.clear_namespace()
+
+                # Static sources don't have git repo URLs
+                static_repo_urls = {name: ""}
+                embed_callback = create_embed_callback(embedder, source_output, static_repo_urls)
+                delete_callback = lambda fw, fp, _embedder=embedder: _embedder.delete_file(fw, fp)
+                logger.info(f"Using namespace '{namespace or '__default__'}' for {name}")
+
+            result = sync_static_source(
+                name=name,
+                source_config=source_config,
+                output_base=source_output,
+                manifest=manifest,
+                dry_run=dry_run
+            )
+            results[name] = result
+
+            if not dry_run:
+                apply_changes(result, manifest, embed_callback, delete_callback)
+
+        except Exception as e:
+            logger.error(f"Failed to sync static source {name}: {e}")
             results[name] = None
 
     # Save manifest

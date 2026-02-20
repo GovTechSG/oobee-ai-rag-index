@@ -39,6 +39,7 @@ static_sources:
   wcag:
     url: "https://www.w3.org/WAI/WCAG22/wcag.json"
     local_path: "wcag.json"
+    output_dir: "docs/standards"
     description: "WCAG 2.2 success criteria with explanations and techniques"
 
 embedding:
