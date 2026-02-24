@@ -56,9 +56,10 @@ def clone_repo(repo_url: str, dest: Path) -> str:
 
 
 def should_ignore(path: Path, ignore_patterns: list[str]) -> bool:
-    """Check if path should be ignored based on patterns."""
+    """Check if path should be ignored based on patterns.
+    Matches against directory names in the path and the filename itself."""
     for pattern in ignore_patterns:
-        if pattern in path.parts:
+        if pattern in path.parts or path.name == pattern:
             return True
     return False
 

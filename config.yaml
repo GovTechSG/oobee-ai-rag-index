@@ -3,32 +3,32 @@ sources:
     repo: "https://github.com/reactjs/react.dev"
     docs_path: "src/content"
     extensions: [".md", ".mdx"]
-    ignore: ["node_modules", ".github", "blog", "community", "errors", "warnings"]
+    ignore: ["node_modules", ".github", "blog", "community", "errors", "warnings", "versions.md", "index.md", "tutorial-tic-tac-toe.md"]
 
   vue:
     repo: "https://github.com/vuejs/docs"
     docs_path: "src"
     extensions: [".md"]
-    ignore: ["node_modules", ".github", ".vitepress", "partners", "sponsor", "translations", "ecosystem", "error-reference", "about"]
+    ignore: ["node_modules", ".github", ".vitepress", "partners", "sponsor", "translations", "ecosystem", "error-reference", "about", "tutorial", "style-guide", "examples"]
 
   angular:
     repo: "https://github.com/angular/angular"
     docs_path: "adev/src/content"
     extensions: [".md"]
-    ignore: ["node_modules", ".github", "examples", "ecosystem", "events", "ai"]
+    ignore: ["node_modules", ".github", "examples", "ecosystem", "events", "ai", "tutorials", "tools", "kitchen-sink.md", "error.md"]
 
   javascript:
     repo: "https://github.com/mdn/content"
     docs_path: "files/en-us/web/javascript"
     extensions: [".md"]
-    ignore: ["node_modules", ".github"]
+    ignore: ["node_modules", ".github", "temporal", "escape", "unescape", "with", "atomics", "asyncdisposablestack", "disposablestack", "weakref", "finalizationregistry"]
     output_dir: "docs/languages"
 
   typescript:
     repo: "https://github.com/microsoft/TypeScript-Website"
     docs_path: "packages/documentation/copy/en"
     extensions: [".md"]
-    ignore: ["node_modules", ".github"]
+    ignore: ["node_modules", ".github", "release-notes", "handbook-v1", "Nightly Builds.md", "diagrams"]
     output_dir: "docs/languages"
 
 output:
