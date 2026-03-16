@@ -1,9 +1,9 @@
 {
   "version": "1.0",
-  "last_sync": "2026-03-09T04:08:59.609794+00:00",
+  "last_sync": "2026-03-16T04:33:07.699058+00:00",
   "frameworks": {
     "react": {
-      "commit": "7c90c6eb4bb93a5eacb9cb4ad4ca496c32984636",
+      "commit": "40ea071c846b3ab1232391bab15d31f508913bf4",
       "files": {
         "learn/add-react-to-an-existing-project.md": {
           "content_hash": "45193ac21517d19f408acf915371ebaa3342d285d31ef85f91c278ee1bcc1c91",
@@ -8260,7 +8260,7 @@
       }
     },
     "vue": {
-      "commit": "1e91ed7d09072c69ff61bc54ee1acb1f27b2f6f4",
+      "commit": "ebab64ad9fd3bf6cdeb3f8bed388ae018440ddd6",
       "files": {
         "api/application.md": {
           "content_hash": "fd649a6270ee6e80e0f6610f4d6d9366eea1775a0664fe5aa6f1a58ea62234e8",
@@ -11427,7 +11427,7 @@
       }
     },
     "angular": {
-      "commit": "786ea441e9af325d09a1f201e79f7cbf2b923f9c",
+      "commit": "ada150c69301434e3ccd46cf9ff50340a5ead9fa",
       "files": {
         "best-practices/a11y.md": {
           "content_hash": "bc0445cff5cfc50e70d6aad5bbe973d2b715c28fca18ebe7f2e67ab23e887cab",
@@ -11740,7 +11740,7 @@
           "last_synced": "2026-02-13T02:48:08.535236+00:00"
         },
         "guide/animations/enter-and-leave.md": {
-          "content_hash": "c299dce80706a6e55c36b8a199167f1eae5efc2dee015fa6bded85c2d1fab711",
+          "content_hash": "5c54d3c5c1ecbab24894d0dd275c6f578e14b175636e6ea6fede360593c089ab",
           "chunk_ids": [
             "6a69211d455a3eea",
             "36d3d96485d6df97",
@@ -11767,11 +11767,9 @@
             "7216770f1a0c320d",
             "0718aa4bffcdb394",
             "717060160d001214",
-            "f0428bbfee5064be",
-            "43fb98e405cba475",
-            "15e3a2dd788a950c"
+            "f0428bbfee5064be"
           ],
-          "last_synced": "2026-02-13T02:48:09.099423+00:00"
+          "last_synced": "2026-03-16T04:32:45.951561+00:00"
         },
         "guide/animations/migration.md": {
           "content_hash": "8400dc05daa35eb6eb2b505c699ffafae46eed2563c68144127606086f57473d",
@@ -13288,7 +13286,7 @@
           "last_synced": "2026-03-02T04:06:28.456359+00:00"
         },
         "guide/directives/structural-directives.md": {
-          "content_hash": "c016b6c1c3d58f0a3eceffef60d337b5c9c053a9e4d6c358659f0c0eb8058bc7",
+          "content_hash": "319531ea5f5516420f9b4e4e7240f1881fe58f33e4dd81b233bb2c4f73acbd98",
           "chunk_ids": [
             "c974debb849562ef",
             "e2e0e1e135a0e7e5",
@@ -13326,10 +13324,10 @@
             "26e74948fdea3b86",
             "12fcd40f423ee2af"
           ],
-          "last_synced": "2026-02-13T02:48:36.382785+00:00"
+          "last_synced": "2026-03-16T04:32:47.146544+00:00"
         },
         "guide/drag-drop.md": {
-          "content_hash": "d9a19adee740f5fdcf21a580794a6d0f077c980509928d4a9564aa69f1085041",
+          "content_hash": "0fadbb0b34e34e3f6d43f8f39edfc9c89f86579cbc856417d92c4e3cc82bd2cd",
           "chunk_ids": [
             "d71f25ad45a9ca3e",
             "81b16c692cfeb45e",
@@ -13415,7 +13413,7 @@
             "09b4d7258e216fbb",
             "6114b21a1a1e6a4d"
           ],
-          "last_synced": "2026-02-13T02:48:40.411970+00:00"
+          "last_synced": "2026-03-16T04:32:48.247007+00:00"
         },
         "guide/elements.md": {
           "content_hash": "0e76ddd0cf1d7b969309e5f67e38ea6b37f0e8417510c78819094d1acefddc97",
@@ -13626,7 +13624,7 @@
           "last_synced": "2026-02-13T02:48:44.535790+00:00"
         },
         "guide/forms/reactive-forms.md": {
-          "content_hash": "7d0df214972b1ec27b5a8de3bc830fe991b8a707d3bdd1668d88b173f5b0155c",
+          "content_hash": "a8c9c7897688e40d36b0b70fb86f5ddc03cd5c11e379b2a740a4d5ebd8022ff7",
           "chunk_ids": [
             "02785e9f687bc37d",
             "688f0b0628b59782",
@@ -13748,9 +13746,11 @@
             "b2fb98ec03464459",
             "7ecc5b403c5918bb",
             "471a0c6155960c6e",
-            "c1e89dcce1a3b915"
+            "c1e89dcce1a3b915",
+            "bca73baf05e932ad",
+            "345dcdcc4386f4e0"
           ],
-          "last_synced": "2026-02-13T02:48:54.048197+00:00"
+          "last_synced": "2026-03-16T04:32:50.831731+00:00"
         },
         "guide/forms/signals/comparison.md": {
           "content_hash": "ca6b7a03ac3887b64c1ebfc0e7162ae20420bb7ad039551c3f9021fe7d625673",
@@ -15159,7 +15159,7 @@
           "last_synced": "2026-03-02T04:06:32.916703+00:00"
         },
         "guide/routing/define-routes.md": {
-          "content_hash": "460d580276ff5d79804915328ff7d97329afb8f7733ddaa1db1405bfd4d4b0d5",
+          "content_hash": "e35a637b5ba3f266ea9fa7c21a09e0a7a82553ab74ffc4eda92d3249c9802e9f",
           "chunk_ids": [
             "fb5fe428f4a21023",
             "cb559d77a3b439b3",
@@ -15200,7 +15200,7 @@
             "5fbd0db955455655",
             "fffae7b47092131a"
           ],
-          "last_synced": "2026-03-02T04:06:33.745652+00:00"
+          "last_synced": "2026-03-16T04:32:51.591426+00:00"
         },
         "guide/routing/lifecycle-and-events.md": {
           "content_hash": "98016558728c4e3375a998dc9f2cee839a6418525328d30126df6cc55f7ea3ca",
@@ -15866,7 +15866,7 @@
           "last_synced": "2026-02-13T02:49:33.392074+00:00"
         },
         "guide/templates/binding.md": {
-          "content_hash": "8e442f8e373b9316b238af2b02b1d3afa3b31caa95554a8d64ed9204a398bcb1",
+          "content_hash": "fe239a1cbc317574df9cc28b2f929f8e62facc2599d8bcb8d197f2fd78e13699",
           "chunk_ids": [
             "681d66bb6df14812",
             "991ec271d8c3665d",
@@ -15900,7 +15900,7 @@
             "2285afb07f24a3bf",
             "933e956fd82ae22d"
           ],
-          "last_synced": "2026-02-23T04:15:19.498972+00:00"
+          "last_synced": "2026-03-16T04:32:52.258199+00:00"
         },
         "guide/templates/control-flow.md": {
           "content_hash": "3c4b2113984d5500b54403ea2354446b75816b36d8eb825a2e293913ac7257be",
@@ -16036,7 +16036,7 @@
           "last_synced": "2026-02-13T02:49:37.141895+00:00"
         },
         "guide/templates/ng-container.md": {
-          "content_hash": "f45716dbc5fd98d622b4eb6e2efa789ce97bbbadf66f36a915ae39458779ec56",
+          "content_hash": "b2d03f47c8f9d3fc349b93c6ddced1c49ad347e72d088b536d3a2f6a18d52342",
           "chunk_ids": [
             "e09576414b74fb74",
             "b7d014710841c060",
@@ -16050,7 +16050,7 @@
             "dcdd11a5aaa6219a",
             "e267af1c28d796b4"
           ],
-          "last_synced": "2026-02-13T02:49:37.519881+00:00"
+          "last_synced": "2026-03-16T04:32:52.744078+00:00"
         },
         "guide/templates/ng-content.md": {
           "content_hash": "c0d62adf5f628a63971ef13d1a20c135b2c1c1a3ad82f50ae12bc81d972c311b",
@@ -16231,7 +16231,7 @@
           "last_synced": "2026-02-13T02:49:41.664148+00:00"
         },
         "guide/testing/code-coverage.md": {
-          "content_hash": "b61e2e52160c039c31fb0747f3aa532922cd18fc61ce78dc8dbfc26bc547107a",
+          "content_hash": "7dec12d02173a83e15500209b0744a25ec4459dabdcd1fc83d127309ee0380e9",
           "chunk_ids": [
             "af30066bf927e807",
             "730a2727ec2bae55",
@@ -16243,7 +16243,7 @@
             "f79386b01de8025a",
             "11e668b51a1b0b91"
           ],
-          "last_synced": "2026-02-13T02:49:41.973747+00:00"
+          "last_synced": "2026-03-16T04:32:53.197631+00:00"
         },
         "guide/testing/component-harnesses-overview.md": {
           "content_hash": "a11c1c411fc346f78d8c308f78ebbc78b6ec4526109b75dc7fe55caeea77e670",
@@ -16329,7 +16329,7 @@
           "last_synced": "2026-02-13T02:49:43.391379+00:00"
         },
         "guide/testing/components-scenarios.md": {
-          "content_hash": "b0a3da652484f2bcd3e692350ef9ab3ecacafa5598a5acf95dd2058af1d956d2",
+          "content_hash": "c8c47bfd4f745c8ca1ac397ee284c1819ea1bdeb1f74bb68a5ef3bf8e365e88d",
           "chunk_ids": [
             "4fc394b6e377d81a",
             "50c9af9d2b46273a",
@@ -16453,7 +16453,7 @@
             "d0a31c8047b0af8a",
             "96deb510cc5b60ac"
           ],
-          "last_synced": "2026-02-13T02:49:49.829300+00:00"
+          "last_synced": "2026-03-16T04:32:55.259243+00:00"
         },
         "guide/testing/creating-component-harnesses.md": {
           "content_hash": "21f82b6d0e1113fe0a9dde9f5a2c37fd425d43e81252f59cbb0d897fbb5b540a",
@@ -16542,7 +16542,7 @@
           "last_synced": "2026-02-13T02:49:51.210991+00:00"
         },
         "guide/testing/migrating-to-vitest.md": {
-          "content_hash": "5a53b6503ecc2d5f3bb25452817e9ef7c534387f5d8a39874be0b6fa1736089f",
+          "content_hash": "70052c869641ce23fd02e38993d950ecd55cdee02d78027d636ffcaadb6cf0d1",
           "chunk_ids": [
             "213d0bbe4d408cc2",
             "eddb399eb6a404f6",
@@ -16580,7 +16580,7 @@
             "e4d37f72104f8b21",
             "05044b034543b083"
           ],
-          "last_synced": "2026-02-13T02:49:51.793556+00:00"
+          "last_synced": "2026-03-16T04:32:55.983349+00:00"
         },
         "guide/testing/overview.md": {
           "content_hash": "81b0d4e79523f1c24d8fd6626ecb709c743e0508074a1d444bacd37a37b76fc6",
@@ -16750,7 +16750,7 @@
           "last_synced": "2026-02-13T02:49:54.536135+00:00"
         },
         "guide/zoneless.md": {
-          "content_hash": "72ac172e7da7e05d63cafe29fd42cc77d264ff1f646d05b0e624055863141a4c",
+          "content_hash": "2cd4b58f974cf93908e13e65da0ace55279432905abd0f4fecd9768e10330b89",
           "chunk_ids": [
             "3449736e8a2b58d6",
             "3296a92d8a4ce53e",
@@ -16779,9 +16779,10 @@
             "8e3c0c2c11309c6f",
             "cb23cef95f59db76",
             "2ab5033798b30588",
-            "5d18943e94d1dcf4"
+            "5d18943e94d1dcf4",
+            "188a2ab3595e6fc8"
           ],
-          "last_synced": "2026-02-13T02:49:55.022148+00:00"
+          "last_synced": "2026-03-16T04:32:56.605722+00:00"
         },
         "introduction/essentials/components.md": {
           "content_hash": "829960fd862f1156f6018984a83334f15a8be8399c1cc08b6807a36657fcbbd5",
@@ -16887,7 +16888,7 @@
           "last_synced": "2026-02-13T02:49:57.585685+00:00"
         },
         "introduction/essentials/templates.md": {
-          "content_hash": "383438c8f81351bb5b716eb64c2797967deba2b9257e10427fc4fd7d556424bd",
+          "content_hash": "4733e5f9e85dfe0b5aa37298768e9041667551b18330cb1e28f359b07cbb3974",
           "chunk_ids": [
             "921cb0570b7afcc4",
             "8075c82cd186d677",
@@ -16903,7 +16904,7 @@
             "217ff950b572ae95",
             "5542a44ea71e831d"
           ],
-          "last_synced": "2026-02-13T02:49:57.928190+00:00"
+          "last_synced": "2026-03-16T04:32:57.106752+00:00"
         },
         "introduction/installation.md": {
           "content_hash": "52d4f990979016adcd93a614be5aa10636508a19fbb440036d8640462acec884",
@@ -17944,7 +17945,7 @@
           "last_synced": "2026-02-13T02:50:24.819239+00:00"
         },
         "reference/migrations/outputs.md": {
-          "content_hash": "d58230a66f7fe49dd6e214b0e537df05da26d8263bbff60f33c01fbd8487ff59",
+          "content_hash": "fa5d71f2d0e4622e6c2567f46ff8ebe64e0f7c253150ab86bc7182e764c33a10",
           "chunk_ids": [
             "8bca51759ff99a9f",
             "04e75f1f02bfb6d4",
@@ -17957,7 +17958,7 @@
             "45ed8a70b58bfc15",
             "719de70e4ab848d7"
           ],
-          "last_synced": "2026-02-13T02:50:25.139987+00:00"
+          "last_synced": "2026-03-16T04:32:57.564217+00:00"
         },
         "reference/migrations/overview.md": {
           "content_hash": "17ae3b12eb0684115f5c23d53dec6771b581c62501f781c3c4f9351685a793db",
@@ -17975,7 +17976,7 @@
           "last_synced": "2026-02-13T02:50:25.453819+00:00"
         },
         "reference/migrations/route-lazy-loading.md": {
-          "content_hash": "787cae785af4892130a5bf96790db4963f10bd72341f0bf9d7f0496ab5a33060",
+          "content_hash": "9566415b436f7432c83b8afd1f34545c52519c4bd816cbd18e1ab1d4bd1cf24d",
           "chunk_ids": [
             "9e9af72a6c55dd52",
             "c1e2c5507a74d81c",
@@ -17984,7 +17985,7 @@
             "b5cba99f023b2cfb",
             "13903f3e88008b4a"
           ],
-          "last_synced": "2026-03-02T04:06:39.463730+00:00"
+          "last_synced": "2026-03-16T04:32:57.994399+00:00"
         },
         "reference/migrations/router-testing-module-migration.md": {
           "content_hash": "5e187b42e809dd283eb528ecf4cf34663bd8d096ee74db46ee4793527255dbb2",
@@ -18507,7 +18508,7 @@
       }
     },
     "javascript": {
-      "commit": "b4e920ce0a34d9e609080ccb937a1a30c3cd558a",
+      "commit": "fd00eae27011b7b1f65a442b927efab5400b0296",
       "files": {
         "guide/closures/index.md": {
           "content_hash": "ae1a6ecd7f8e446bef7a1a689c082a88569e8b506f61e93b7dfdf2768a896fdd",
@@ -43857,7 +43858,7 @@
           "last_synced": "2026-02-13T03:00:24.284926+00:00"
         },
         "reference/statements/try...catch/index.md": {
-          "content_hash": "f76ad2e5b552ddfca2e4c8ac80c3e020957ef8d846a73f757f079c46f44bc040",
+          "content_hash": "715ecdae02b68960ca9a0db3ee149a6108483cda233c25584e5439eb8ad4791e",
           "chunk_ids": [
             "74229d3602f87fc2",
             "648e8802269bceb9",
@@ -43896,9 +43897,12 @@
             "8a17edf088280fb4",
             "6133344cd45fe294",
             "a9adb7dc3bfc8d7b",
-            "bbb78c8e296f7733"
+            "bbb78c8e296f7733",
+            "a66cc82ab45cac27",
+            "4a4e071db75910d4",
+            "a52e4aab03157576"
           ],
-          "last_synced": "2026-02-13T03:00:24.843464+00:00"
+          "last_synced": "2026-03-16T04:33:06.857845+00:00"
         },
         "reference/statements/using/index.md": {
           "content_hash": "e2366f9bbb94d303bcb5a836708cedb507a4b3a90a116f95319c893b84d5624a",
@@ -44178,7 +44182,7 @@
       }
     },
     "typescript": {
-      "commit": "57e19fd99f8128f9abd3810a89b9856f1b36b32b",
+      "commit": "32433bc2c7528771aa4c63b2d22d7172b0dd376c",
       "files": {
         "declaration-files/By Example.md": {
           "content_hash": "28a47f8c960a80de8d26e402f57ce45c0758507e614662e891df15c28fda6c63",
