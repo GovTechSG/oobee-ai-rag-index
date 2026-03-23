@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "last_sync": "2026-03-16T04:33:07.699058+00:00",
+  "last_sync": "2026-03-23T04:21:33.199046+00:00",
   "frameworks": {
     "react": {
       "commit": "40ea071c846b3ab1232391bab15d31f508913bf4",
@@ -8260,7 +8260,7 @@
       }
     },
     "vue": {
-      "commit": "ebab64ad9fd3bf6cdeb3f8bed388ae018440ddd6",
+      "commit": "77bc26feed68bae570ad9ce7ef91e0b889021a56",
       "files": {
         "api/application.md": {
           "content_hash": "fd649a6270ee6e80e0f6610f4d6d9366eea1775a0664fe5aa6f1a58ea62234e8",
@@ -8691,7 +8691,7 @@
           "last_synced": "2026-02-13T02:46:42.338299+00:00"
         },
         "api/options-lifecycle.md": {
-          "content_hash": "71c5d356c4792a6db6e5b1d872ab83dcc92ff781b57606455ccfea42e6110c60",
+          "content_hash": "2bca0d4fa280a81a01cd192a393d331b0a654a6d509974f596411d91d7204acf",
           "chunk_ids": [
             "a2c4794588880dc7",
             "f45be1236f8feaff",
@@ -8726,7 +8726,7 @@
             "e9c5d8017a8d94df",
             "77b27bb4da875584"
           ],
-          "last_synced": "2026-02-13T02:46:42.880572+00:00"
+          "last_synced": "2026-03-23T04:21:04.420497+00:00"
         },
         "api/options-misc.md": {
           "content_hash": "90d5868156e7335e9afb194ef9658adfc2f3477d77bba8e2414a9bf2d780e690",
@@ -9443,7 +9443,7 @@
           "last_synced": "2026-02-13T02:46:56.801434+00:00"
         },
         "guide/built-ins/teleport.md": {
-          "content_hash": "32041ac44ba48fa64266339c6febed3b86100b130b8a594882a179bb02b21a09",
+          "content_hash": "5d4695b434ac5cb8270452ffbb714bb2ded24b077ea7801bc3e93b3e228cb69d",
           "chunk_ids": [
             "92a62080ea07648d",
             "9d8c5ebbd7d1ae75",
@@ -9466,7 +9466,7 @@
             "94d7adbb93626d54",
             "f497ef5b1727f1c8"
           ],
-          "last_synced": "2026-02-13T02:46:57.218367+00:00"
+          "last_synced": "2026-03-23T04:21:05.246068+00:00"
         },
         "guide/built-ins/transition-group.md": {
           "content_hash": "799a27a1240198cf66660b1de4f77ca24177c49c1acae6bc21850b1d2aeb3210",
@@ -11427,7 +11427,7 @@
       }
     },
     "angular": {
-      "commit": "ada150c69301434e3ccd46cf9ff50340a5ead9fa",
+      "commit": "d2054c7c1a10b1e57f04dbb854fbf06eeea4b1fc",
       "files": {
         "best-practices/a11y.md": {
           "content_hash": "bc0445cff5cfc50e70d6aad5bbe973d2b715c28fca18ebe7f2e67ab23e887cab",
@@ -12520,7 +12520,7 @@
           "last_synced": "2026-02-13T02:48:21.428387+00:00"
         },
         "guide/components/anatomy-of-components.md": {
-          "content_hash": "8d0de2c1d1d8b8615991667d168daaaa419e60cc239cc1ebeb660a41127b21f2",
+          "content_hash": "8466e055bec0c7327a2fd2ee3c5335d1cdebdf02fbc63778b239649f418f7a0e",
           "chunk_ids": [
             "8bedc78f788f731e",
             "0b398f85f795971c",
@@ -12538,7 +12538,7 @@
             "31e3d07136887c09",
             "cd995d3f4b614548"
           ],
-          "last_synced": "2026-02-13T02:48:21.796066+00:00"
+          "last_synced": "2026-03-23T04:21:10.460877+00:00"
         },
         "guide/components/content-projection.md": {
           "content_hash": "9b9a550381f0719d060fa9aed7f1dec705ef07be0f82bc40c7159b3d910fd421",
@@ -13487,7 +13487,7 @@
           "last_synced": "2026-02-13T02:48:41.455596+00:00"
         },
         "guide/forms/form-validation.md": {
-          "content_hash": "ee78103f97a59c9288480ea4f18128cbd8b8cad51a39f1361200a193f3107a2d",
+          "content_hash": "bae362dd8346095196ceb1bcfa3321ce89391ad693ac8170e5b42adec260ffc8",
           "chunk_ids": [
             "2f61b696511064e8",
             "5fa099feb9388c16",
@@ -13556,9 +13556,16 @@
             "b7934755d41f1e19",
             "db307ec8cf14dac4",
             "aec5742f7937a12c",
-            "a2a6fc7b02707080"
+            "a2a6fc7b02707080",
+            "ab8f4daeba1c19ca",
+            "11f54d5df097439c",
+            "750daa452912b8ea",
+            "79904400920301d0",
+            "b518e19e63ab057e",
+            "9fb760c7113c1e6e",
+            "de420cdc05eca0b6"
           ],
-          "last_synced": "2026-02-13T02:48:43.209722+00:00"
+          "last_synced": "2026-03-23T04:21:11.431699+00:00"
         },
         "guide/forms/overview.md": {
           "content_hash": "5ca6a57083fd2eeeb6b846f6d7a8e4b9678ef50e1ec818490e305b27c2ab6324",
@@ -13624,7 +13631,7 @@
           "last_synced": "2026-02-13T02:48:44.535790+00:00"
         },
         "guide/forms/reactive-forms.md": {
-          "content_hash": "a8c9c7897688e40d36b0b70fb86f5ddc03cd5c11e379b2a740a4d5ebd8022ff7",
+          "content_hash": "37405432e611c7697a7cf79f0d3756e4fe046cbd94193ff0b3aea9353f18b50c",
           "chunk_ids": [
             "02785e9f687bc37d",
             "688f0b0628b59782",
@@ -13748,9 +13755,10 @@
             "471a0c6155960c6e",
             "c1e89dcce1a3b915",
             "bca73baf05e932ad",
-            "345dcdcc4386f4e0"
+            "345dcdcc4386f4e0",
+            "14c1ae31df7e9af2"
           ],
-          "last_synced": "2026-03-16T04:32:50.831731+00:00"
+          "last_synced": "2026-03-23T04:21:13.779625+00:00"
         },
         "guide/forms/signals/comparison.md": {
           "content_hash": "ca6b7a03ac3887b64c1ebfc0e7162ae20420bb7ad039551c3f9021fe7d625673",
@@ -15541,7 +15549,7 @@
           "last_synced": "2026-02-13T02:49:28.896152+00:00"
         },
         "guide/security.md": {
-          "content_hash": "402c1b188895db067376d091e24bc3a4246e9744d8e32d3673e7e38d220fb42e",
+          "content_hash": "117d17a096f23032b07e350f2aae73305664647dee9a5190f4ed0e946908c9a2",
           "chunk_ids": [
             "a186f7a59ab1ba68",
             "aafc8a8f3c9995da",
@@ -15629,7 +15637,7 @@
             "7a4d67f21cbf86d3",
             "5565623dcfb36a5d"
           ],
-          "last_synced": "2026-03-09T04:08:47.091212+00:00"
+          "last_synced": "2026-03-23T04:21:14.916609+00:00"
         },
         "guide/signals/effect.md": {
           "content_hash": "a110c5f9ac641f97911ab45928c9181ac6b590f13dddf469c0e04532b0c9c0cb",
@@ -15683,7 +15691,7 @@
           "last_synced": "2026-02-13T02:49:30.939106+00:00"
         },
         "guide/signals/overview.md": {
-          "content_hash": "cd86cc9306852d64763ac48557b848f3e5cae36ad0d686b4e3c701f50ac8539d",
+          "content_hash": "958e3b9c241b8cd4dc6f7ffd07dcc03470bb72c1c7aeb3422c305abfda74bdac",
           "chunk_ids": [
             "d0fc42f84b319d22",
             "62056ab4682a2966",
@@ -15721,7 +15729,7 @@
             "621be149acb5edb0",
             "1a396719e4d5c656"
           ],
-          "last_synced": "2026-02-23T04:15:18.706504+00:00"
+          "last_synced": "2026-03-23T04:21:15.803314+00:00"
         },
         "guide/signals/resource.md": {
           "content_hash": "18d9a1336fec965dae4349e5e980ad532306fefe25f444d7f8f6d06895e974fb",
@@ -15866,7 +15874,7 @@
           "last_synced": "2026-02-13T02:49:33.392074+00:00"
         },
         "guide/templates/binding.md": {
-          "content_hash": "fe239a1cbc317574df9cc28b2f929f8e62facc2599d8bcb8d197f2fd78e13699",
+          "content_hash": "db7b13a5539cce7e18bfe6e77f445550a3f1f2fa2f1bc65c4fb3d782d7457d31",
           "chunk_ids": [
             "681d66bb6df14812",
             "991ec271d8c3665d",
@@ -15900,7 +15908,7 @@
             "2285afb07f24a3bf",
             "933e956fd82ae22d"
           ],
-          "last_synced": "2026-03-16T04:32:52.258199+00:00"
+          "last_synced": "2026-03-23T04:21:16.453525+00:00"
         },
         "guide/templates/control-flow.md": {
           "content_hash": "3c4b2113984d5500b54403ea2354446b75816b36d8eb825a2e293913ac7257be",
@@ -16053,13 +16061,13 @@
           "last_synced": "2026-03-16T04:32:52.744078+00:00"
         },
         "guide/templates/ng-content.md": {
-          "content_hash": "c0d62adf5f628a63971ef13d1a20c135b2c1c1a3ad82f50ae12bc81d972c311b",
+          "content_hash": "f299e51bf51158bf9e3c725d2f50b25e94f01a12457278add572437f27989e17",
           "chunk_ids": [
             "43d1523c110d06db",
             "168fbd0c8c502dd8",
             "03b37099ba529b02"
           ],
-          "last_synced": "2026-02-13T02:49:37.789430+00:00"
+          "last_synced": "2026-03-23T04:21:16.918868+00:00"
         },
         "guide/templates/ng-template.md": {
           "content_hash": "649e54698e2e89b2598b4f552c97a6f5feb1e7c039cb8ff5baeefe4ddee90cc4",
@@ -16157,7 +16165,7 @@
           "last_synced": "2026-02-16T04:15:38.904408+00:00"
         },
         "guide/templates/two-way-binding.md": {
-          "content_hash": "afac206cf7840fc16e866cfc726cb595fb58a24e5f7551ac440e6fe4a26d13a5",
+          "content_hash": "da47f5336d9716755cd022ce28c4332caeffa276cd3dc0e5199e098f9e480b9d",
           "chunk_ids": [
             "654383487f71f8a6",
             "52a98d01abe158a5",
@@ -16171,7 +16179,7 @@
             "0213c229057d7207",
             "5a04e08744cae232"
           ],
-          "last_synced": "2026-02-13T02:49:39.871665+00:00"
+          "last_synced": "2026-03-23T04:21:17.389209+00:00"
         },
         "guide/templates/variables.md": {
           "content_hash": "661b66409b636a3e176fb93e3cfeab884c2d6e47d7ef43de6c0417db2638fa41",
@@ -16542,7 +16550,7 @@
           "last_synced": "2026-02-13T02:49:51.210991+00:00"
         },
         "guide/testing/migrating-to-vitest.md": {
-          "content_hash": "70052c869641ce23fd02e38993d950ecd55cdee02d78027d636ffcaadb6cf0d1",
+          "content_hash": "d18586453f3211f4fbb800796badf03beef8d567bb2fcefa69e0db3a4fe2f17a",
           "chunk_ids": [
             "213d0bbe4d408cc2",
             "eddb399eb6a404f6",
@@ -16580,7 +16588,7 @@
             "e4d37f72104f8b21",
             "05044b034543b083"
           ],
-          "last_synced": "2026-03-16T04:32:55.983349+00:00"
+          "last_synced": "2026-03-23T04:21:18.071519+00:00"
         },
         "guide/testing/overview.md": {
           "content_hash": "81b0d4e79523f1c24d8fd6626ecb709c743e0508074a1d444bacd37a37b76fc6",
@@ -17643,7 +17651,7 @@
           "last_synced": "2026-02-13T02:50:16.977197+00:00"
         },
         "reference/errors/overview.md": {
-          "content_hash": "0fe3f590f726039a9fd5450896c22f904b5d8feb649d26c42a9de1858c89dc0b",
+          "content_hash": "e1943633ede1cd4a805cdcf590fc594a0ae6fcf862b462f3eddcdf076f674219",
           "chunk_ids": [
             "d1083b329d6aceb6",
             "6afc28f526ffcf7d",
@@ -17651,10 +17659,10 @@
             "1e48d5f49f4837a0",
             "f33a99c49e7330b7"
           ],
-          "last_synced": "2026-02-23T04:15:20.907800+00:00"
+          "last_synced": "2026-03-23T04:21:18.483754+00:00"
         },
         "reference/extended-diagnostics/NG8021.md": {
-          "content_hash": "ee51067928d1ee31a3fac659a104ec90f6c54ce6cad6a21c5b22492619f26788",
+          "content_hash": "f58c1583f47be0cfd05f3017540bd5433b973dddd533b72ca0e808777e37fc26",
           "chunk_ids": [
             "5c99d6224c40eb55",
             "8992324205df3587",
@@ -17668,7 +17676,7 @@
             "ecce50111fdeda22",
             "4e6aa3d1e7fe4cc2"
           ],
-          "last_synced": "2026-02-13T02:50:17.611699+00:00"
+          "last_synced": "2026-03-23T04:21:18.996818+00:00"
         },
         "reference/extended-diagnostics/NG8101.md": {
           "content_hash": "0070cdc76945d382c85f1d93bd1bce2a93eff76adffc24afc056f05663529b49",
@@ -17755,7 +17763,7 @@
           "last_synced": "2026-02-13T02:50:19.846822+00:00"
         },
         "reference/extended-diagnostics/NG8108.md": {
-          "content_hash": "883a458d607640771ba0d7f26939dc7d6ca1bfd5f5f4c71b4eb9d006637535f2",
+          "content_hash": "e44bebc8ddb39b7388285135dbb7f4988e275168964f869c74b38808002f8792",
           "chunk_ids": [
             "9da4cc10ea287cac",
             "67b2b47895c817f8",
@@ -17765,7 +17773,7 @@
             "efbeae497cbbfbb8",
             "29f4b56543cac762"
           ],
-          "last_synced": "2026-02-13T02:50:20.143753+00:00"
+          "last_synced": "2026-03-23T04:21:19.442507+00:00"
         },
         "reference/extended-diagnostics/NG8109.md": {
           "content_hash": "3420286791c49cbdb12e4d9d15e1af70e3aa860bae4d2c46706f56beb7a0233e",
@@ -18504,11 +18512,21 @@
             "56900b4faf8bdb4c"
           ],
           "last_synced": "2026-03-02T04:06:41.889007+00:00"
+        },
+        "reference/errors/NG8023.md": {
+          "content_hash": "9abccd3281d76195a9d2ac3955dfd78204e9b2cde6847618f9919808ec5d096a",
+          "chunk_ids": [
+            "f54ee999a4946fdc",
+            "8d5d9e8b2fbef01a",
+            "7278ee86f8e30eba",
+            "6e1edc5cb439fe56"
+          ],
+          "last_synced": "2026-03-23T04:21:19.698884+00:00"
         }
       }
     },
     "javascript": {
-      "commit": "fd00eae27011b7b1f65a442b927efab5400b0296",
+      "commit": "63fee14f8c716fb79d2b9a1bb95b7ebc95c21c58",
       "files": {
         "guide/closures/index.md": {
           "content_hash": "ae1a6ecd7f8e446bef7a1a689c082a88569e8b506f61e93b7dfdf2768a896fdd",
@@ -20093,7 +20111,7 @@
           "last_synced": "2026-02-13T02:51:39.569222+00:00"
         },
         "guide/regular_expressions/character_classes/index.md": {
-          "content_hash": "9d58e86e8a9e4d963f04aedf7c841f13720da1a0d693f821a2792a351ae21a06",
+          "content_hash": "1ffaa4be62b641c65a87910bfb7dddb0f63af26d8b38d6581eed4c678c6666e0",
           "chunk_ids": [
             "303a946b0b12347a",
             "b801bf8151a50a9d",
@@ -20138,12 +20156,13 @@
             "2f11cba65d9b6638",
             "c02852264ed08b45",
             "1c0f66debf1f0203",
-            "aad2ea1df0f032be"
+            "aad2ea1df0f032be",
+            "ae5ce270e2cdc807"
           ],
-          "last_synced": "2026-02-13T02:51:40.273444+00:00"
+          "last_synced": "2026-03-23T04:21:28.131924+00:00"
         },
         "guide/regular_expressions/cheatsheet/index.md": {
-          "content_hash": "aafbf14c353c01821de1613a3d6e2aa5d4561e9b20f3d8ec08112fa4ad2f1e43",
+          "content_hash": "fcd5897b05b86407c5ce163c5bbaebfcf842dc73dc80b12b61067318a7e1600c",
           "chunk_ids": [
             "0bc80d0b8731942e",
             "c0a219716ecccea0",
@@ -20222,9 +20241,10 @@
             "b2656f934cb0b58f",
             "0a64c3afe191750e",
             "4bbc1bc47b67132a",
-            "b782bb4775f7b10f"
+            "b782bb4775f7b10f",
+            "cbd7ef59f0a70a82"
           ],
-          "last_synced": "2026-02-13T02:51:41.936960+00:00"
+          "last_synced": "2026-03-23T04:21:29.153924+00:00"
         },
         "guide/regular_expressions/groups_and_backreferences/index.md": {
           "content_hash": "cd2e1e1b5b4a8f75ead461d35ab11ee8cf72732a714910464d88b981ca624d4f",
@@ -20261,7 +20281,7 @@
           "last_synced": "2026-02-13T02:51:42.431840+00:00"
         },
         "guide/regular_expressions/index.md": {
-          "content_hash": "3d9590fb417f92aaa3b04b5013acb17f7304528c2b8c3db4ed477768a06c2f9c",
+          "content_hash": "fcbecb69930633b79c29880050a388f97d26ff12f3154136ca58048502caaf6a",
           "chunk_ids": [
             "fa9e69273381217d",
             "081f50c159e108f0",
@@ -20321,7 +20341,7 @@
             "e86fd88582aa96a8",
             "56c75ced55151d3f"
           ],
-          "last_synced": "2026-02-13T02:51:43.317650+00:00"
+          "last_synced": "2026-03-23T04:21:30.069696+00:00"
         },
         "guide/regular_expressions/quantifiers/index.md": {
           "content_hash": "580c87d9f54003f1a61ca5966cdc430d9e1a20c87ee572942395fed159f96752",
@@ -21650,7 +21670,7 @@
           "last_synced": "2026-02-13T02:52:10.222089+00:00"
         },
         "reference/errors/cant_use_nullish_coalescing_unparenthesized/index.md": {
-          "content_hash": "e21d6c11cd95a9a652faf3dbbe83f8238f11649fcefff0922995cea3ae27e581",
+          "content_hash": "4b2dddbbc4b12b5535bf3e6886a099590e119a7aab25586e8cc51fcf4d8372f8",
           "chunk_ids": [
             "da9a41e6829b6a0a",
             "490341ae79056e07",
@@ -21663,7 +21683,7 @@
             "71127cba4ce448b6",
             "2d590a626806cae8"
           ],
-          "last_synced": "2026-02-13T02:52:10.554115+00:00"
+          "last_synced": "2026-03-23T04:21:30.533331+00:00"
         },
         "reference/errors/class_ctor_no_new/index.md": {
           "content_hash": "fb9c04465cdbe34402fa90b046dd83890852c859365c52ac03a28087641032ea",
@@ -42577,7 +42597,7 @@
           "last_synced": "2026-02-13T03:00:03.634710+00:00"
         },
         "reference/regular_expressions/character_escape/index.md": {
-          "content_hash": "5444ed2d17ddd2ab662d4a184fc8bf6654685af4e7ad2cbd64a1854ba77d131e",
+          "content_hash": "65af7962266f83bc5ce54e8d467c1b2c0df3e37e3054b99778953ccefe999df2",
           "chunk_ids": [
             "beba4e788a96b5ff",
             "0e5ba64494526ab3",
@@ -42599,7 +42619,7 @@
             "4668529cd8a5a84e",
             "e371ff3fc2b010e9"
           ],
-          "last_synced": "2026-02-13T03:00:04.045879+00:00"
+          "last_synced": "2026-03-23T04:21:31.118046+00:00"
         },
         "reference/regular_expressions/disjunction/index.md": {
           "content_hash": "d8584f0f1be6c13f871a0f4bb39fde8ab27edd2700c5118b801de9510237603d",
@@ -44015,7 +44035,7 @@
           "last_synced": "2026-02-13T03:00:26.400113+00:00"
         },
         "reference/strict_mode/index.md": {
-          "content_hash": "f518142fe08ce2859c99518196647513407ecf5d7b17293975a085a092a0d3e4",
+          "content_hash": "308e17609f3a98ffc44020d3ea0d4a823a8a351ece66a9e9ed7c4fccc150c1df",
           "chunk_ids": [
             "c5a4003b7f8827f4",
             "5f64e515d76346ab",
@@ -44092,7 +44112,7 @@
             "54ec69342d72f0aa",
             "60d7aabd08d4120b"
           ],
-          "last_synced": "2026-02-13T03:00:28.080221+00:00"
+          "last_synced": "2026-03-23T04:21:32.294825+00:00"
         },
         "reference/template_literals/index.md": {
           "content_hash": "c0847b8fbe4b2e6ac42cab26c2b69fa6cb5866b2354d8048b794ff00322fea07",
@@ -44182,7 +44202,7 @@
       }
     },
     "typescript": {
-      "commit": "32433bc2c7528771aa4c63b2d22d7172b0dd376c",
+      "commit": "d21b31543d87c3b190e034694c955d2192b06a4d",
       "files": {
         "declaration-files/By Example.md": {
           "content_hash": "28a47f8c960a80de8d26e402f57ce45c0758507e614662e891df15c28fda6c63",
