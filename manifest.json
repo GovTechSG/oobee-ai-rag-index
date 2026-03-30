@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "last_sync": "2026-03-23T04:21:33.199046+00:00",
+  "last_sync": "2026-03-30T04:38:44.482110+00:00",
   "frameworks": {
     "react": {
       "commit": "40ea071c846b3ab1232391bab15d31f508913bf4",
@@ -8260,7 +8260,7 @@
       }
     },
     "vue": {
-      "commit": "77bc26feed68bae570ad9ce7ef91e0b889021a56",
+      "commit": "6313f817dbb7f069cac40ce997a8bb470b246f6c",
       "files": {
         "api/application.md": {
           "content_hash": "fd649a6270ee6e80e0f6610f4d6d9366eea1775a0664fe5aa6f1a58ea62234e8",
@@ -11427,7 +11427,7 @@
       }
     },
     "angular": {
-      "commit": "d2054c7c1a10b1e57f04dbb854fbf06eeea4b1fc",
+      "commit": "86bbc9474ce6490b37bc0225f38d8e7bd0e45714",
       "files": {
         "best-practices/a11y.md": {
           "content_hash": "bc0445cff5cfc50e70d6aad5bbe973d2b715c28fca18ebe7f2e67ab23e887cab",
@@ -11523,7 +11523,7 @@
           "last_synced": "2026-02-23T04:15:15.338658+00:00"
         },
         "best-practices/runtime-performance/skipping-subtrees.md": {
-          "content_hash": "acf92f5fa391f10eb499d4499e4bcd94212b1fc93aac4c1e05bce96243538e72",
+          "content_hash": "d7a45915f9e40177ecddffa021be40cd19ed3d9952a6e9414131add39c4df5e3",
           "chunk_ids": [
             "1de50d168b5f25ec",
             "e8572828f7573232",
@@ -11543,10 +11543,9 @@
             "649fe6cf4eb87379",
             "9c9fd43d189c8618",
             "0c5dd1ace1e53ce7",
-            "f12103d57665755a",
-            "b31124e648a7ecbd"
+            "f12103d57665755a"
           ],
-          "last_synced": "2026-02-13T02:48:04.959927+00:00"
+          "last_synced": "2026-03-30T04:38:25.227141+00:00"
         },
         "best-practices/runtime-performance/slow-computations.md": {
           "content_hash": "d0653a29cd76535fc3a3f2fa86e805980b74069f656715f470c78a4c54c5ac72",
@@ -12505,7 +12504,7 @@
           "last_synced": "2026-02-13T02:48:21.111655+00:00"
         },
         "guide/components/advanced-configuration.md": {
-          "content_hash": "df38d18c75f85ac972b8336666b76d508b7d46f13f96e309f3ad46cbea202576",
+          "content_hash": "0740069573a1aea56ecf9469bc1f920be4c85d9cbf7208f9552d517c2c7aec15",
           "chunk_ids": [
             "76baf0a6f1f4293c",
             "0a7422b06796b225",
@@ -12514,10 +12513,9 @@
             "9c58561617ed029b",
             "4424a728a2135461",
             "36cbb4ee37548e39",
-            "c51938c071ff34f2",
-            "091f7c7f9913641c"
+            "c51938c071ff34f2"
           ],
-          "last_synced": "2026-02-13T02:48:21.428387+00:00"
+          "last_synced": "2026-03-30T04:38:25.769365+00:00"
         },
         "guide/components/anatomy-of-components.md": {
           "content_hash": "8466e055bec0c7327a2fd2ee3c5335d1cdebdf02fbc63778b239649f418f7a0e",
@@ -13788,7 +13786,7 @@
           "last_synced": "2026-02-13T02:48:54.559414+00:00"
         },
         "guide/forms/signals/custom-controls.md": {
-          "content_hash": "c7348eb767168dd6311fb83e8d45beadd9dc23e7f201ee7b28f3653db74cc66a",
+          "content_hash": "630d9352a9283cba120dd3da4a1bdf7b93eeffbf94e544895c2d7b76d92bd815",
           "chunk_ids": [
             "d64b663518189ce8",
             "f78007a9951ebd6a",
@@ -13832,7 +13830,7 @@
             "1c65f53fd79a54cb",
             "7c7cefe470fde9b1"
           ],
-          "last_synced": "2026-02-23T04:15:16.865099+00:00"
+          "last_synced": "2026-03-30T04:38:27.457536+00:00"
         },
         "guide/forms/signals/designing-your-form-model.md": {
           "content_hash": "362df4c15071684b5f2e1bbf7befc7998860e6e7a4abd87bc6bc12bf5f803d56",
@@ -15023,7 +15021,7 @@
           "last_synced": "2026-02-13T02:49:15.730358+00:00"
         },
         "guide/routing/common-router-tasks.md": {
-          "content_hash": "e620e40329b8dbde8bfaacdd2da899e68c3e7d6c1fa33ae9d1573c6f3cfa08f5",
+          "content_hash": "27d9ba367f153f9cef567e3f9edc0f48d580ec5779a8182d2f1ad3d7853a58a3",
           "chunk_ids": [
             "e50823d40e874056",
             "c7c8036f13bde91d",
@@ -15045,9 +15043,11 @@
             "68b067f837f1a617",
             "99a8c6f39de45382",
             "d18b732430520d5a",
-            "71cd9e4aebf98269"
+            "71cd9e4aebf98269",
+            "620bf08a3129d12c",
+            "18a73e6758e93b7d"
           ],
-          "last_synced": "2026-02-13T02:49:16.198249+00:00"
+          "last_synced": "2026-03-30T04:38:28.111047+00:00"
         },
         "guide/routing/customizing-route-behavior.md": {
           "content_hash": "851ebd2850e8d9ee45b31117146a5597cf515bc3d4bb2dc08f65fed74197f7b2",
@@ -15549,7 +15549,7 @@
           "last_synced": "2026-02-13T02:49:28.896152+00:00"
         },
         "guide/security.md": {
-          "content_hash": "117d17a096f23032b07e350f2aae73305664647dee9a5190f4ed0e946908c9a2",
+          "content_hash": "50d3327fe2f76e8faa3366f8554162100c420fd87acf0f52917476234b52be92",
           "chunk_ids": [
             "a186f7a59ab1ba68",
             "aafc8a8f3c9995da",
@@ -15635,9 +15635,10 @@
             "38ff0355801184ea",
             "8a33cf510812cb99",
             "7a4d67f21cbf86d3",
-            "5565623dcfb36a5d"
+            "5565623dcfb36a5d",
+            "7e1b94f6afa9d1ca"
           ],
-          "last_synced": "2026-03-23T04:21:14.916609+00:00"
+          "last_synced": "2026-03-30T04:38:29.403647+00:00"
         },
         "guide/signals/effect.md": {
           "content_hash": "a110c5f9ac641f97911ab45928c9181ac6b590f13dddf469c0e04532b0c9c0cb",
@@ -15911,7 +15912,7 @@
           "last_synced": "2026-03-23T04:21:16.453525+00:00"
         },
         "guide/templates/control-flow.md": {
-          "content_hash": "3c4b2113984d5500b54403ea2354446b75816b36d8eb825a2e293913ac7257be",
+          "content_hash": "1b062c1a473041731ea553f65733f65a5782ea807c3d472a0071e2da2d0739f6",
           "chunk_ids": [
             "fe63d40ccdfb1089",
             "2b5c3f93baff893e",
@@ -15931,9 +15932,10 @@
             "6ccc4c467b4f6499",
             "770efe1e62d15eb0",
             "4ad67e55e3f5d452",
-            "570462a381e819ba"
+            "570462a381e819ba",
+            "d46852dbeb87b9de"
           ],
-          "last_synced": "2026-03-02T04:06:38.404417+00:00"
+          "last_synced": "2026-03-30T04:38:30.029462+00:00"
         },
         "guide/templates/defer.md": {
           "content_hash": "5642b50763df6c9417968478f3bd33a854441071326e2bcad1dd6e69a39005e3",
@@ -16667,7 +16669,7 @@
           "last_synced": "2026-03-09T04:08:48.451264+00:00"
         },
         "guide/testing/using-component-harnesses.md": {
-          "content_hash": "b3e8fb819187ea0571699bb3cc38f5f7e1e765cc49161a9f6c9732c452d2af1e",
+          "content_hash": "89b856315d5bb4ce36f1298509c687476e86430a901d51eb447c0735b1c3b1d7",
           "chunk_ids": [
             "0a8da9e1bc3042b5",
             "ee44ec1f7bc819cd",
@@ -16700,7 +16702,7 @@
             "b5da54a19f3ecfbe",
             "f3ee91a75d9b7276"
           ],
-          "last_synced": "2026-02-13T02:49:53.546438+00:00"
+          "last_synced": "2026-03-30T04:38:30.726446+00:00"
         },
         "guide/testing/utility-apis.md": {
           "content_hash": "0df53871da3e005855340504e10cf54c37d78365437d1eca3d532f1df8966a72",
@@ -18109,7 +18111,7 @@
           "last_synced": "2026-02-13T02:50:27.985649+00:00"
         },
         "reference/releases.md": {
-          "content_hash": "0e52e175157ef907b7d3b015f2eb1395eab00431a74a700c9dca208bce7cfc71",
+          "content_hash": "f9a4248a2b635ef16d95fcde57f1d7fa302aaf7a0bb0c26dfd887b9b4e9edb61",
           "chunk_ids": [
             "f836cfef37300b52",
             "b178d0f8152eae6e",
@@ -18155,10 +18157,10 @@
             "343c4246e0d8f9c5",
             "a9aeb5e56b217258"
           ],
-          "last_synced": "2026-02-13T02:50:28.584516+00:00"
+          "last_synced": "2026-03-30T04:38:31.488025+00:00"
         },
         "reference/roadmap.md": {
-          "content_hash": "2646deb50d83afbba0b3e0a1f2ff7a0300d3cf103e55a47c357d35a6392be693",
+          "content_hash": "625c12469dd266bad258c934faaddd3743fa4b3a523fbb4ed8f4c1cc2399b50c",
           "chunk_ids": [
             "186f7631172d4341",
             "9f55ad8cd861b175",
@@ -18252,9 +18254,10 @@
             "c64120729cefd33d",
             "49735aba425e6291",
             "f2db2b6bb2b7c6d2",
-            "5286c94d363d38a2"
+            "5286c94d363d38a2",
+            "4115efb964c2315a"
           ],
-          "last_synced": "2026-03-02T04:06:40.787793+00:00"
+          "last_synced": "2026-03-30T04:38:32.666151+00:00"
         },
         "reference/versions.md": {
           "content_hash": "85d8d722866980ffecbbda704872451419dbdd26485c2000ffeda32de1b35bfe",
@@ -18403,7 +18406,7 @@
           "last_synced": "2026-02-23T04:15:23.099018+00:00"
         },
         "guide/forms/signals/async-operations.md": {
-          "content_hash": "fb1acd52b4ea0978568b1f9cc9f130a16e003fae226a3ae8c3cb09e2a8aa9bed",
+          "content_hash": "0c66aa2d75bad696d12b47cb66d1b4e6314bd78899a4481fea43930d495dfe85",
           "chunk_ids": [
             "dcfe11f91262061d",
             "d3b270c9ed048813",
@@ -18447,7 +18450,7 @@
             "d9710f4684f4467b",
             "03a97367b30bdfcb"
           ],
-          "last_synced": "2026-02-23T04:15:23.682501+00:00"
+          "last_synced": "2026-03-30T04:38:26.693199+00:00"
         },
         "reference/errors/NG0204.md": {
           "content_hash": "964ec393f4616fbde0a91f6bac48face40138d2cdd0a676bcde9306c3597af72",
@@ -18526,7 +18529,7 @@
       }
     },
     "javascript": {
-      "commit": "63fee14f8c716fb79d2b9a1bb95b7ebc95c21c58",
+      "commit": "96de3e876c96f644f3d9675024f992d5868b3ef1",
       "files": {
         "guide/closures/index.md": {
           "content_hash": "ae1a6ecd7f8e446bef7a1a689c082a88569e8b506f61e93b7dfdf2768a896fdd",
@@ -44202,7 +44205,7 @@
       }
     },
     "typescript": {
-      "commit": "d21b31543d87c3b190e034694c955d2192b06a4d",
+      "commit": "2207cc60c964a43a61b58a611a3e7b9ba01a72ed",
       "files": {
         "declaration-files/By Example.md": {
           "content_hash": "28a47f8c960a80de8d26e402f57ce45c0758507e614662e891df15c28fda6c63",
@@ -46205,7 +46208,7 @@
           "last_synced": "2026-02-13T03:01:08.176007+00:00"
         },
         "project-config/Compiler Options.md": {
-          "content_hash": "cd79f7d2cb3f2d28647849d6e7cb0ed9def495ecdd28c6192647344030115a94",
+          "content_hash": "9f7c42d6e9208db7772ad7b6d42f03e9396da24b11abb6212578137fe354fac6",
           "chunk_ids": [
             "43fea407cf553037",
             "44a38f915809b750",
@@ -46349,9 +46352,11 @@
             "81a36fdc6500441e",
             "600eff64546452e3",
             "3e0a007363e4f0f7",
-            "c01f6fbe60d815d6"
+            "c01f6fbe60d815d6",
+            "875841dc5f6c1847",
+            "b71f01dadb01531d"
           ],
-          "last_synced": "2026-03-09T04:08:59.609761+00:00"
+          "last_synced": "2026-03-30T04:38:44.482085+00:00"
         },
         "project-config/Configuring Watch.md": {
           "content_hash": "7a3506d20489ba942c6fda42012686b34aa98ba1e8f8530b4f456bd507c660b2",
