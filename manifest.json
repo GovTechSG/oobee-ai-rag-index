@@ -1,9 +1,9 @@
 {
   "version": "1.0",
-  "last_sync": "2026-03-30T04:38:44.482110+00:00",
+  "last_sync": "2026-04-06T04:39:56.507838+00:00",
   "frameworks": {
     "react": {
-      "commit": "40ea071c846b3ab1232391bab15d31f508913bf4",
+      "commit": "1207ee36e1c7e3f2737d8f1022015473ffa99adf",
       "files": {
         "learn/add-react-to-an-existing-project.md": {
           "content_hash": "45193ac21517d19f408acf915371ebaa3342d285d31ef85f91c278ee1bcc1c91",
@@ -8260,7 +8260,7 @@
       }
     },
     "vue": {
-      "commit": "6313f817dbb7f069cac40ce997a8bb470b246f6c",
+      "commit": "c1c8f9617144a0ef8a526b7347c07b0b2771c3c5",
       "files": {
         "api/application.md": {
           "content_hash": "fd649a6270ee6e80e0f6610f4d6d9366eea1775a0664fe5aa6f1a58ea62234e8",
@@ -11427,7 +11427,7 @@
       }
     },
     "angular": {
-      "commit": "86bbc9474ce6490b37bc0225f38d8e7bd0e45714",
+      "commit": "4a174b89c8de7bad62be780d1bc20fe1383d4404",
       "files": {
         "best-practices/a11y.md": {
           "content_hash": "bc0445cff5cfc50e70d6aad5bbe973d2b715c28fca18ebe7f2e67ab23e887cab",
@@ -13202,7 +13202,7 @@
           "last_synced": "2026-02-13T02:48:33.711555+00:00"
         },
         "guide/directives/attribute-directives.md": {
-          "content_hash": "f63348f8fac74880ae40f5b871047ba378215d3dcda66357f11b03df711626c6",
+          "content_hash": "244287cc65fe3efbb98be3581f95468eb5ab776aa60b81a62b7bc88656b928ef",
           "chunk_ids": [
             "9cb0232f26d22b18",
             "c90262beb0cb0dc7",
@@ -13228,10 +13228,9 @@
             "265b2b6fbe2dd882",
             "110e9e3b40ceaff3",
             "6edc6bd0c2ad1257",
-            "e0e9761efc9aad6f",
-            "2f2df13a4b338126"
+            "e0e9761efc9aad6f"
           ],
-          "last_synced": "2026-02-16T04:15:38.272907+00:00"
+          "last_synced": "2026-04-06T04:39:42.408740+00:00"
         },
         "guide/directives/directive-composition-api.md": {
           "content_hash": "b3495714ff68bcff601a6c3183f440c6e793be29d51d4bad628308fa1290adc1",
@@ -15375,7 +15374,7 @@
           "last_synced": "2026-02-13T02:49:25.023524+00:00"
         },
         "guide/routing/route-guards.md": {
-          "content_hash": "d9c40f43580913efebe1d5e8201803ca557d253f6c97f20b52ea2a7e698b2761",
+          "content_hash": "8102931ccf44e7312ee08f9d4ffd53e9f1423e91bc2242b5cfe500c67e978fe4",
           "chunk_ids": [
             "b38af437d3062ef5",
             "8a407aede943a3ca",
@@ -15399,9 +15398,10 @@
             "b0581a3c078822bc",
             "6e080020d932fe75",
             "14607611082be718",
-            "f8f450ce0419c40d"
+            "f8f450ce0419c40d",
+            "64d5032bca2dbb94"
           ],
-          "last_synced": "2026-03-02T04:06:34.481100+00:00"
+          "last_synced": "2026-04-06T04:39:43.208523+00:00"
         },
         "guide/routing/route-transition-animations.md": {
           "content_hash": "7578210c5e7c06da828acc3532d524d25f3f0121962cc09ab7eedd394ddf133c",
@@ -18529,7 +18529,7 @@
       }
     },
     "javascript": {
-      "commit": "96de3e876c96f644f3d9675024f992d5868b3ef1",
+      "commit": "8e7f97c52ea28a2f02b035ca2f3a8a42d41d9e9f",
       "files": {
         "guide/closures/index.md": {
           "content_hash": "ae1a6ecd7f8e446bef7a1a689c082a88569e8b506f61e93b7dfdf2768a896fdd",
@@ -19855,7 +19855,7 @@
           "last_synced": "2026-02-13T02:51:34.977387+00:00"
         },
         "guide/modules/index.md": {
-          "content_hash": "d7a79d804a1d9c53a1f5267187f2d771e759406cd8e5ed301fc1d72e8a0e84cd",
+          "content_hash": "ef36dd203c116cae9fb50323f737ee970a9756a477965e716be045c2882f07f2",
           "chunk_ids": [
             "2519cd84c1089ef8",
             "7c7c449dba22ac54",
@@ -20007,7 +20007,7 @@
             "e2550a4a8061e440",
             "049f27130aeb0fd9"
           ],
-          "last_synced": "2026-02-13T02:51:37.609944+00:00"
+          "last_synced": "2026-04-06T04:39:54.775682+00:00"
         },
         "guide/numbers_and_strings/index.md": {
           "content_hash": "e089b5cbcec9b195e0ebbd59612e964a210ea85a35b8cf42e222c1cb68e68ee5",
@@ -44205,7 +44205,7 @@
       }
     },
     "typescript": {
-      "commit": "2207cc60c964a43a61b58a611a3e7b9ba01a72ed",
+      "commit": "119f931a639c9215a27311fde459c6db0b8718e4",
       "files": {
         "declaration-files/By Example.md": {
           "content_hash": "28a47f8c960a80de8d26e402f57ce45c0758507e614662e891df15c28fda6c63",
