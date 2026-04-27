@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "last_sync": "2026-04-20T04:52:33.958479+00:00",
+  "last_sync": "2026-04-27T05:17:06.904193+00:00",
   "frameworks": {
     "react": {
       "commit": "abe931a8cb3aee3e8b15ef7e187214789164162a",
@@ -11432,7 +11432,7 @@
       }
     },
     "angular": {
-      "commit": "a0d45639a9f2d8c30e4a69c5ed875d1fc7647b46",
+      "commit": "08930e60bb34fa705af09c930ac1c7aae45afe75",
       "files": {
         "best-practices/a11y.md": {
           "content_hash": "bc0445cff5cfc50e70d6aad5bbe973d2b715c28fca18ebe7f2e67ab23e887cab",
@@ -11696,7 +11696,7 @@
           "last_synced": "2026-02-13T02:48:07.897230+00:00"
         },
         "guide/animations/css.md": {
-          "content_hash": "7afe40f39830ed79a9815f41cd9f7be8cc52e9853bad22837f8b12038e0a1bcd",
+          "content_hash": "5037b4a02839e29d256a4a3aa8cd7f8222cad230fc8b00a3d8acbe4c7a35dd61",
           "chunk_ids": [
             "74c7999c29e4a403",
             "f14555f68a2581ce",
@@ -11741,7 +11741,7 @@
             "58e60fde202855f7",
             "1161a670d283f0a7"
           ],
-          "last_synced": "2026-02-13T02:48:08.535236+00:00"
+          "last_synced": "2026-04-27T05:16:41.102145+00:00"
         },
         "guide/animations/enter-and-leave.md": {
           "content_hash": "5c54d3c5c1ecbab24894d0dd275c6f578e14b175636e6ea6fede360593c089ab",
@@ -12872,7 +12872,7 @@
           "last_synced": "2026-04-13T04:54:01.078631+00:00"
         },
         "guide/di/creating-and-using-services.md": {
-          "content_hash": "6a233b53fe210d2e9f95923688a6d5107ef215f49f0d32e07ab37208dff1aef8",
+          "content_hash": "b66c50c69ab84a3764d858b12da04e0f14f3c60e60b35cce5feb0b87c3d89b42",
           "chunk_ids": [
             "96c559b379fe6a93",
             "477efb616e74abb2",
@@ -12882,9 +12882,19 @@
             "8f3928f33cff9693",
             "da56a4f561551044",
             "bdc6c1fd00b833c4",
-            "cbc454d0481d4df0"
+            "cbc454d0481d4df0",
+            "a217c4b7433b9297",
+            "92b0de8d76b1dfb7",
+            "0693e249cc052f6a",
+            "1908224fd215cfd0",
+            "3dc6fa43e1ada543",
+            "027752adf6f71d79",
+            "19541f502f7ba70e",
+            "b78d3edc247de279",
+            "1b27c3f394d9f6e7",
+            "4d609e0ced0889d0"
           ],
-          "last_synced": "2026-02-13T02:48:28.137304+00:00"
+          "last_synced": "2026-04-27T05:16:41.991076+00:00"
         },
         "guide/di/creating-injectable-service.md": {
           "content_hash": "89c10107885602e8158eae2a1d20219518a41d8d5dd74889451b189a3f52e308",
@@ -12909,7 +12919,7 @@
           "last_synced": "2026-02-13T02:48:28.509903+00:00"
         },
         "guide/di/defining-dependency-providers.md": {
-          "content_hash": "e3e8ecd77b32435044f5fe79be76fcc7e7d4d9c8a2fd8273e1d47b9011d92ea3",
+          "content_hash": "c555f0340363d2fc2acf0a628dc60b12c6493c3a3f9b2035ef43b4e91c936ff7",
           "chunk_ids": [
             "bc091b3cab2126e0",
             "2a40f6462f0d1da2",
@@ -12980,7 +12990,7 @@
             "8c07bc1bbf75ffdc",
             "71525fff32034a7e"
           ],
-          "last_synced": "2026-03-02T04:06:27.535494+00:00"
+          "last_synced": "2026-04-27T05:16:43.358419+00:00"
         },
         "guide/di/dependency-injection-context.md": {
           "content_hash": "1809040523f7ec747bf87e3d3b72f119c157a713b4e54797f17efd87a1545dd5",
@@ -13184,7 +13194,7 @@
           "last_synced": "2026-02-13T02:48:33.327112+00:00"
         },
         "guide/di/overview.md": {
-          "content_hash": "f4b0f11a7286660188c50f6022cb78f5164c0c9f5fb13ba9c79a9b1d86eee7f8",
+          "content_hash": "e85f781995f68e1a6e532e4425029ee7685bc6fc78684f973ba3645029e06130",
           "chunk_ids": [
             "fb630afab191055a",
             "50c34f4b2694fcd8",
@@ -13205,7 +13215,7 @@
             "307b9184a6bc3dd7",
             "dd8e79d504e7d166"
           ],
-          "last_synced": "2026-02-13T02:48:33.711555+00:00"
+          "last_synced": "2026-04-27T05:16:43.901134+00:00"
         },
         "guide/directives/attribute-directives.md": {
           "content_hash": "244287cc65fe3efbb98be3581f95468eb5ab776aa60b81a62b7bc88656b928ef",
@@ -13458,7 +13468,7 @@
           "last_synced": "2026-02-23T04:15:16.073971+00:00"
         },
         "guide/forms/dynamic-forms.md": {
-          "content_hash": "1e7beb5e1d6c4095d4954b8a7c1b3dc803e5570716f47dd14bc7e60fadff4c91",
+          "content_hash": "247329db2e396f1870264765e564b2a1fdfa87a5c1096d4b3d13016cbfca214c",
           "chunk_ids": [
             "f28cff655263140f",
             "6275595a4a7d1739",
@@ -13487,10 +13497,10 @@
             "b3b28d601cb51abb",
             "b288ff46a1d0232c"
           ],
-          "last_synced": "2026-02-13T02:48:41.455596+00:00"
+          "last_synced": "2026-04-27T05:16:44.756233+00:00"
         },
         "guide/forms/form-validation.md": {
-          "content_hash": "bae362dd8346095196ceb1bcfa3321ce89391ad693ac8170e5b42adec260ffc8",
+          "content_hash": "709b54033db1595bcb5031b1768b1d1ee2a74b69eeef6a56821e94a7f8477bd1",
           "chunk_ids": [
             "2f61b696511064e8",
             "5fa099feb9388c16",
@@ -13568,10 +13578,10 @@
             "9fb760c7113c1e6e",
             "de420cdc05eca0b6"
           ],
-          "last_synced": "2026-03-23T04:21:11.431699+00:00"
+          "last_synced": "2026-04-27T05:16:45.761666+00:00"
         },
         "guide/forms/overview.md": {
-          "content_hash": "5ca6a57083fd2eeeb6b846f6d7a8e4b9678ef50e1ec818490e305b27c2ab6324",
+          "content_hash": "ac89dd3205a11fe7b45712690d8a5a1cdd605e518cfc310b886a9034df298476",
           "chunk_ids": [
             "23c27248ae1ddc60",
             "93eaa56e767c5806",
@@ -13631,10 +13641,10 @@
             "314fbf93c18545a5",
             "a4cefc2fc9333075"
           ],
-          "last_synced": "2026-02-13T02:48:44.535790+00:00"
+          "last_synced": "2026-04-27T05:16:46.591642+00:00"
         },
         "guide/forms/reactive-forms.md": {
-          "content_hash": "37405432e611c7697a7cf79f0d3756e4fe046cbd94193ff0b3aea9353f18b50c",
+          "content_hash": "c781202966b5415ddec04c50413ff29f6bea973813814491fe70c82f49014e6a",
           "chunk_ids": [
             "02785e9f687bc37d",
             "688f0b0628b59782",
@@ -13761,7 +13771,7 @@
             "345dcdcc4386f4e0",
             "14c1ae31df7e9af2"
           ],
-          "last_synced": "2026-03-23T04:21:13.779625+00:00"
+          "last_synced": "2026-04-27T05:16:48.769084+00:00"
         },
         "guide/forms/signals/comparison.md": {
           "content_hash": "ca6b7a03ac3887b64c1ebfc0e7162ae20420bb7ad039551c3f9021fe7d625673",
@@ -14239,7 +14249,7 @@
           "last_synced": "2026-03-09T04:08:41.195639+00:00"
         },
         "guide/forms/template-driven-forms.md": {
-          "content_hash": "50217f042da13b817fe1f0f803a7a76f62738fdc1797e60691c77b9c14704487",
+          "content_hash": "6e18317b16f78e49273a34caf6fe475c00fe4b4173cba493dc764587d48cf51b",
           "chunk_ids": [
             "43010bd43db727f4",
             "1a2d70ee1f910277",
@@ -14314,10 +14324,10 @@
             "674d2eaf830fd694",
             "8daaa295ae37c047"
           ],
-          "last_synced": "2026-02-13T02:49:02.903216+00:00"
+          "last_synced": "2026-04-27T05:16:50.438807+00:00"
         },
         "guide/forms/typed-forms.md": {
-          "content_hash": "1524015df4c794a9522914c54a3fe981a083e915f2500cd50742d37a071ea31e",
+          "content_hash": "c7e24521ea64fe9fb963859e97acf189c2fa38d63cb22c6803752d42bf664830",
           "chunk_ids": [
             "a19320d84ad1d8e0",
             "fa63770756651709",
@@ -14343,7 +14353,7 @@
             "bfda148552b881b2",
             "78088248673c0309"
           ],
-          "last_synced": "2026-02-13T02:49:03.379639+00:00"
+          "last_synced": "2026-04-27T05:16:51.320148+00:00"
         },
         "guide/http/http-resource.md": {
           "content_hash": "3488cc8b41a597fac1cb30459135d6257a749c22dc512171fdb23747e808ffdf",
@@ -14367,7 +14377,7 @@
           "last_synced": "2026-02-13T02:49:03.765739+00:00"
         },
         "guide/http/interceptors.md": {
-          "content_hash": "e2df5b059c16e7adbbbfb50a3a66fbbbb87ea867c8866365f527eaf3ee04c4f0",
+          "content_hash": "924c5fc779269f9b20c8d8d7128f866d519c713699c33983fd300b7e27d626c8",
           "chunk_ids": [
             "9048497eb3f5dc90",
             "f7e580644fd96d4e",
@@ -14405,10 +14415,10 @@
             "b8c421152ebf8ec6",
             "546378e4eb906d42"
           ],
-          "last_synced": "2026-03-09T04:08:42.050533+00:00"
+          "last_synced": "2026-04-27T05:16:52.018230+00:00"
         },
         "guide/http/making-requests.md": {
-          "content_hash": "52f28a385ca578fd808f1f347b2bc19188984c1e857baa1c038ab9054f9b95b8",
+          "content_hash": "e561af71de933300bb2d34eede6ce8c0fe0fd19a27f311c650acbae6276a1d36",
           "chunk_ids": [
             "853e72246de8ee29",
             "abcc08a79e055e54",
@@ -14485,16 +14495,16 @@
             "1565ed997decf77f",
             "e8b56169fc5a3119"
           ],
-          "last_synced": "2026-03-09T04:08:43.132623+00:00"
+          "last_synced": "2026-04-27T05:16:52.998224+00:00"
         },
         "guide/http/overview.md": {
-          "content_hash": "a81d384569c8057c9a8667511e8168b5c736305a2e16f2733d1f4c729c4b9c9d",
+          "content_hash": "5c871306a3fd8556aedb4841de8afee02add2f3fa8e11cec6550a8cd2adf76ca",
           "chunk_ids": [
             "f469214b8022cb85",
             "f2d5a8a8985661c9",
             "10ab81f6faf583b3"
           ],
-          "last_synced": "2026-02-13T02:49:05.471332+00:00"
+          "last_synced": "2026-04-27T05:16:53.413046+00:00"
         },
         "guide/http/security.md": {
           "content_hash": "1497c2dfbde604a27e0f104e704ea00caeddfef6cdab36e03761f1781c1711fb",
@@ -14515,7 +14525,7 @@
           "last_synced": "2026-02-13T02:49:05.871355+00:00"
         },
         "guide/http/setup.md": {
-          "content_hash": "8b955c0bf3be2c027491896b0cb59388873496070197bd0fed905d2abf39eacb",
+          "content_hash": "b5c45c472a3b50d33d50e6a17d018bf80650bd7c62bf973aa4ce52cd6847996f",
           "chunk_ids": [
             "95007cce3fbce740",
             "d4744e749c6b5988",
@@ -14536,10 +14546,10 @@
             "3d147ed9a5ad44bd",
             "ac1ecd604eeb7d5c"
           ],
-          "last_synced": "2026-03-09T04:08:43.631195+00:00"
+          "last_synced": "2026-04-27T05:16:54.794384+00:00"
         },
         "guide/http/testing.md": {
-          "content_hash": "9ff1f6c690a13720a3a6999eaad3a8841de8e69b38196ebbe3c29b67e74955d4",
+          "content_hash": "78190a12f7769902832c2f3215a23b8aa7cb417fb3de6c832f780a2db99a3805",
           "chunk_ids": [
             "1d40fbe79e2461c5",
             "a0e28aa4c4600559",
@@ -14563,7 +14573,7 @@
             "b0aed34b2c3a50d6",
             "f4f345154f6f6fe7"
           ],
-          "last_synced": "2026-02-13T02:49:07.056240+00:00"
+          "last_synced": "2026-04-27T05:16:55.459214+00:00"
         },
         "guide/hydration.md": {
           "content_hash": "d1d1ee6ae946cec312933fb2811663f93a67b8f66849ea51c50c8a493590283c",
@@ -15563,7 +15573,7 @@
           "last_synced": "2026-02-13T02:49:28.896152+00:00"
         },
         "guide/security.md": {
-          "content_hash": "50d3327fe2f76e8faa3366f8554162100c420fd87acf0f52917476234b52be92",
+          "content_hash": "f6b14a747bd5d36fadbc2442c984db5d1e52172729a6d99481a1a9a1c8570c89",
           "chunk_ids": [
             "a186f7a59ab1ba68",
             "aafc8a8f3c9995da",
@@ -15650,9 +15660,12 @@
             "8a33cf510812cb99",
             "7a4d67f21cbf86d3",
             "5565623dcfb36a5d",
-            "7e1b94f6afa9d1ca"
+            "7e1b94f6afa9d1ca",
+            "d3eca155d06f0285",
+            "a81724a982b3d67a",
+            "56760b901b718a39"
           ],
-          "last_synced": "2026-03-30T04:38:29.403647+00:00"
+          "last_synced": "2026-04-27T05:16:56.548089+00:00"
         },
         "guide/signals/effect.md": {
           "content_hash": "a110c5f9ac641f97911ab45928c9181ac6b590f13dddf469c0e04532b0c9c0cb",
@@ -16932,7 +16945,7 @@
           "last_synced": "2026-04-20T04:52:22.755880+00:00"
         },
         "introduction/installation.md": {
-          "content_hash": "52d4f990979016adcd93a614be5aa10636508a19fbb440036d8640462acec884",
+          "content_hash": "73f8168d2f31e15dce5d258024f5e9a3502d1373dcfeba693ee6874a742a80a9",
           "chunk_ids": [
             "241a31e2bba9208a",
             "d7331e638417eaad",
@@ -16949,7 +16962,7 @@
             "2a6194a00de790ec",
             "58da7a72431ef634"
           ],
-          "last_synced": "2026-02-13T02:49:58.344944+00:00"
+          "last_synced": "2026-04-27T05:16:57.060246+00:00"
         },
         "introduction/what-is-angular.md": {
           "content_hash": "3009a4e795b4ff43e0422cbd80dc41895c7184f0a6e5bc68f7081294b1358ee3",
@@ -17568,14 +17581,14 @@
           "last_synced": "2026-02-13T02:50:14.123081+00:00"
         },
         "reference/errors/NG0955.md": {
-          "content_hash": "61de3be2bd24e65b7b9df394fa62201c9f1046cc5c368bfbde953482692e317a",
+          "content_hash": "77f891938058766bab4d0fcc49c5324e94c1065678462b5b710a999d7092deaf",
           "chunk_ids": [
             "304bdf68e0d08e66",
             "5420b62a850b160a",
             "883247983ae1a0c1",
             "52aeb23b06040526"
           ],
-          "last_synced": "2026-02-13T02:50:14.401397+00:00"
+          "last_synced": "2026-04-27T05:16:57.491494+00:00"
         },
         "reference/errors/NG0956.md": {
           "content_hash": "8aaf884eaab3fc918023f8fd932edd0efb7c8895888ae93520719fac0f7d8c33",
@@ -17677,7 +17690,7 @@
           "last_synced": "2026-04-13T04:54:03.748641+00:00"
         },
         "reference/extended-diagnostics/NG8021.md": {
-          "content_hash": "f58c1583f47be0cfd05f3017540bd5433b973dddd533b72ca0e808777e37fc26",
+          "content_hash": "0258f7f076026cab9fb256c4e1b05f716add08e08256fe4a3f3c874d1ca226d4",
           "chunk_ids": [
             "5c99d6224c40eb55",
             "8992324205df3587",
@@ -17689,9 +17702,12 @@
             "56e947951cb6f5cc",
             "777edf5edf6cfc42",
             "ecce50111fdeda22",
-            "4e6aa3d1e7fe4cc2"
+            "4e6aa3d1e7fe4cc2",
+            "7d9ad5d94e67fddc",
+            "a3cc1313d36224f1",
+            "db07ec5b454e3f04"
           ],
-          "last_synced": "2026-03-23T04:21:18.996818+00:00"
+          "last_synced": "2026-04-27T05:16:57.993384+00:00"
         },
         "reference/extended-diagnostics/NG8101.md": {
           "content_hash": "0070cdc76945d382c85f1d93bd1bce2a93eff76adffc24afc056f05663529b49",
@@ -18675,7 +18691,7 @@
       }
     },
     "javascript": {
-      "commit": "aaedffba9f47d6dce7967a4191963378026d9406",
+      "commit": "bf3142e11b227fb3e7c6de298ea9049aa1999d6f",
       "files": {
         "guide/closures/index.md": {
           "content_hash": "ae1a6ecd7f8e446bef7a1a689c082a88569e8b506f61e93b7dfdf2768a896fdd",
@@ -44351,7 +44367,7 @@
       }
     },
     "typescript": {
-      "commit": "3a52c3f7e4ef61608c4a0d2967e035d0bc9579a4",
+      "commit": "b55baf6f8b57a614b89522d8123b8a99794d9878",
       "files": {
         "declaration-files/By Example.md": {
           "content_hash": "28a47f8c960a80de8d26e402f57ce45c0758507e614662e891df15c28fda6c63",
