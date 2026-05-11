@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "last_sync": "2026-05-04T05:27:29.968361+00:00",
+  "last_sync": "2026-05-11T05:52:05.666068+00:00",
   "frameworks": {
     "react": {
       "commit": "abe931a8cb3aee3e8b15ef7e187214789164162a",
@@ -8265,7 +8265,7 @@
       }
     },
     "vue": {
-      "commit": "037a76daf60b0638e2837e8daa3174262e37af65",
+      "commit": "cccdebc775b648793aade100a0c11bda2db3bc3a",
       "files": {
         "api/application.md": {
           "content_hash": "fd649a6270ee6e80e0f6610f4d6d9366eea1775a0664fe5aa6f1a58ea62234e8",
@@ -11432,7 +11432,7 @@
       }
     },
     "angular": {
-      "commit": "c84642ac16bf3588c071bbdcc684daa8d4e494b3",
+      "commit": "76235803784ecbc9e1dfa6071653fa76d38f186f",
       "files": {
         "best-practices/a11y.md": {
           "content_hash": "bc0445cff5cfc50e70d6aad5bbe973d2b715c28fca18ebe7f2e67ab23e887cab",
@@ -18736,7 +18736,7 @@
       }
     },
     "javascript": {
-      "commit": "0dff7c501b844de960d5a180c1348a9ce01b82fe",
+      "commit": "3dfa597a57487f3314974982439a12e9393279ff",
       "files": {
         "guide/closures/index.md": {
           "content_hash": "ae1a6ecd7f8e446bef7a1a689c082a88569e8b506f61e93b7dfdf2768a896fdd",
