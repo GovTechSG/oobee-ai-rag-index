@@ -1,9 +1,9 @@
 {
   "version": "1.0",
-  "last_sync": "2026-05-25T06:18:36.954002+00:00",
+  "last_sync": "2026-06-01T06:46:54.226384+00:00",
   "frameworks": {
     "react": {
-      "commit": "47e64bf7ad81aab8bacfa791a37816ee869135eb",
+      "commit": "6ec61348646040795fdaa9de14a9bec603260f87",
       "files": {
         "learn/add-react-to-an-existing-project.md": {
           "content_hash": "45193ac21517d19f408acf915371ebaa3342d285d31ef85f91c278ee1bcc1c91",
@@ -11432,7 +11432,7 @@
       }
     },
     "angular": {
-      "commit": "06b004ec5c43008a6533273a2cd9c91c39fef4fd",
+      "commit": "45e8fb5d6cca998dc2c900f1d0db794622b3568f",
       "files": {
         "best-practices/a11y.md": {
           "content_hash": "bc0445cff5cfc50e70d6aad5bbe973d2b715c28fca18ebe7f2e67ab23e887cab",
@@ -18736,7 +18736,7 @@
       }
     },
     "javascript": {
-      "commit": "cad9096502d2a74b34a67377bbb0ac88fcfa58c2",
+      "commit": "0b2ddf6c871a55eebe31f4d8808b8c975bfa41a8",
       "files": {
         "guide/closures/index.md": {
           "content_hash": "ae1a6ecd7f8e446bef7a1a689c082a88569e8b506f61e93b7dfdf2768a896fdd",
