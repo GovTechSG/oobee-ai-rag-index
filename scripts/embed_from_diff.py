@@ -164,6 +164,18 @@ def main():
     default_namespace = vector_db_config.get("namespace", "")
     repo_urls = {name: cfg.get("repo", "") for name, cfg in sources.items()}
 
+    # Preserve chunk_ids for unchanged files from old manifest
+    for fw_name in new_manifest.frameworks:
+        old_fw = old_manifest.get_framework(fw_name)
+        new_fw = new_manifest.get_framework(fw_name)
+        if not old_fw or not new_fw:
+            continue
+        for path, new_state in new_fw.files.items():
+            old_state = old_fw.files.get(path)
+            if old_state and old_state.content_hash == new_state.content_hash and not new_state.chunk_ids:
+                new_state.chunk_ids = old_state.chunk_ids
+                new_state.last_synced = old_state.last_synced
+
     # Process each framework
     for fw_name, result in results.items():
         if not result.has_changes:
