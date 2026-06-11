@@ -359,7 +359,7 @@ class PineconeInferenceIndex:
             # Retry loop with exponential backoff
             for attempt in range(max_retries):
                 try:
-                    self.index.upsert_records(self.namespace, batch)
+                    self.index.upsert_records(namespace=self.namespace, records=batch)
                     total_upserted += len(batch)
                     logger.debug(f"Upserted batch {batch_num}/{total_batches}")
                     break
