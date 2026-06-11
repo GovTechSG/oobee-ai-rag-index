@@ -2,7 +2,7 @@ name: Sync docs
 
 on:
   schedule:
-    - cron: "0 2 * * 1" # Runs 10:00 AM on Monday. UTC +8
+    - cron: "0 18 * * 6" # Runs 2:00 AM Sunday SGT (UTC+8)
   workflow_dispatch:
     inputs:
       pinecone_api_key:
