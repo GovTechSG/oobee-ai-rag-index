@@ -86,11 +86,11 @@ jobs:
       - name: Tag sync
         if: steps.changes.outputs.has_changes == 'true'
         run: |
-          DATE_TAG="sync/$(date +%Y-%m-%d)"
+          DATE_TAG="synced/$(date +%Y-%m-%d)"
           git tag -f "$DATE_TAG"
           git tag -f "latest-sync"
-          git push origin "$DATE_TAG" --force
-          git push origin "latest-sync" --force
+          git push origin "refs/tags/$DATE_TAG" --force
+          git push origin refs/tags/latest-sync --force
 
       - name: Close existing sync PRs
         if: steps.changes.outputs.has_changes == 'true'
