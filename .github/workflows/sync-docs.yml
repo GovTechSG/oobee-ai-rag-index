@@ -54,8 +54,7 @@ jobs:
           fi
 
       - name: Sync docs (scrape + diff, no embed)
-        run: |
-          cd scripts && python sync.py --json-summary ../sync_summary.json
+        run: python scripts/sync.py --json-summary sync_summary.json
 
       - name: Check for changes
         id: changes
@@ -157,11 +156,10 @@ jobs:
           PINECONE_API_KEY: ${{ secrets.PINECONE_API_KEY }}
           PINECONE_INDEX_NAME: ${{ secrets.PINECONE_INDEX_NAME }}
         run: |
-          cd scripts
           if [ "${{ inputs.force_resync }}" == "true" ]; then
-            python sync.py --embed --force
+            python scripts/sync.py --embed --force
           else
-            python sync.py --embed
+            python scripts/sync.py --embed
           fi
 
       - name: Commit changes

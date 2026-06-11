@@ -46,10 +46,9 @@ jobs:
           PINECONE_API_KEY: ${{ secrets.PINECONE_API_KEY }}
           PINECONE_INDEX_NAME: ${{ secrets.PINECONE_INDEX_NAME }}
         run: |
-          cd scripts && python embed_from_diff.py \
-            --old-manifest ../manifest_old.json \
-            --new-manifest ../manifest.json \
-            --config ../config.yaml \
+          python scripts/embed_from_diff.py \
+            --old-manifest manifest_old.json \
+            --new-manifest manifest.json \
             --embed
 
       - name: Commit updated manifest
