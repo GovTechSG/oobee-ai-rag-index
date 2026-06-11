@@ -383,6 +383,13 @@ def main():
         help="Force full re-sync: clear namespaces and re-upload all chunks"
     )
     parser.add_argument(
+        "--json-summary",
+        type=str,
+        default=None,
+        metavar="FILE",
+        help="Write JSON summary of changes to FILE"
+    )
+    parser.add_argument(
         "-v", "--verbose",
         action="store_true",
         help="Enable verbose output"
@@ -404,6 +411,36 @@ def main():
         frameworks=args.frameworks,
         force=args.force
     )
+
+    # Write JSON summary if requested
+    if args.json_summary:
+        import json
+        from datetime import date
+
+        summary = {
+            "date": date.today().isoformat(),
+            "force": args.force,
+            "frameworks": {},
+            "totals": {"new": 0, "modified": 0, "deleted": 0}
+        }
+        for name, result in results.items():
+            if result is None:
+                summary["frameworks"][name] = {"status": "failed"}
+            else:
+                summary["frameworks"][name] = {
+                    "commit": result.commit,
+                    "new": [f.file_path for f in result.new_files],
+                    "modified": [f.file_path for f in result.modified_files],
+                    "deleted": [f.file_path for f in result.deleted_files],
+                    "unchanged_count": result.unchanged_count
+                }
+                summary["totals"]["new"] += len(result.new_files)
+                summary["totals"]["modified"] += len(result.modified_files)
+                summary["totals"]["deleted"] += len(result.deleted_files)
+
+        with open(args.json_summary, "w") as f:
+            json.dump(summary, f, indent=2)
+        logger.info(f"Wrote summary to {args.json_summary}")
 
     # Print summary
     print("\n" + "=" * 50)

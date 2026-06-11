@@ -1,0 +1,73 @@
+name: Embed on merge
+
+on:
+  pull_request:
+    types: [closed]
+    branches: [master]
+  workflow_dispatch:
+    inputs:
+      note:
+        description: "Manual retry — embeds based on current manifest vs previous commit"
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  embed:
+    if: >
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.pull_request.merged == true &&
+       startsWith(github.event.pull_request.head.ref, 'sync/'))
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Extract pre-merge manifest
+        run: |
+          git show HEAD~1:manifest.json > manifest_old.json 2>/dev/null || echo '{"version":"1.0","frameworks":{}}' > manifest_old.json
+
+      - name: Embed changes
+        env:
+          PINECONE_API_KEY: ${{ secrets.PINECONE_API_KEY }}
+          PINECONE_INDEX_NAME: ${{ secrets.PINECONE_INDEX_NAME }}
+        run: |
+          cd scripts && python embed_from_diff.py \
+            --old-manifest ../manifest_old.json \
+            --new-manifest ../manifest.json \
+            --config ../config.yaml \
+            --embed
+
+      - name: Commit updated manifest
+        run: |
+          if [[ -n "$(git status --porcelain -- manifest.json)" ]]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add manifest.json
+            git commit -m "chore: update manifest with chunk IDs"
+            git push
+          else
+            echo "No manifest changes (chunk_ids already populated or no embedding needed)."
+          fi
+
+      - name: Tag embedded
+        run: |
+          DATE_TAG="embedded/$(date +%Y-%m-%d)"
+          git tag -f "$DATE_TAG"
+          git tag -f "latest-embedded"
+          git push origin "$DATE_TAG" --force
+          git push origin "latest-embedded" --force
