@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "last_sync": "2026-06-11T06:15:06.527047+00:00",
+  "last_sync": "2026-06-13T19:45:21.927734+00:00",
   "frameworks": {
     "react": {
       "commit": "6ec61348646040795fdaa9de14a9bec603260f87",
@@ -838,7 +838,7 @@
       }
     },
     "vue": {
-      "commit": "0d10a2b3b29e9272a8b81013282e02cf7d710ed4",
+      "commit": "84f5304972104c60aad15c0111675eaa9e94f05c",
       "files": {
         "api/application.md": {
           "content_hash": "fd649a6270ee6e80e0f6610f4d6d9366eea1775a0664fe5aa6f1a58ea62234e8",
@@ -1051,9 +1051,9 @@
           "last_synced": "2026-06-11T06:14:52.322979+00:00"
         },
         "guide/components/props.md": {
-          "content_hash": "be152887d90bb1362ab51522a7455e435fe58a620ca4a51471899f9d1ad8b0c3",
+          "content_hash": "2801c67aa81dbba03e149a86d0c3402c2a4fd311a3efb834b2eec1e8c0acea14",
           "chunk_ids": [],
-          "last_synced": "2026-06-11T06:14:52.322981+00:00"
+          "last_synced": "2026-06-13T19:45:06.364652+00:00"
         },
         "guide/components/provide-inject.md": {
           "content_hash": "8b9589178d29e08bcec429d52beaa927f1b3b9cae7a6c6c2bfe5452e186025b9",
@@ -1216,9 +1216,9 @@
           "last_synced": "2026-06-11T06:14:52.323071+00:00"
         },
         "guide/scaling-up/ssr.md": {
-          "content_hash": "d8c21a8ed4f26b4f964d44f858b6bfd45a8d93425abebc420f7bda77a75d6d0c",
+          "content_hash": "99d420248a60e2671e1b87b70c575c0932f06e4a1135ebe3334e0bf0fc306a74",
           "chunk_ids": [],
-          "last_synced": "2026-06-11T06:14:52.323074+00:00"
+          "last_synced": "2026-06-13T19:45:06.364681+00:00"
         },
         "guide/scaling-up/state-management.md": {
           "content_hash": "f6ab2e4cb1a9b4f966275504d9cedce69928722a945a54f7063b6f8c4197f555",
@@ -1258,7 +1258,7 @@
       }
     },
     "angular": {
-      "commit": "71bb19d772aa77a30922fb896f775b58a0862c36",
+      "commit": "40f7fbdccbfadd92e02623f5e5f3933d6772a68b",
       "files": {
         "best-practices/a11y.md": {
           "content_hash": "a1e10e793af00a6dfc7206643dd7ae2dceeb04e0ffcabc064e30152b89395772",
@@ -2563,7 +2563,7 @@
       }
     },
     "javascript": {
-      "commit": "6203b96117ae35099df06d08f6a037bf2dff1d80",
+      "commit": "b0db98a5c5a6cc7dbc519c272ab0572f6481afc6",
       "files": {
         "guide/closures/index.md": {
           "content_hash": "ae1a6ecd7f8e446bef7a1a689c082a88569e8b506f61e93b7dfdf2768a896fdd",
