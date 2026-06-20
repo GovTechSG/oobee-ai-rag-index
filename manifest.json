@@ -1,9 +1,9 @@
 {
   "version": "1.0",
-  "last_sync": "2026-06-15T02:31:41.838388+00:00",
+  "last_sync": "2026-06-20T19:46:38.234721+00:00",
   "frameworks": {
     "react": {
-      "commit": "6ec61348646040795fdaa9de14a9bec603260f87",
+      "commit": "8bb31acb86bf68fa33d97dd0f1b834dfa71e2b1a",
       "files": {
         "learn/add-react-to-an-existing-project.md": {
           "content_hash": "45193ac21517d19f408acf915371ebaa3342d285d31ef85f91c278ee1bcc1c91",
@@ -356,9 +356,9 @@
           "last_synced": "2026-06-11T06:14:51.956200+00:00"
         },
         "reference/react/Fragment.md": {
-          "content_hash": "081764e56cdca57d6332682f8e1d56812fc45ce42eb4082fa486b2c0776a2af1",
+          "content_hash": "0fc696bef07c97a709ad71b20a2ce2f461ba6e304c837b3c77804339cfa3630b",
           "chunk_ids": [],
-          "last_synced": "2026-06-11T06:14:51.956203+00:00"
+          "last_synced": "2026-06-20T19:46:23.122208+00:00"
         },
         "reference/react/Profiler.md": {
           "content_hash": "7a2cc0599ae88d44f6ad5a533dd5faae3e3c800af22e992d0aaa7022db56e14e",
@@ -838,7 +838,7 @@
       }
     },
     "vue": {
-      "commit": "84f5304972104c60aad15c0111675eaa9e94f05c",
+      "commit": "066d5c9072c3dd34d9a9efe92470ed6596f612ef",
       "files": {
         "api/application.md": {
           "content_hash": "fd649a6270ee6e80e0f6610f4d6d9366eea1775a0664fe5aa6f1a58ea62234e8",
@@ -1382,7 +1382,7 @@
       }
     },
     "angular": {
-      "commit": "40f7fbdccbfadd92e02623f5e5f3933d6772a68b",
+      "commit": "aa7d9fcc6197201963242be26a5a9d86b32a8373",
       "files": {
         "best-practices/a11y.md": {
           "content_hash": "a1e10e793af00a6dfc7206643dd7ae2dceeb04e0ffcabc064e30152b89395772",
@@ -1480,9 +1480,9 @@
           "last_synced": "2026-06-11T06:14:56.756747+00:00"
         },
         "guide/aria/combobox.md": {
-          "content_hash": "fd61902a2bc0734ed49fc2cdd23c9c3bbfaa287cfabf8fd9a199c55c5f3d4c08",
+          "content_hash": "a34e4ecb11f14846c5b9b75fd00c96bce482cfb767f73d9f0bf9746924d53be1",
           "chunk_ids": [],
-          "last_synced": "2026-06-11T06:14:56.756752+00:00"
+          "last_synced": "2026-06-20T19:46:28.636256+00:00"
         },
         "guide/aria/grid.md": {
           "content_hash": "4b6b1bf29cfd4c3f6ee2c7d8d4b30113442fb96c5a725659cb2c55730b741530",
@@ -1715,9 +1715,9 @@
           "last_synced": "2026-06-11T06:14:56.756940+00:00"
         },
         "guide/forms/signals/custom-controls.md": {
-          "content_hash": "630d9352a9283cba120dd3da4a1bdf7b93eeffbf94e544895c2d7b76d92bd815",
+          "content_hash": "cc6686952006976f6d83628ceacbe5dce846256d4e4e8829f1312bbcc82b5b70",
           "chunk_ids": [],
-          "last_synced": "2026-06-11T06:14:56.756942+00:00"
+          "last_synced": "2026-06-20T19:46:28.636280+00:00"
         },
         "guide/forms/signals/designing-your-form-model.md": {
           "content_hash": "b59ade5d22372aadee0f5649c764a304516c6e0aa95349d519b13962d336e9d7",
@@ -2410,9 +2410,9 @@
           "last_synced": "2026-06-11T06:14:56.757335+00:00"
         },
         "reference/errors/NG0910.md": {
-          "content_hash": "366691f6f435eaf20da71c16338982b613ca336bbf59631b1361ae6788197ff5",
+          "content_hash": "49d6c710683368b815bd7c49ac116b68c3fe9ddf2b0a53a734b9d8ffe4332f5b",
           "chunk_ids": [],
-          "last_synced": "2026-06-11T06:14:56.757337+00:00"
+          "last_synced": "2026-06-20T19:46:28.636288+00:00"
         },
         "reference/errors/NG0912.md": {
           "content_hash": "9809b2fab2b905ed2246b4fe3db8b4615e3d3d0b99ba333fed5f5d485beeebeb",
@@ -2687,7 +2687,7 @@
       }
     },
     "javascript": {
-      "commit": "b0db98a5c5a6cc7dbc519c272ab0572f6481afc6",
+      "commit": "a197223ece33eaba3e334fad82daa19227f07484",
       "files": {
         "guide/closures/index.md": {
           "content_hash": "ae1a6ecd7f8e446bef7a1a689c082a88569e8b506f61e93b7dfdf2768a896fdd",
@@ -3760,9 +3760,9 @@
           "last_synced": "2026-06-11T06:15:05.717895+00:00"
         },
         "reference/global_objects/array/map/index.md": {
-          "content_hash": "07fb18feeb28a33955b3e7ef32981a6bc76eb1da6b3025c2c71b84187c809597",
+          "content_hash": "fd12feb0e8e3581af860ebe8c9b73453451c0b98207c2e6026c9004c09b70e57",
           "chunk_ids": [],
-          "last_synced": "2026-06-11T06:15:05.717897+00:00"
+          "last_synced": "2026-06-20T19:46:37.005128+00:00"
         },
         "reference/global_objects/array/of/index.md": {
           "content_hash": "66e993d0e5a9d9be2cd35cb593dd19b6b398c7a15cbdf977a538d257dc2fe2b7",
@@ -3865,9 +3865,9 @@
           "last_synced": "2026-06-11T06:15:05.717953+00:00"
         },
         "reference/global_objects/array/values/index.md": {
-          "content_hash": "1497c0a1e0c4740fe907d61938ff19cf6675971e5e41032014b0d4579f4e6553",
+          "content_hash": "7db3877e3062cdee59a988515e9c5733c357f52a2088cf5cd8ed820ecb68795e",
           "chunk_ids": [],
-          "last_synced": "2026-06-11T06:15:05.717956+00:00"
+          "last_synced": "2026-06-20T19:46:37.005146+00:00"
         },
         "reference/global_objects/arraybuffer/arraybuffer/index.md": {
           "content_hash": "e99cc1b34df5a7444209396596b45a300c1a9ec3252397975bacad93bc80f45e",
@@ -7897,7 +7897,7 @@
       }
     },
     "typescript": {
-      "commit": "785b11a8d8d87d15b641ccb46ec74e6fc2b70f54",
+      "commit": "89b479f2b8d9b5b1d01b40091dcadd9223bcc088",
       "files": {
         "declaration-files/By Example.md": {
           "content_hash": "28a47f8c960a80de8d26e402f57ce45c0758507e614662e891df15c28fda6c63",
