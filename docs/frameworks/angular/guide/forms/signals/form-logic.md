@@ -221,6 +221,45 @@ export class Profile {
 }
 ```
 
+### Always hidden
+
+To make a field permanently hidden, call `hidden()` with just the field path:
+
+```angular-ts
+import {Component, signal} from '@angular/core';
+import {form, FormField, hidden} from '@angular/forms/signals';
+
+@Component({
+  selector: 'app-profile',
+  imports: [FormField],
+  template: `
+    <label>
+      <input type="checkbox" [formField]="profileForm.isPublic" />
+      Make profile public
+    </label>
+
+    <!-- The publicUrl is permanently hidden, so this block never renders -->
+    @if (!profileForm.publicUrl().hidden()) {
+      <label>
+        Public URL
+        <input [formField]="profileForm.publicUrl" />
+      </label>
+    }
+  `,
+})
+export class Profile {
+  profileModel = signal({
+    isPublic: false,
+    publicUrl: '',
+  });
+
+  profileForm = form(this.profileModel, (schemaPath) => {
+    // This field is now permanently hidden and excluded from active validation
+    hidden(schemaPath.publicUrl);
+  });
+}
+```
+
 ## Display uneditable fields with `readonly()`
 
 The `readonly()` rule prevents users from updating a field. The `[FormField]` directive automatically binds this state to the HTML `readonly` attribute, which prevents editing while still allowing users to focus and select text.
@@ -458,16 +497,16 @@ Don't use debouncing if:
 
 Metadata attaches reactive data to a field. Validation rules use this system internally, and you can publish your own keys for application-specific information like help text, configuration, or computed display values.
 
-Signal Forms provides six pre-defined metadata keys that built-in validators populate automatically:
+Signal Forms provides pre-defined metadata keys that built-in validators populate automatically:
 
-| Key          | Populated by  | Read via              |
-| ------------ | ------------- | --------------------- |
-| `REQUIRED`   | `required()`  | `field().required()`  |
-| `MIN`        | `min()`       | `field().min()`       |
-| `MAX`        | `max()`       | `field().max()`       |
-| `MIN_LENGTH` | `minLength()` | `field().minLength()` |
-| `MAX_LENGTH` | `maxLength()` | `field().maxLength()` |
-| `PATTERN`    | `pattern()`   | `field().pattern()`   |
+| Key          | Populated by         | Read via              |
+| ------------ | -------------------- | --------------------- |
+| `REQUIRED`   | `required()`         | `field().required()`  |
+| `MIN`        | `min()`, `minDate()` | `field().min()`       |
+| `MAX`        | `max()`, `maxDate()` | `field().max()`       |
+| `MIN_LENGTH` | `minLength()`        | `field().minLength()` |
+| `MAX_LENGTH` | `maxLength()`        | `field().maxLength()` |
+| `PATTERN`    | `pattern()`          | `field().pattern()`   |
 
 The `[formField]` directive automatically binds five of these (`REQUIRED`, `MIN`, `MAX`, `MIN_LENGTH`, and `MAX_LENGTH`) to the corresponding HTML attribute on a native form control. `PATTERN` is the exception, because Signal Forms supports multiple patterns per field but the HTML `pattern` attribute accepts only a single regular expression.
 
