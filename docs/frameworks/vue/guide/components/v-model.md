@@ -115,6 +115,7 @@ const myRef = ref()
 </template>
 ```
 
+Also, when using `withDefaults` with `defineProps`, default values for mutable reference types (like arrays or objects) should be wrapped in functions in `defineModel` to avoid accidental modification and external side effects.
 :::
 
 </div>
@@ -524,7 +525,7 @@ export default {
 For `v-model` bindings with both argument and modifiers, the generated prop name will be `arg + "Modifiers"`. For example:
 
 ```vue-html
-<MyComponent v-model:title.capitalize="myText">
+<MyComponent v-model:title.capitalize="myText" />
 ```
 
 The corresponding declarations should be:
