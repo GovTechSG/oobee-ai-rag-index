@@ -31,6 +31,20 @@ sources:
     ignore: ["node_modules", ".github", "release-notes", "handbook-v1", "Nightly Builds.md", "diagrams"]
     output_dir: "docs/languages"
 
+  html:
+    repo: "https://github.com/mdn/content"
+    docs_path: "files/en-us/web/html/reference/elements"
+    extensions: [".md"]
+    ignore: ["node_modules", ".github"]
+    output_dir: "docs/web"
+
+  accessibility:
+    repo: "https://github.com/mdn/content"
+    docs_path: "files/en-us/web/accessibility"
+    extensions: [".md"]
+    ignore: ["node_modules", ".github"]
+    output_dir: "docs/web"
+
 output:
   base_dir: "docs/frameworks"
 
