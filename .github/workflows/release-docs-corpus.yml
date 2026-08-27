@@ -1,0 +1,151 @@
+name: Release precomputed RAG index
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Release tag (blank = precompute/YYYY-MM-DD, auto-suffixed on collision)"
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          # Torch pulls ~800 MiB — CPU wheel is enough for MiniLM at build time.
+          pip install --index-url https://download.pytorch.org/whl/cpu torch==2.2.2
+          pip install sentence-transformers==2.7.0
+
+      - name: Resolve tag
+        id: tag
+        run: |
+          set -euo pipefail
+          BASE="${{ github.event.inputs.tag }}"
+          if [[ -z "$BASE" ]]; then
+            BASE="precompute/$(date -u +%Y-%m-%d)"
+          fi
+          git fetch --tags --force --quiet
+          TAG="$BASE"
+          N=1
+          while git rev-parse -q --verify "refs/tags/$TAG" >/dev/null; do
+            TAG="${BASE}-${N}"
+            N=$((N + 1))
+          done
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+          echo "Resolved release tag: $TAG"
+
+      - name: Build precomputed index
+        env:
+          GITHUB_SHA: ${{ github.sha }}
+        run: |
+          python scripts/build_local_index.py \
+            --docs-dir docs \
+            --out-dir index-build
+
+      - name: Package release bundle
+        id: pkg
+        run: |
+          set -euo pipefail
+          if [[ ! -d docs ]]; then
+            echo "docs/ missing" >&2
+            exit 1
+          fi
+          for f in chunks.jsonl vectors.bin meta.json; do
+            if [[ ! -f "index-build/$f" ]]; then
+              echo "index-build/$f missing" >&2
+              exit 1
+            fi
+          done
+
+          # Two archives so consumers can grab just what they need:
+          #   docs-precompute.zip — full bundle (index + markdown)
+          #   docs-index.zip      — just the precomputed index (~5-10 MiB)
+          mkdir -p release-assets
+          cp -r index-build release-assets/index
+          cp -r docs release-assets/docs
+          cp manifest.json release-assets/ 2>/dev/null || true
+
+          (cd release-assets && zip -r -q ../docs-precompute.zip index docs manifest.json)
+          (cd release-assets && zip -r -q ../docs-index.zip index)
+
+          FILE_COUNT=$(find docs -type f | wc -l | tr -d ' ')
+          CHUNK_COUNT=$(python -c "import json; m=json.load(open('index-build/meta.json')); print(m['count'])")
+          FULL_SIZE=$(du -h docs-precompute.zip | cut -f1)
+          IDX_SIZE=$(du -h docs-index.zip | cut -f1)
+          echo "file_count=$FILE_COUNT" >> "$GITHUB_OUTPUT"
+          echo "chunk_count=$CHUNK_COUNT" >> "$GITHUB_OUTPUT"
+          echo "full_size=$FULL_SIZE" >> "$GITHUB_OUTPUT"
+          echo "idx_size=$IDX_SIZE" >> "$GITHUB_OUTPUT"
+
+      - name: Configure git identity
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Create dated tag
+        run: |
+          TAG="${{ steps.tag.outputs.tag }}"
+          git tag "$TAG"
+          git push origin "$TAG"
+
+      - name: Move latest-precompute tag
+        run: |
+          # Delete-then-recreate so the release re-attaches to the current
+          # commit instead of leaving the previous release orphaned.
+          git push origin :refs/tags/latest-precompute || true
+          gh release delete latest-precompute --yes 2>/dev/null || true
+          git tag -f latest-precompute
+          git push origin latest-precompute --force
+        env:
+          GH_TOKEN: ${{ github.token }}
+
+      - name: Create dated GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TAG="${{ steps.tag.outputs.tag }}"
+          NOTES=$(cat <<EOF
+          Precomputed RAG index snapshot for oobee-dev-suite-vscode-extension.
+
+          - Commit: ${{ github.sha }}
+          - Markdown files: ${{ steps.pkg.outputs.file_count }}
+          - Chunks: ${{ steps.pkg.outputs.chunk_count }}
+          - Bundle (full): ${{ steps.pkg.outputs.full_size }}
+          - Bundle (index only): ${{ steps.pkg.outputs.idx_size }}
+
+          Model: sentence-transformers/all-MiniLM-L6-v2 (matches the Xenova ONNX
+          used by the extension at query time).
+
+          Consumed by scripts/downloadRagCorpus.js in oobee-dev-suite-vscode-extension.
+          EOF
+          )
+          gh release create "$TAG" docs-precompute.zip docs-index.zip \
+            --title "Precomputed index $TAG" \
+            --notes "$NOTES"
+
+      - name: Publish latest-precompute release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # Mirror the dated release to the floating tag so downstream tools
+          # can pin to a stable URL. The tag was force-pushed above.
+          gh release create latest-precompute docs-precompute.zip docs-index.zip \
+            --title "Precomputed index (latest)" \
+            --notes "Mirror of ${{ steps.tag.outputs.tag }} — commit ${{ github.sha }}."
