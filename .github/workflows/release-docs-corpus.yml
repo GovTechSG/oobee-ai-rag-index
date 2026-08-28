@@ -7,6 +7,18 @@ on:
         description: "Release tag (blank = precompute/YYYY-MM-DD, auto-suffixed on collision)"
         required: false
         type: string
+  # Auto-refresh `latest-precompute` whenever a docs sync lands on master so
+  # downstream consumers (oobee-desktop's image.yml `build-frameworks-index`
+  # job) always have a fresh precomputed index without a manual dispatch.
+  # Push to master only happens via merged `sync/*` PRs (or manual doc
+  # commits), so a full re-embed (~few min on CPU) is bounded.
+  push:
+    branches: [master, main]
+    paths:
+      - "docs/**"
+      - "manifest.json"
+      - "config.yaml"
+      - "scripts/build_local_index.py"
 
 permissions:
   contents: write
@@ -83,6 +95,11 @@ jobs:
           cp -r index-build release-assets/index
           cp -r docs release-assets/docs
           cp manifest.json release-assets/ 2>/dev/null || true
+          # Make the index bundle self-describing: consumers that want to
+          # build upstream doc URLs (oobee-desktop's
+          # scripts/build-frameworks-index.js) can read the source repo +
+          # docs_path mapping without checking out this repo.
+          cp config.yaml release-assets/index/ 2>/dev/null || true
 
           (cd release-assets && zip -r -q ../docs-precompute.zip index docs manifest.json)
           (cd release-assets && zip -r -q ../docs-index.zip index)
