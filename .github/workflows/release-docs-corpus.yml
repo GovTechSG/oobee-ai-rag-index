@@ -7,6 +7,19 @@ on:
         description: "Release tag (blank = precompute/YYYY-MM-DD, auto-suffixed on collision)"
         required: false
         type: string
+  # Auto-refresh `latest-precompute` whenever a docs sync lands on master so
+  # downstream consumers (oobee-desktop's image.yml `build-frameworks-index`
+  # job) always have a fresh precomputed index without a manual dispatch.
+  # Push to master only happens via merged `sync/*` PRs (or manual doc
+  # commits), so a full re-embed (~few min on CPU) is bounded.
+  push:
+    branches: [master, main]
+    paths:
+      - "docs/**"
+      - "manifest.json"
+      - "config.yaml"
+      - "scripts/build_local_index.py"
+      - "scripts/build_wcag_index.py"
 
 permissions:
   contents: write
@@ -34,6 +47,8 @@ jobs:
           # Torch pulls ~800 MiB — CPU wheel is enough for MiniLM at build time.
           pip install --index-url https://download.pytorch.org/whl/cpu torch==2.2.2
           pip install sentence-transformers==2.7.0
+          # HTML parsing for WCAG Understanding + Techniques pages.
+          pip install beautifulsoup4 lxml
 
       - name: Resolve tag
         id: tag
@@ -53,13 +68,22 @@ jobs:
           echo "tag=$TAG" >> "$GITHUB_OUTPUT"
           echo "Resolved release tag: $TAG"
 
+      - name: Clone w3c/wcag source
+        run: |
+          git clone --branch WCAG22-20241212 --depth 1 \
+            https://github.com/w3c/wcag.git .cache/wcag-src
+          echo "Cloned w3c/wcag @ WCAG22-20241212"
+
       - name: Build precomputed index
         env:
           GITHUB_SHA: ${{ github.sha }}
         run: |
           python scripts/build_local_index.py \
             --docs-dir docs \
-            --out-dir index-build
+            --out-dir index-build \
+            --wcag-src-dir .cache/wcag-src \
+            --dss-cache-dir .cache/dss \
+            --details-md .cache/oobee-DETAILS.md
 
       - name: Package release bundle
         id: pkg
@@ -83,6 +107,11 @@ jobs:
           cp -r index-build release-assets/index
           cp -r docs release-assets/docs
           cp manifest.json release-assets/ 2>/dev/null || true
+          # Make the index bundle self-describing: consumers that want to
+          # build upstream doc URLs (oobee-desktop's
+          # scripts/build-frameworks-index.js) can read the source repo +
+          # docs_path mapping without checking out this repo.
+          cp config.yaml release-assets/index/ 2>/dev/null || true
 
           (cd release-assets && zip -r -q ../docs-precompute.zip index docs manifest.json)
           (cd release-assets && zip -r -q ../docs-index.zip index)

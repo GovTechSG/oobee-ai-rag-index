@@ -32,6 +32,7 @@ from pathlib import Path
 # build-time diverge silently.
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from embed import MarkdownChunker  # noqa: E402
+from build_wcag_index import build_wcag_chunks, clone_wcag  # noqa: E402
 
 
 logging.basicConfig(
@@ -103,6 +104,23 @@ def main() -> int:
     parser.add_argument("--docs-dir", default="docs")
     parser.add_argument("--out-dir", default="index-build")
     parser.add_argument("--commit-sha", default=os.environ.get("GITHUB_SHA", ""))
+    parser.add_argument(
+        "--wcag-src-dir", default=None,
+        help="Path to a local clone of https://github.com/w3c/wcag @ WCAG22-20241212. "
+             "If omitted, WCAG+DSS+DETAILS chunks are skipped.",
+    )
+    parser.add_argument(
+        "--dss-cache-dir", default=".cache/dss",
+        help="Directory for cached DSS JSON files (default: .cache/dss).",
+    )
+    parser.add_argument(
+        "--details-md", default=".cache/oobee-DETAILS.md",
+        help="Path to oobee DETAILS.md (fetched from GitHub if absent).",
+    )
+    parser.add_argument(
+        "--force-dss", action="store_true",
+        help="Re-scrape DSS even if .cache/dss/manifest.json exists.",
+    )
     args = parser.parse_args()
 
     docs_dir = Path(args.docs_dir).resolve()
@@ -154,6 +172,31 @@ def main() -> int:
             chunk_records.append(record)
             all_texts.append(text)
 
+    # --- WCAG + DSS + Oobee DETAILS.md chunks --------------------------------
+    wcag_meta: dict | None = None
+    if args.wcag_src_dir:
+        wcag_src = Path(args.wcag_src_dir).resolve()
+        dss_cache = Path(args.dss_cache_dir).resolve()
+        details_md = Path(args.details_md).resolve()
+        logger.info("Building WCAG/DSS/DETAILS chunks from %s", wcag_src)
+        wcag_meta = build_wcag_chunks(
+            wcag_src_dir=wcag_src,
+            dss_cache_dir=dss_cache,
+            details_md_path=details_md,
+            chunk_records=chunk_records,
+            all_texts=all_texts,
+            force_dss=args.force_dss,
+        )
+        logger.info(
+            "WCAG corpus: %d understanding, %d techniques, %d DSS, %d DETAILS chunks",
+            wcag_meta["wcag_understanding_count"],
+            wcag_meta["wcag_technique_count"],
+            wcag_meta["dss_chunk_count"],
+            wcag_meta["details_chunk_count"],
+        )
+    else:
+        logger.info("--wcag-src-dir not provided; skipping WCAG/DSS/DETAILS corpus")
+
     if not chunk_records:
         raise SystemExit("No chunks produced — corpus is empty.")
 
@@ -204,6 +247,12 @@ def main() -> int:
         "vectorsSha256": sha256_file(vectors_path),
         "commitSha": args.commit_sha,
     }
+    if wcag_meta:
+        import datetime
+        meta["builtAt"] = datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
+        meta["wcag"] = wcag_meta["wcag"]
+        meta["dss"] = wcag_meta["dss"]
+        meta["oobeeDetails"] = wcag_meta["oobeeDetails"]
     (out_dir / "meta.json").write_text(
         json.dumps(meta, indent=2, sort_keys=True) + "\n", encoding="utf-8"
     )
