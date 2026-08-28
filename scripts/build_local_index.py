@@ -248,17 +248,11 @@ def main() -> int:
         "commitSha": args.commit_sha,
     }
     if wcag_meta:
-        meta["wcag"] = {
-            "sourceTag": "WCAG22-20241212",
-            "understanding_count": wcag_meta["wcag_understanding_count"],
-            "technique_count": wcag_meta["wcag_technique_count"],
-            "wcag_chunk_count": wcag_meta["wcag_chunk_count"],
-            "dss_chunk_count": wcag_meta["dss_chunk_count"],
-            "details_chunk_count": wcag_meta["details_chunk_count"],
-            "sc_catalog": wcag_meta["sc_catalog"],
-            "dss_manifest": wcag_meta["dss_manifest"],
-            "details_sections": wcag_meta["details_sections"],
-        }
+        import datetime
+        meta["builtAt"] = datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
+        meta["wcag"] = wcag_meta["wcag"]
+        meta["dss"] = wcag_meta["dss"]
+        meta["oobeeDetails"] = wcag_meta["oobeeDetails"]
     (out_dir / "meta.json").write_text(
         json.dumps(meta, indent=2, sort_keys=True) + "\n", encoding="utf-8"
     )

@@ -416,17 +416,51 @@ def fetch_details_md(dest_path: Path) -> str:
     return text
 
 
+def parse_coverage_table(md: str) -> list[dict]:
+    """
+    Port of parseCoverageTable() from build-wcag-index.js.
+
+    Parses the master WCAG↔DSS mapping table in DETAILS.md.
+    Row shape:  | WCAG 1.1.1 | WP-1 | A | Yes | | |
+    Returns one dict per row:
+      { wcag, dss, level, mustFix, goodToFix, needsReview, category }
+    """
+    row_re = re.compile(
+        r"\|\s*WCAG\s+([\d.]+)\s*\|\s*([A-Z]{2}-\d+|—)\s*\|\s*(A{1,3})\s*"
+        r"\|([^|\n]*)\|([^|\n]*)\|([^|\n]*)\|"
+    )
+    rows = []
+    for m in row_re.finditer(md):
+        must_fix    = bool(re.search(r"Yes", m.group(4)))
+        good_to_fix = bool(re.search(r"Yes", m.group(5)))
+        needs_review = bool(re.search(r"Yes", m.group(6)))
+        category = (
+            "needsReview" if needs_review
+            else "mustFix" if must_fix
+            else "goodToFix" if good_to_fix
+            else None
+        )
+        rows.append({
+            "wcag": m.group(1),
+            "dss": None if m.group(2) == "—" else m.group(2),
+            "level": m.group(3),
+            "mustFix": must_fix,
+            "goodToFix": good_to_fix,
+            "needsReview": needs_review,
+            "category": category,
+        })
+    return rows
+
+
 def parse_dss_to_wcag_map(md: str) -> dict[str, list[str]]:
-    """Parse the master mapping table. Returns {dss_code: [wcag_num, …]}."""
+    """Derives {dss_code: [wcag_num, …]} from parse_coverage_table()."""
     mapping: dict[str, list[str]] = {}
-    for line in md.splitlines():
-        m = re.match(r"\|\s*([\d.]+)\s*\|\s*([A-Z]{2}-\d+|—)\s*\|\s*([A-Z]+)\s*\|", line)
-        if not m:
+    for row in parse_coverage_table(md):
+        if not row["dss"]:
             continue
-        wcag_num, dss_code = m.group(1), m.group(2)
-        if dss_code == "—":
-            continue
-        mapping.setdefault(dss_code, []).append(wcag_num)
+        lst = mapping.setdefault(row["dss"], [])
+        if row["wcag"] not in lst:
+            lst.append(row["wcag"])
     return mapping
 
 
@@ -588,20 +622,99 @@ def build_wcag_chunks(
 
     logger.info("Oobee DETAILS.md -> %d chunks", details_chunk_count)
 
-    # --- SC catalog (for _meta.json) ----------------------------------------
+    # --- coverage table (for oobeeDetails in _meta.json) --------------------
+    coverage = parse_coverage_table(details_text)
+    if not coverage:
+        logger.warning(
+            "DETAILS.md coverage table returned 0 rows — "
+            "list_corpus_metadata(source='oobee-details') will be incomplete. "
+            "The upstream table shape may have changed."
+        )
+
+    # --- SC catalog (for wcag in _meta.json) --------------------------------
     sc_catalog = collect_sc_catalog(wcag_src_dir)
 
+    # --- techniques_by_category + failure_pages (for wcag in _meta.json) ---
+    techniques_by_category: dict[str, int] = {}
+    failure_pages = 0
+    for p in technique_pages:
+        techniques_by_category[p["category"]] = (
+            techniques_by_category.get(p["category"], 0) + 1
+        )
+        if p.get("docType") == "failure":
+            failure_pages += 1
+
+    # --- understanding_by_version (for wcag in _meta.json) -----------------
+    understanding_by_version: dict[str, int] = {}
+    for p in understanding_pages:
+        v = p.get("wcagVersion", "unknown")
+        understanding_by_version[v] = understanding_by_version.get(v, 0) + 1
+
+    # --- DSS catalog shaped for list_corpus_metadata ------------------------
+    dss_catalog = {
+        "fetchedAt": dss_manifest.get("fetchedAt"),
+        "total_categories": len(dss_manifest["categories"]),
+        "total_controls": sum(
+            c["controlCount"] for c in dss_manifest["categories"]
+        ),
+        "categories": dss_manifest["categories"],
+    }
+
+    # --- coverage totals ----------------------------------------------------
+    coverage_totals_by_level: dict[str, int] = {}
+    coverage_totals_by_category: dict[str, int] = {}
+    for row in coverage:
+        lvl = row["level"]
+        coverage_totals_by_level[lvl] = coverage_totals_by_level.get(lvl, 0) + 1
+        cat = row["category"]
+        if cat:
+            coverage_totals_by_category[cat] = (
+                coverage_totals_by_category.get(cat, 0) + 1
+            )
+
     return {
+        # -- chunk counts (for build_local_index.py log line) ----------------
         "wcag_understanding_count": len(understanding_pages),
         "wcag_technique_count": len(technique_pages),
         "wcag_chunk_count": wcag_chunk_count,
         "dss_chunk_count": dss_chunk_count,
         "details_chunk_count": details_chunk_count,
-        "sc_catalog": sc_catalog,
-        "dss_manifest": dss_manifest,
-        "details_sections": [
-            {"heading": s["heading"], "slug": s["slug"]}
-            for s in details_sections
-        ],
+        # -- wcag key (mirrors Node builder's _meta.json shape) --------------
+        "wcag": {
+            "sourceTag": WCAG_TAG,
+            "total_understanding_pages": len(understanding_pages),
+            "understanding_by_version": understanding_by_version,
+            "total_technique_pages": len(technique_pages),
+            "techniques_by_category": techniques_by_category,
+            "failure_pages": failure_pages,
+            "total_success_criteria": len(sc_catalog["success_criteria"]),
+            "success_criteria_totals_by_level": {
+                lvl: sum(
+                    1 for sc in sc_catalog["success_criteria"] if sc.get("level") == lvl
+                )
+                for lvl in ("A", "AA", "AAA")
+            },
+            "principles": sc_catalog["principles"],
+            "success_criteria": sc_catalog["success_criteria"],
+        },
+        # -- dss key (mirrors Node builder's _meta.json shape) ---------------
+        "dss": dss_catalog,
+        # -- oobeeDetails key (mirrors Node builder's _meta.json shape) ------
+        "oobeeDetails": {
+            "sourceUrl": DETAILS_MD_URL,
+            "total_sections": details_chunk_count,
+            "sections": [
+                {
+                    "heading": s["heading"],
+                    "slug": s["slug"],
+                    "url": f"{DETAILS_MD_URL}#{s['slug']}",
+                }
+                for s in details_sections
+            ],
+            "total_coverage_rows": len(coverage),
+            "coverage_totals_by_level": coverage_totals_by_level,
+            "coverage_totals_by_category": coverage_totals_by_category,
+            "coverage": coverage,
+        },
     }
 
