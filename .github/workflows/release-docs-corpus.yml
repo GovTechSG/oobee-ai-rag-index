@@ -19,6 +19,7 @@ on:
       - "manifest.json"
       - "config.yaml"
       - "scripts/build_local_index.py"
+      - "scripts/build_wcag_index.py"
 
 permissions:
   contents: write
@@ -46,6 +47,8 @@ jobs:
           # Torch pulls ~800 MiB — CPU wheel is enough for MiniLM at build time.
           pip install --index-url https://download.pytorch.org/whl/cpu torch==2.2.2
           pip install sentence-transformers==2.7.0
+          # HTML parsing for WCAG Understanding + Techniques pages.
+          pip install beautifulsoup4 lxml
 
       - name: Resolve tag
         id: tag
@@ -65,13 +68,22 @@ jobs:
           echo "tag=$TAG" >> "$GITHUB_OUTPUT"
           echo "Resolved release tag: $TAG"
 
+      - name: Clone w3c/wcag source
+        run: |
+          git clone --branch WCAG22-20241212 --depth 1 \
+            https://github.com/w3c/wcag.git .cache/wcag-src
+          echo "Cloned w3c/wcag @ WCAG22-20241212"
+
       - name: Build precomputed index
         env:
           GITHUB_SHA: ${{ github.sha }}
         run: |
           python scripts/build_local_index.py \
             --docs-dir docs \
-            --out-dir index-build
+            --out-dir index-build \
+            --wcag-src-dir .cache/wcag-src \
+            --dss-cache-dir .cache/dss \
+            --details-md .cache/oobee-DETAILS.md
 
       - name: Package release bundle
         id: pkg
