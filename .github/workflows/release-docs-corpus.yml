@@ -102,7 +102,8 @@ jobs:
 
           # Two archives so consumers can grab just what they need:
           #   docs-precompute.zip — full bundle (index + markdown)
-          #   docs-index.zip      — just the precomputed index (~5-10 MiB)
+          #   docs-index.zip      — just the precomputed index (~73 MiB; it
+          #                         carries vectors.bin, so it is not small)
           mkdir -p release-assets
           cp -r index-build release-assets/index
           cp -r docs release-assets/docs
