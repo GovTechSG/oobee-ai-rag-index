@@ -23,6 +23,7 @@ import hashlib
 import json
 import logging
 import os
+import re
 import struct
 import sys
 from pathlib import Path
@@ -51,9 +52,15 @@ EMBED_BATCH_SIZE = 64
 #   frameworks/<fw>/**    -> framework:<fw>
 #   languages/<lang>/**   -> lang:<lang>
 #   web/<topic>/**        -> web:<topic>
-# WCAG clause files (top-level "1.4.3-*.md") are not currently in docs/;
-# they live in oobee-dev-suite-AI-pipeline. If they land here later, they
-# should be added under docs/wcag/*.md and mapped to wcag:<clause>.
+#   wcag/**/<clause>-*.md -> wcag:<clause>
+# WCAG clause files are named "<clause>-<slug>.md" (e.g.
+# "1.4.3-contrast-minimum.md") and may sit directly under docs/wcag or be
+# split into version folders (2.0/, 2.1/, 2.2/). The namespace comes from the
+# clause number in the filename, not the directory, so both layouts collapse
+# to the same wcag:<clause> namespace that getClauseContent() looks up.
+CLAUSE_FILE_RE = re.compile(r"^(\d+(?:\.\d+)*)-.+\.md$")
+
+
 def walk_corpus(docs_dir: Path) -> list[tuple[Path, str]]:
     """Return [(absolute markdown path, namespace)]."""
     out: list[tuple[Path, str]] = []
@@ -71,6 +78,27 @@ def walk_corpus(docs_dir: Path) -> list[tuple[Path, str]]:
                 out.append((md, namespace))
             for mdx in sorted(topic_dir.rglob("*.mdx")):
                 out.append((mdx, namespace))
+
+    wcag_dir = docs_dir / "wcag"
+    if wcag_dir.is_dir():
+        seen: set[str] = set()
+        for md in sorted(wcag_dir.rglob("*.md")):
+            match = CLAUSE_FILE_RE.match(md.name)
+            if not match:
+                logger.warning(
+                    "Skipping unrecognised WCAG file (expected '<clause>-<slug>.md'): %s",
+                    md.relative_to(docs_dir).as_posix(),
+                )
+                continue
+            clause = match.group(1)
+            # The same clause can appear in several version folders (a 2.0
+            # criterion is restated verbatim in 2.1 and 2.2). Keep the first
+            # and skip the rest so the namespace isn't padded with duplicates.
+            if clause in seen:
+                logger.info("Duplicate WCAG clause %s, skipping %s", clause, md.name)
+                continue
+            seen.add(clause)
+            out.append((md, f"wcag:{clause}"))
     return out
 
 
