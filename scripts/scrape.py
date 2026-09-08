@@ -100,10 +100,15 @@ def find_markdown_files(
     extensions: list[str],
     ignore_patterns: list[str]
 ) -> list[Path]:
-    """Find all markdown files matching extensions, excluding ignored paths."""
+    """Find all markdown files matching extensions, excluding ignored paths and symlinks."""
     files = []
     for ext in extensions:
         for file_path in source_dir.rglob(f"*{ext}"):
+            if file_path.is_symlink():
+                logger.debug(f"Skipping symlink: {file_path}")
+                continue
+            if not file_path.is_file():
+                continue
             if not should_ignore(file_path.relative_to(source_dir), ignore_patterns):
                 files.append(file_path)
     return sorted(files)
@@ -116,16 +121,45 @@ def copy_files(
 ) -> dict[str, str]:
     """
     Copy files preserving directory structure.
+    Rejects symlinks and files that resolve outside source_base to prevent
+    following attacker-controlled links out of the cloned repo.
     Returns dict mapping relative path to content hash.
     """
     file_hashes = {}
+    source_base_resolved = source_base.resolve()
+    dest_base_resolved = dest_base.resolve()
 
     for file_path in files:
+        if file_path.is_symlink():
+            logger.warning(f"Refusing to copy symlink: {file_path}")
+            continue
+
+        try:
+            resolved_source = file_path.resolve(strict=True)
+        except (FileNotFoundError, OSError) as exc:
+            logger.warning(f"Skipping unresolvable path {file_path}: {exc}")
+            continue
+
+        if not resolved_source.is_relative_to(source_base_resolved):
+            logger.warning(
+                f"Refusing to copy {file_path}: resolves outside source base to {resolved_source}"
+            )
+            continue
+
         rel_path = file_path.relative_to(source_base)
         dest_path = dest_base / rel_path
+        resolved_dest_parent = dest_path.parent.resolve() if dest_path.parent.exists() else None
+        if resolved_dest_parent is None:
+            dest_path.parent.mkdir(parents=True, exist_ok=True)
+            resolved_dest_parent = dest_path.parent.resolve()
 
-        dest_path.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copy2(file_path, dest_path)
+        if not resolved_dest_parent.is_relative_to(dest_base_resolved):
+            logger.warning(
+                f"Refusing to copy {file_path}: dest parent {resolved_dest_parent} escapes {dest_base_resolved}"
+            )
+            continue
+
+        shutil.copy2(file_path, dest_path, follow_symlinks=False)
 
         file_hash = compute_file_hash(file_path)
         file_hashes[str(rel_path)] = file_hash

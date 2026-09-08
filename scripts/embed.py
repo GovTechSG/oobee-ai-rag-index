@@ -29,6 +29,36 @@ DEFAULT_HEADER_LEVEL = 2  # split sections on headings at this level or deeper
 HEADER_RE = re.compile(r'^(#{1,6})\s+')
 FENCE_RE = re.compile(r'^(`{3,}|~{3,})')
 
+# Zero-width / invisible unicode characters commonly abused for hidden
+# prompt-injection payloads inside otherwise-innocent-looking markdown.
+_HIDDEN_UNICODE_RE = re.compile(
+    r'[­᠎​-‏‪-‮⁠-⁤⁦-⁯﻿]'
+)
+# HTML comment blocks: also a common injection carrier since they render invisibly.
+_HTML_COMMENT_RE = re.compile(r'<!--.*?-->', re.DOTALL)
+
+# Cap per-file ingest size so a single massive doc can't dominate the corpus.
+MAX_INGESTED_BYTES = 512 * 1024
+
+
+def sanitize_ingested_content(content: str) -> str:
+    """Strip hidden-payload vectors from third-party markdown before embedding.
+
+    Removes HTML comments and zero-width/bidi unicode. These carry no visible
+    signal for a reader but survive verbatim into the embedding text and can
+    smuggle prompt-injection instructions into the RAG corpus.
+    """
+    if not content:
+        return content
+    cleaned = _HTML_COMMENT_RE.sub('', content)
+    cleaned = _HIDDEN_UNICODE_RE.sub('', cleaned)
+    if len(cleaned.encode('utf-8', errors='ignore')) > MAX_INGESTED_BYTES:
+        # Truncate rather than embed uncapped upstream content.
+        cleaned = cleaned.encode('utf-8', errors='ignore')[:MAX_INGESTED_BYTES].decode(
+            'utf-8', errors='ignore'
+        )
+    return cleaned
+
 
 @dataclass
 class Chunk:
@@ -589,13 +619,36 @@ def create_embed_callback(
         Callback function(framework, file_path, content_hash) -> list[chunk_ids]
     """
     def callback(framework: str, file_path: str, content_hash: str) -> list[str]:
-        full_path = frameworks_dir / framework / file_path
+        # Reject absolute paths and traversal segments before touching the fs;
+        # a manifest-controlled file_path must not escape frameworks_dir/framework.
+        if os.path.isabs(file_path) or ".." in Path(file_path).parts:
+            logger.warning(
+                f"Refusing manifest file_path outside framework base: {framework}/{file_path}"
+            )
+            return []
+
+        base = (frameworks_dir / framework).resolve()
+        try:
+            full_path = (base / file_path).resolve(strict=False)
+        except (OSError, ValueError) as exc:
+            logger.warning(f"Skipping unresolvable manifest path {framework}/{file_path}: {exc}")
+            return []
+
+        if not full_path.is_relative_to(base):
+            logger.warning(
+                f"Refusing manifest file_path that escapes base {base}: {full_path}"
+            )
+            return []
 
         if not full_path.exists():
             logger.warning(f"File not found: {full_path}")
             return []
 
-        content = full_path.read_text(encoding="utf-8")
+        if full_path.is_symlink() or not full_path.is_file():
+            logger.warning(f"Refusing non-regular file: {full_path}")
+            return []
+
+        content = sanitize_ingested_content(full_path.read_text(encoding="utf-8"))
 
         # Build source URL
         repo_url = repo_urls.get(framework, "")
