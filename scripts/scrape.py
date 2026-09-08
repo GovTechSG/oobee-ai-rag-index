@@ -36,11 +36,42 @@ def compute_file_hash(file_path: Path) -> str:
     return sha256.hexdigest()
 
 
+_ALLOWED_URL_SCHEMES = ("https://",)
+_ALLOWED_URL_HOSTS = ("github.com/",)
+
+
+def _validate_repo_url(repo_url: str) -> None:
+    if not isinstance(repo_url, str):
+        raise ValueError(f"repo url must be a string, got {type(repo_url).__name__}")
+    if not any(repo_url.startswith(s) for s in _ALLOWED_URL_SCHEMES):
+        raise ValueError(
+            f"repo url must use one of {_ALLOWED_URL_SCHEMES}: {repo_url!r}"
+        )
+    tail = repo_url.split("://", 1)[1]
+    if not any(tail.startswith(h) for h in _ALLOWED_URL_HOSTS):
+        raise ValueError(
+            f"repo url host must be one of {_ALLOWED_URL_HOSTS}: {repo_url!r}"
+        )
+    if any(c in repo_url for c in ("\n", "\r", "\x00")):
+        raise ValueError(f"repo url contains control characters: {repo_url!r}")
+
+
 def clone_repo(repo_url: str, dest: Path) -> str:
     """Clone repository with shallow depth. Returns commit SHA."""
+    _validate_repo_url(repo_url)
     logger.info(f"Cloning {repo_url}...")
+    # Disable git remote helpers (ext::, etc.) and restrict transports to http/https
+    # to prevent RCE via a config-controlled URL. See CVE-2017-1000117 class.
+    safe_git = [
+        "git",
+        "-c", "protocol.ext.allow=never",
+        "-c", "protocol.allow=user",
+        "-c", "protocol.https.allow=always",
+        "-c", "protocol.http.allow=always",
+        "-c", "protocol.file.allow=never",
+    ]
     subprocess.run(
-        ["git", "clone", "--depth", "1", repo_url, str(dest)],
+        [*safe_git, "clone", "--depth", "1", "--", repo_url, str(dest)],
         check=True,
         capture_output=True,
         text=True
