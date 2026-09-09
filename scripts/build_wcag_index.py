@@ -19,10 +19,12 @@ Namespace conventions (match wcagCorpus.js + ragIndex.ts):
 """
 from __future__ import annotations
 
+import hashlib
 import json
 import logging
 import re
 import subprocess
+import urllib.parse
 import urllib.request
 from pathlib import Path
 from typing import Optional
@@ -285,7 +287,29 @@ def collect_sc_catalog(wcag_src: Path) -> dict:
 # DSS scraper (ports build-dss-corpus.js)
 # ---------------------------------------------------------------------------
 
+# Scraped content is bounded so a hostile or misconfigured upstream can't
+# stream unbounded data into the index build. 25 MiB is >> the largest
+# observed DSS page or DETAILS.md.
+_FETCH_MAX_BYTES = 25 * 1024 * 1024
+
+# Live sources are pinned to expected hosts so a redirect or a URL constant
+# accidentally repointed at a third-party origin does not silently exfiltrate
+# what would otherwise be a build-server-side fetch — and cannot smuggle
+# untrusted markup into the corpus from an unrelated host.
+_ALLOWED_FETCH_HOSTS = frozenset({
+    "info.standards.tech.gov.sg",
+    "raw.githubusercontent.com",
+})
+
+
 def _fetch(url: str) -> str:
+    parsed = urllib.parse.urlsplit(url)
+    if parsed.scheme != "https":
+        raise ValueError(f"_fetch refuses non-https URL: {url!r}")
+    if parsed.hostname is None or parsed.hostname.lower() not in _ALLOWED_FETCH_HOSTS:
+        raise ValueError(
+            f"_fetch host {parsed.hostname!r} not in allowlist {_ALLOWED_FETCH_HOSTS}"
+        )
     req = urllib.request.Request(
         url,
         headers={
@@ -297,7 +321,31 @@ def _fetch(url: str) -> str:
         },
     )
     with urllib.request.urlopen(req, timeout=30) as resp:
-        return resp.read().decode("utf-8", errors="replace")
+        # Reject a redirect that landed on an unexpected host. urlopen follows
+        # 3xx by default; the geturl() reflects the final URL after redirects.
+        final = urllib.parse.urlsplit(resp.geturl())
+        if final.scheme != "https" or (
+            final.hostname is None
+            or final.hostname.lower() not in _ALLOWED_FETCH_HOSTS
+        ):
+            raise ValueError(
+                f"_fetch redirect landed on disallowed URL: {resp.geturl()!r}"
+            )
+        body = resp.read(_FETCH_MAX_BYTES + 1)
+        if len(body) > _FETCH_MAX_BYTES:
+            raise ValueError(
+                f"_fetch response exceeds {_FETCH_MAX_BYTES} bytes: {url!r}"
+            )
+    # Log content SHA256 so a diff on the corpus can be traced back to the
+    # exact upstream bytes that produced it. This is auditability, not
+    # verification — the sources are live and we can't pin content SHAs.
+    logger.info(
+        "_fetch %s -> %d bytes sha256=%s",
+        url,
+        len(body),
+        hashlib.sha256(body).hexdigest(),
+    )
+    return body.decode("utf-8", errors="replace")
 
 
 def _node_to_md(node) -> str:
