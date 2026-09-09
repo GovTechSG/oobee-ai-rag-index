@@ -56,10 +56,23 @@ _INJECTION_TRIGGER_RE = re.compile(
 )
 
 # Guard markers wrap every embedded doc chunk so the downstream LLM prompt can
-# clearly delimit retrieved content from operator instructions. The extension's
-# retrieval-time template concatenates these markers verbatim.
+# clearly delimit retrieved content from operator instructions. The wrapping
+# happens unconditionally at chunk build time (see ``chunk_markdown`` below),
+# not at retrieval time — that way any downstream consumer receives the
+# delimiters without having to opt in and cannot forget to add them.
 UNTRUSTED_CONTENT_BEGIN = '[BEGIN UNTRUSTED DOCUMENT CONTENT]'
 UNTRUSTED_CONTENT_END = '[END UNTRUSTED DOCUMENT CONTENT]'
+
+
+def wrap_untrusted(text: str) -> str:
+    """Wrap a chunk's text with the sentinel markers.
+
+    Applied uniformly to every chunk, so retrieval-vector distances are
+    unaffected (the same fixed prefix/suffix appears on every stored
+    document), while every retrieved chunk carries an unmistakable
+    outer boundary that a downstream LLM prompt can key off.
+    """
+    return f"{UNTRUSTED_CONTENT_BEGIN}\n{text}\n{UNTRUSTED_CONTENT_END}"
 
 # Cap per-file ingest size so a single massive doc can't dominate the corpus.
 MAX_INGESTED_BYTES = 512 * 1024
@@ -345,9 +358,13 @@ class MarkdownChunker:
             # Generate deterministic chunk ID
             chunk_id = self._generate_chunk_id(framework, file_path, i)
 
+            # Wrap the chunk's text with UNTRUSTED_CONTENT sentinels at
+            # write time so every consumer (embedding model, retrieval
+            # response, downstream LLM prompt) sees the same explicit
+            # boundary without having to opt in.
             chunk = Chunk(
                 id=chunk_id,
-                text=text,
+                text=wrap_untrusted(text),
                 metadata={
                     "framework": framework,
                     "file_path": file_path,
