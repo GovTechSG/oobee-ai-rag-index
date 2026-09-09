@@ -29,6 +29,8 @@ import urllib.request
 from pathlib import Path
 from typing import Optional
 
+from chunker import sanitize_ingested_content, wrap_untrusted
+
 logger = logging.getLogger(__name__)
 
 # ---------------------------------------------------------------------------
@@ -592,15 +594,22 @@ def build_wcag_chunks(
             else:
                 meta_fields["techId"] = page["tech_id"]
                 meta_fields["category"] = page["category"]
-            text = chunk["text"]
-            embed_text = "\n\n".join(filter(None, [title, chunk["sectionTitle"], text]))
+            # Even though w3c/wcag is pinned to WCAG22-20241212 (not
+            # community-editable), route the extracted text through the same
+            # sanitise+wrap barriers so every stored chunk in the shipped RAG
+            # index carries UNTRUSTED-CONTENT sentinels — that invariant is
+            # what downstream LLM-prompt construction keys off.
+            text = sanitize_ingested_content(chunk["text"])
+            embed_text = sanitize_ingested_content(
+                "\n\n".join(filter(None, [title, chunk["sectionTitle"], text]))
+            )
             chunk_records.append({
                 "id": _chunk_id(namespace, rel, i),
                 "namespace": namespace, "sourceFile": rel,
-                "heading": chunk["sectionTitle"], "text": text,
+                "heading": chunk["sectionTitle"], "text": wrap_untrusted(text),
                 "metadata": meta_fields,
             })
-            all_texts.append(embed_text)
+            all_texts.append(wrap_untrusted(embed_text))
             wcag_chunk_count += 1
 
     logger.info("WCAG HTML -> %d chunks", wcag_chunk_count)
@@ -614,16 +623,18 @@ def build_wcag_chunks(
         )
         for ctrl in cat_data["controls"]:
             namespace = "wcag:dss"
-            text = (
+            text = sanitize_ingested_content(
                 f"# DSS {ctrl['code']}: {ctrl['title']}\n\n"
                 f"**Category:** {cat_data['title']}\n\n" + ctrl["body"]
             )
-            embed_text = "\n\n".join(filter(None, [ctrl["code"], ctrl["title"], text]))
+            embed_text = sanitize_ingested_content(
+                "\n\n".join(filter(None, [ctrl["code"], ctrl["title"], text]))
+            )
             chunk_records.append({
                 "id": _chunk_id(namespace, ctrl["code"], dss_chunk_count),
                 "namespace": namespace,
                 "sourceFile": f"dss/{cat_data['code']}/{ctrl['code']}",
-                "heading": ctrl["title"], "text": text,
+                "heading": ctrl["title"], "text": wrap_untrusted(text),
                 "metadata": {
                     "docType": "dss", "techId": ctrl["code"], "title": ctrl["title"],
                     "sectionId": ctrl["anchor"], "sectionTitle": ctrl["title"],
@@ -631,7 +642,7 @@ def build_wcag_chunks(
                     "url": ctrl["url"], "namespace": namespace,
                 },
             })
-            all_texts.append(embed_text)
+            all_texts.append(wrap_untrusted(embed_text))
             dss_chunk_count += 1
 
     logger.info("DSS -> %d chunks", dss_chunk_count)
@@ -643,19 +654,21 @@ def build_wcag_chunks(
     namespace = "wcag:oobee-details"
     details_chunk_count = 0
     for i, section in enumerate(details_sections):
-        text = (
+        text = sanitize_ingested_content(
             f"# Oobee -- {section['heading']}\n\n"
             + re.sub(r"^##\s+.+\n", "", section["text"], count=1).strip()
         )
-        embed_text = "\n\n".join(
-            filter(None, ["Oobee -- Scan Issue Details", section["heading"], text])
+        embed_text = sanitize_ingested_content(
+            "\n\n".join(
+                filter(None, ["Oobee -- Scan Issue Details", section["heading"], text])
+            )
         )
         chunk_records.append({
             "id": _chunk_id(namespace, "DETAILS.md", i),
             "namespace": namespace,
             "sourceFile": "oobee/DETAILS.md",
             "heading": section["heading"],
-            "text": text,
+            "text": wrap_untrusted(text),
             "metadata": {
                 "docType": "oobee-details",
                 "title": "Oobee -- Scan Issue Details",
@@ -665,7 +678,7 @@ def build_wcag_chunks(
                 "namespace": namespace,
             },
         })
-        all_texts.append(embed_text)
+        all_texts.append(wrap_untrusted(embed_text))
         details_chunk_count += 1
 
     logger.info("Oobee DETAILS.md -> %d chunks", details_chunk_count)

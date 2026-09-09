@@ -31,7 +31,11 @@ from pathlib import Path
 # Import the shared chunker from a sibling module so precomputed chunks
 # match what the sync/scrape pipeline produces today.
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from chunker import MarkdownChunker  # noqa: E402
+from chunker import (  # noqa: E402
+    MarkdownChunker,
+    sanitize_ingested_content,
+    wrap_untrusted,
+)
 from build_wcag_index import build_wcag_chunks, clone_wcag  # noqa: E402
 
 
@@ -186,18 +190,29 @@ def main() -> int:
             logger.warning("Skipping non-utf8 file: %s", md_path)
             continue
 
+        # Third-party docs are community-editable upstream (react.dev, mdn/content,
+        # etc.) — strip HTML-comment / zero-width-unicode injection carriers,
+        # defang classic prompt-injection triggers, and enforce the per-file
+        # size cap before the text ever reaches the shipped RAG index.
+        content = sanitize_ingested_content(content)
         pieces = chunker.split_text(content)
         rel = md_path.relative_to(docs_dir).as_posix()
         for i, text in enumerate(pieces):
+            heading = first_heading(text)
+            # Wrap every chunk with UNTRUSTED-CONTENT sentinels so a downstream
+            # LLM prompt can delimit retrieved doc text from operator
+            # instructions. The same prefix/suffix on every chunk keeps
+            # retrieval-vector distances unchanged.
+            wrapped = wrap_untrusted(text)
             record = {
                 "id": chunk_id(namespace, rel, i),
                 "namespace": namespace,
                 "sourceFile": rel,
-                "heading": first_heading(text),
-                "text": text,
+                "heading": heading,
+                "text": wrapped,
             }
             chunk_records.append(record)
-            all_texts.append(text)
+            all_texts.append(wrapped)
 
     # --- WCAG + DSS + Oobee DETAILS.md chunks --------------------------------
     wcag_meta: dict | None = None
