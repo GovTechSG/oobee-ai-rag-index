@@ -2,8 +2,8 @@
 """
 Build a self-contained, precomputed RAG index for the Oobee VS Code extension.
 
-Walks docs/{frameworks,languages,web}/**, chunks each markdown with the same
-MarkdownChunker used by the Pinecone pipeline, and embeds every chunk with
+Walks docs/{frameworks,languages,web}/**, chunks each markdown with the shared
+MarkdownChunker in ``chunker.py``, and embeds every chunk with
 sentence-transformers/all-MiniLM-L6-v2 (the source of the Xenova ONNX model
 transformers.js loads at query time in the extension).
 
@@ -28,11 +28,10 @@ import struct
 import sys
 from pathlib import Path
 
-# Reuse the Pinecone pipeline's chunker so precomputed chunks match what
-# search would produce today. Any drift here means query-time and
-# build-time diverge silently.
+# Import the shared chunker from a sibling module so precomputed chunks
+# match what the sync/scrape pipeline produces today.
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from embed import MarkdownChunker  # noqa: E402
+from chunker import MarkdownChunker  # noqa: E402
 from build_wcag_index import build_wcag_chunks, clone_wcag  # noqa: E402
 
 

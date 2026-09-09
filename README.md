@@ -1,6 +1,13 @@
 # oobee-ai-rag-index
 
-Scrape framework documentation from GitHub, chunk it, and index it in Pinecone for RAG workflows. This repo keeps a manifest of file hashes and chunk IDs so each sync only updates what changed.
+Scrape framework documentation from GitHub, chunk it, and publish a precomputed
+local RAG index consumed by the Oobee VS Code extension and oobee-desktop.
+This repo keeps a manifest of file hashes so each sync only updates what changed.
+
+> **Note:** the corpus used to be pushed to Pinecone. Pinecone has been removed;
+> the only retrieval path is now the precomputed `sentence-transformers/all-MiniLM-L6-v2`
+> index built by `scripts/build_local_index.py` and released by
+> `.github/workflows/release-docs-corpus.yml`.
 
 ## Flow
 
@@ -12,32 +19,43 @@ scripts/scrape.py  -> docs/<framework>/*
     |
     v
 scripts/sync.py (diff vs manifest.json)
-    |                               |
-    v                               v
-[Weekly: open PR]           [On merge: embed]
-    |                               |
-    v                               v
-Human reviews PR            scripts/embed_from_diff.py -> Pinecone
+    |
+    v
+[Weekly: open PR]
+    |
+    v
+Human reviews & merges PR
+    |
+    v
+release-docs-corpus.yml (on push to master)
+    |
+    v
+scripts/build_local_index.py -> chunks.jsonl + vectors.bin + meta.json
+    |
+    v
+GitHub Release (latest-precompute) — downstream consumers pull from here
 ```
 
 ## How the sync works
-
-The sync is a two-phase process with a human review gate:
 
 1. **Weekly scrape** (GitHub Action: `sync-docs.yml`)
    - Scrapes docs from all configured repos
    - Diffs against `manifest.json` to find new/modified/deleted files
    - Creates a `sync/YYYY-MM-DD` branch with the changes
-   - Opens a PR with a summary (per-framework breakdown, estimated chunks, file lists)
-   - Closes any previously open sync PR (keeps the branch for history)
+   - Opens a PR with a summary (per-framework breakdown, file lists)
+   - Closes any previously open sync PR
    - Tags: `synced/YYYY-MM-DD` + `latest-sync`
 
-2. **Embed on merge** (GitHub Action: `embed-on-merge.yml`)
-   - Triggers automatically when a `sync/*` PR is merged to master
-   - Compares old manifest (pre-merge) vs new manifest (post-merge)
-   - Embeds only the changed files to Pinecone
-   - Commits updated manifest with populated chunk IDs
-   - Tags: `embedded/YYYY-MM-DD` + `latest-embedded`
+2. **Precomputed-index release** (GitHub Action: `release-docs-corpus.yml`)
+   - Triggers on push to master when `docs/**`, `manifest.json`, `config.yaml`,
+     `scripts/build_local_index.py`, or `scripts/build_wcag_index.py` change.
+   - Also triggerable manually via `workflow_dispatch`.
+   - Rebuilds the full precomputed index (`chunks.jsonl`, `vectors.bin`, `meta.json`)
+     with `sentence-transformers/all-MiniLM-L6-v2`.
+   - Publishes two archives to a `precompute/YYYY-MM-DD` GitHub Release:
+     - `docs-precompute.zip` — full bundle (index + markdown)
+     - `docs-index.zip` — index only (~73 MiB)
+   - Force-pushes `latest-precompute` to the same commit.
 
 ## Tags
 
@@ -45,28 +63,17 @@ The sync is a two-phase process with a human review gate:
 |-----|-------------|
 | `synced/YYYY-MM-DD` | Permanent — marks each weekly scrape |
 | `latest-sync` | Floating — most recent scrape |
-| `embedded/YYYY-MM-DD` | Permanent — marks each successful embed |
-| `latest-embedded` | Floating — most recent embed (what's in Pinecone) |
-
-Useful commands:
-```bash
-# What's synced but not yet embedded?
-git diff latest-embedded latest-sync -- docs/
-
-# What changed between two embed cycles?
-git diff embedded/2026-06-01 embedded/2026-06-08 -- docs/
-
-# What's currently in Pinecone?
-git show latest-embedded:manifest.json
-```
+| `precompute/YYYY-MM-DD` | Permanent — marks each precomputed-index release |
+| `latest-precompute` | Floating — most recent released index |
 
 ## What gets tracked
 
 `manifest.json` stores:
 - per-file SHA256 hash (change detection)
-- chunk IDs (for targeted deletions)
 - last synced timestamp
 - framework commit SHA
+- `chunk_ids` — legacy field, unused since Pinecone removal; kept so old
+  manifests still round-trip cleanly.
 
 This is the state used to decide NEW / MODIFIED / DELETED / UNCHANGED.
 
@@ -74,59 +81,61 @@ This is the state used to decide NEW / MODIFIED / DELETED / UNCHANGED.
 
 Requirements:
 - Python 3.10+
-- Pinecone index (with integrated inference)
 
-Install:
+Install (for scrape/sync only):
 ```bash
 python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-Set env vars:
+Building the precomputed index locally additionally needs:
 ```bash
-export PINECONE_API_KEY="..."
-export PINECONE_INDEX_NAME="docs-rag"
+pip install "numpy<2"
+pip install --index-url https://download.pytorch.org/whl/cpu torch==2.2.2
+pip install sentence-transformers==2.7.0 beautifulsoup4 lxml
 ```
+
+(These are installed by `release-docs-corpus.yml` at build time; they are not
+in `requirements.txt` because they aren't needed for scrape/sync.)
 
 ## Configuration
 
 Edit `config.yaml`:
 - `sources`: GitHub repos + docs paths + extensions
-- `embedding`: chunk size/overlap + header split level
-- `vector_db`: Pinecone settings (namespace template optional)
-
-Namespace template example:
-```yaml
-vector_db:
-  namespace_template: "{framework}-docs"
-```
+- `embedding`: chunk size/overlap + header split level (read by
+  `scripts/chunker.py`)
 
 ## Usage
 
-Scrape only (no embedding):
+Scrape only:
 ```bash
 .venv/bin/python scripts/scrape.py
 ```
 
-Dry-run diff (no changes applied):
+Dry-run diff (no manifest changes):
 ```bash
 .venv/bin/python scripts/sync.py --dry-run
 ```
 
-Sync + embed (all frameworks, local):
+Sync (scrape + diff + write manifest):
 ```bash
-.venv/bin/python scripts/sync.py --embed
+.venv/bin/python scripts/sync.py
 ```
 
-Sync + embed (single framework):
+Sync a single framework:
 ```bash
-.venv/bin/python scripts/sync.py --embed -f react
+.venv/bin/python scripts/sync.py -f react
 ```
 
 Generate a JSON summary of changes:
 ```bash
 .venv/bin/python scripts/sync.py --dry-run --json-summary summary.json
+```
+
+Build the precomputed index locally (requires torch + sentence-transformers):
+```bash
+.venv/bin/python scripts/build_local_index.py --docs-dir docs --out-dir index-build
 ```
 
 ## GitHub Actions
@@ -135,41 +144,36 @@ Generate a JSON summary of changes:
 
 Runs every Sunday 2AM SGT. Creates a PR for review.
 
-Manual trigger options:
-- `force_resync` — clears manifest, treats all files as new
-- `skip_pr` — emergency bypass, embeds directly to Pinecone without PR
-
+Manual trigger:
 ```bash
 # Normal trigger
 gh workflow run "Sync docs"
 
-# Force re-sync (all files re-embedded after merge)
+# Force re-sync (all files treated as new)
 gh workflow run "Sync docs" -f force_resync=true
-
-# Emergency: skip PR and embed directly
-gh workflow run "Sync docs" -f skip_pr=true
 ```
 
-### Embed on merge
+### Release precomputed RAG index
 
-Triggers automatically when a `sync/*` PR is merged. Can also be re-triggered manually:
-
+Triggers automatically when docs land on master. Also manually dispatchable:
 ```bash
-gh workflow run "Embed on merge"
+gh workflow run "Release precomputed RAG index"
+gh workflow run "Release precomputed RAG index" -f tag=custom/2026-01-01
 ```
-
-### Secrets required
-
-- `PINECONE_API_KEY`
-- `PINECONE_INDEX_NAME`
 
 ## Chunking behavior
 
-Current chunker (see `scripts/embed.py`):
+See `scripts/chunker.py`:
 - Splits by markdown headings at `embedding.header_level` (default `##`).
 - Chunks by character size (`embedding.chunk_size`).
 - Fenced code blocks are kept intact (never split).
-- Overlap is applied only between text-only chunks.
+- Overlap applied only between text-only chunks.
+- Third-party markdown is sanitised (HTML comments stripped, invisible
+  unicode removed, classic prompt-injection triggers defanged).
+- Every emitted chunk is wrapped with `[BEGIN UNTRUSTED DOCUMENT CONTENT]` /
+  `[END UNTRUSTED DOCUMENT CONTENT]` sentinels so downstream LLM prompts can
+  key off an unambiguous boundary between operator instructions and retrieved
+  doc text.
 
 ## Repo layout
 
@@ -184,14 +188,19 @@ docs/
   languages/
     javascript/
     typescript/
+  web/
+    html/
+    accessibility/
+  wcag/
 scripts/
-  scrape.py            # fetch docs from GitHub
-  sync.py              # orchestrate scrape → diff → embed
-  embed.py             # chunk + embed + upsert to Pinecone
-  embed_from_diff.py   # embed based on manifest diff (used by CI)
-  pr_summary.py        # generate PR body from sync summary
-  manifest.py          # manifest read/write helpers
+  scrape.py                # fetch docs from GitHub
+  sync.py                  # orchestrate scrape → diff → manifest update
+  chunker.py               # markdown chunker + prompt-injection sanitiser
+  build_local_index.py     # produce chunks.jsonl + vectors.bin + meta.json
+  build_wcag_index.py      # WCAG / DSS / DETAILS.md corpus builder
+  pr_summary.py            # generate PR body from sync summary
+  manifest.py              # manifest read/write helpers
 .github/workflows/
-  sync-docs.yml        # weekly scrape + PR creation
-  embed-on-merge.yml   # embed on PR merge
+  sync-docs.yml            # weekly scrape + PR creation
+  release-docs-corpus.yml  # rebuild + publish precomputed index on merge
 ```
