@@ -87,9 +87,11 @@ def sanitize_ingested_content(content: str) -> str:
         return content
     cleaned = _HTML_COMMENT_RE.sub('', content)
     cleaned = _HIDDEN_UNICODE_RE.sub('', cleaned)
-    cleaned = _INJECTION_TRIGGER_RE.sub(
-        lambda m: f'[QUOTED-DOC-TEXT:{m.group(0)}]', cleaned
-    )
+    # Replace triggers with a fixed redaction marker rather than preserving the
+    # original phrase inside a wrapper — the trigger substring would otherwise
+    # survive verbatim into the retrieved chunk and could still steer a
+    # downstream LLM despite the wrapper.
+    cleaned = _INJECTION_TRIGGER_RE.sub('[REDACTED-PROMPT-INJECTION-TRIGGER]', cleaned)
     if len(cleaned.encode('utf-8', errors='ignore')) > MAX_INGESTED_BYTES:
         cleaned = cleaned.encode('utf-8', errors='ignore')[:MAX_INGESTED_BYTES].decode(
             'utf-8', errors='ignore'
