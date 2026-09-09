@@ -132,15 +132,20 @@ class Manifest:
         framework: str,
         file_path: str,
         content_hash: str,
-        chunk_ids: list[str]
+        chunk_ids: Optional[list[str]] = None,
     ) -> None:
-        """Set or update file state."""
+        """Set or update file state.
+
+        ``chunk_ids`` was populated when the corpus was embedded to Pinecone.
+        Pinecone is gone, but the field is preserved on FileState so existing
+        manifest.json files still round-trip cleanly.
+        """
         if framework not in self.frameworks:
             self.frameworks[framework] = FrameworkState(commit="")
 
         self.frameworks[framework].files[file_path] = FileState(
             content_hash=content_hash,
-            chunk_ids=chunk_ids,
+            chunk_ids=chunk_ids or [],
             last_synced=datetime.now(timezone.utc).isoformat()
         )
 

@@ -55,13 +55,12 @@ static_sources:
     local_path: "wcag.json"
     description: "WCAG 2.2 success criteria with explanations and techniques"
 
+# Chunker defaults used by build_local_index.py when it builds the
+# precomputed RAG index consumed by the VS Code extension and oobee-desktop.
+# scripts/chunker.py reads these via its module-level defaults; overriding
+# here is currently informational (build_local_index instantiates the
+# chunker with defaults).
 embedding:
   chunk_size: 500 # characters per chunk
   chunk_overlap: 100 # character overlap between chunks
   header_level: 2 # split sections on headings at this level or deeper
-
-vector_db:
-  provider: "pinecone"
-  index_name: "" # optional; prefer env PINECONE_INDEX_NAME or VECTOR_DB_INDEX_NAME
-  namespace: "" # optional default namespace
-  namespace_template: "{framework}-docs" # optional per-framework namespace
