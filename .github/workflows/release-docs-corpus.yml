@@ -52,9 +52,23 @@ jobs:
 
       - name: Resolve tag
         id: tag
+        env:
+          # Pass workflow_dispatch input through an env var instead of expanding
+          # `${{ github.event.inputs.tag }}` directly into the run: script.
+          # `${{ }}` is textually substituted into the shell BEFORE bash parses
+          # it, so any quote, backtick, or `$(...)` in the input becomes code.
+          # Bash reads env vars as data, so shell metacharacters stay inert.
+          RAW_TAG_INPUT: ${{ github.event.inputs.tag }}
         run: |
           set -euo pipefail
-          BASE="${{ github.event.inputs.tag }}"
+          BASE="$RAW_TAG_INPUT"
+          # Restrict tag input to characters that are safe as a git ref and as
+          # a bash literal. Reject anything else so a malicious dispatcher
+          # can't smuggle payloads downstream even via steps.tag.outputs.tag.
+          if [[ -n "$BASE" && ! "$BASE" =~ ^[A-Za-z0-9._/-]+$ ]]; then
+            echo "Invalid tag input (allowed: A-Z a-z 0-9 . _ / -): $BASE" >&2
+            exit 1
+          fi
           if [[ -z "$BASE" ]]; then
             BASE="precompute/$(date -u +%Y-%m-%d)"
           fi
@@ -132,8 +146,12 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
       - name: Create dated tag
+        env:
+          # Same pattern as the Resolve tag step — read the value from env so
+          # bash can't interpret metacharacters even if a future change starts
+          # accepting looser tag inputs.
+          TAG: ${{ steps.tag.outputs.tag }}
         run: |
-          TAG="${{ steps.tag.outputs.tag }}"
           git tag "$TAG"
           git push origin "$TAG"
 
@@ -151,16 +169,25 @@ jobs:
       - name: Create dated GitHub release
         env:
           GH_TOKEN: ${{ github.token }}
+          # Read all interpolated fields from env instead of `${{ }}`-substituting
+          # them into the run: script — otherwise a compromised
+          # steps.tag.outputs.tag / commit sha / file count could break out of
+          # the heredoc and run arbitrary commands.
+          TAG: ${{ steps.tag.outputs.tag }}
+          COMMIT_SHA: ${{ github.sha }}
+          FILE_COUNT: ${{ steps.pkg.outputs.file_count }}
+          CHUNK_COUNT: ${{ steps.pkg.outputs.chunk_count }}
+          FULL_SIZE: ${{ steps.pkg.outputs.full_size }}
+          IDX_SIZE: ${{ steps.pkg.outputs.idx_size }}
         run: |
-          TAG="${{ steps.tag.outputs.tag }}"
           NOTES=$(cat <<EOF
           Precomputed RAG index snapshot for oobee-dev-suite-vscode-extension.
 
-          - Commit: ${{ github.sha }}
-          - Markdown files: ${{ steps.pkg.outputs.file_count }}
-          - Chunks: ${{ steps.pkg.outputs.chunk_count }}
-          - Bundle (full): ${{ steps.pkg.outputs.full_size }}
-          - Bundle (index only): ${{ steps.pkg.outputs.idx_size }}
+          - Commit: ${COMMIT_SHA}
+          - Markdown files: ${FILE_COUNT}
+          - Chunks: ${CHUNK_COUNT}
+          - Bundle (full): ${FULL_SIZE}
+          - Bundle (index only): ${IDX_SIZE}
 
           Model: sentence-transformers/all-MiniLM-L6-v2 (matches the Xenova ONNX
           used by the extension at query time).
@@ -175,9 +202,11 @@ jobs:
       - name: Publish latest-precompute release
         env:
           GH_TOKEN: ${{ github.token }}
+          TAG: ${{ steps.tag.outputs.tag }}
+          COMMIT_SHA: ${{ github.sha }}
         run: |
           # Mirror the dated release to the floating tag so downstream tools
           # can pin to a stable URL. The tag was force-pushed above.
           gh release create latest-precompute docs-precompute.zip docs-index.zip \
             --title "Precomputed index (latest)" \
-            --notes "Mirror of ${{ steps.tag.outputs.tag }} — commit ${{ github.sha }}."
+            --notes "Mirror of ${TAG} — commit ${COMMIT_SHA}."
