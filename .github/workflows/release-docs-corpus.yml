@@ -131,6 +131,15 @@ jobs:
           (cd release-assets && zip -r -q ../docs-precompute.zip index docs manifest.json)
           (cd release-assets && zip -r -q ../docs-index.zip index)
 
+          # SHA-256 sidecars. Consumers (oobee-dev-suite-vscode-extension's
+          # ragIndexUpdater, oobee-desktop's updateManager) fetch these when
+          # the Releases API `asset.digest` field is unavailable — e.g. a
+          # rate-limited unauthenticated client — so they can still pin the
+          # download to a checksum instead of falling back to weak HEAD
+          # validators. Standard `shasum -a 256` format: `<hex>  <filename>`.
+          sha256sum docs-precompute.zip > docs-precompute.zip.sha256
+          sha256sum docs-index.zip      > docs-index.zip.sha256
+
           FILE_COUNT=$(find docs -type f | wc -l | tr -d ' ')
           CHUNK_COUNT=$(python -c "import json; m=json.load(open('index-build/meta.json')); print(m['count'])")
           FULL_SIZE=$(du -h docs-precompute.zip | cut -f1)
@@ -195,7 +204,9 @@ jobs:
           Consumed by scripts/downloadRagCorpus.js in oobee-dev-suite-vscode-extension.
           EOF
           )
-          gh release create "$TAG" docs-precompute.zip docs-index.zip \
+          gh release create "$TAG" \
+            docs-precompute.zip docs-precompute.zip.sha256 \
+            docs-index.zip      docs-index.zip.sha256 \
             --title "Precomputed index $TAG" \
             --notes "$NOTES"
 
@@ -207,6 +218,8 @@ jobs:
         run: |
           # Mirror the dated release to the floating tag so downstream tools
           # can pin to a stable URL. The tag was force-pushed above.
-          gh release create latest-precompute docs-precompute.zip docs-index.zip \
+          gh release create latest-precompute \
+            docs-precompute.zip docs-precompute.zip.sha256 \
+            docs-index.zip      docs-index.zip.sha256 \
             --title "Precomputed index (latest)" \
             --notes "Mirror of ${TAG} — commit ${COMMIT_SHA}."
