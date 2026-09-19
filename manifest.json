@@ -1,9 +1,9 @@
 {
   "version": "1.0",
-  "last_sync": "2026-09-08T05:31:41.678979+00:00",
+  "last_sync": "2026-09-19T20:23:39.659626+00:00",
   "frameworks": {
     "react": {
-      "commit": "f3d9794fc31f4a3faf7e863984d37f4ae86b3290",
+      "commit": "b011783fcc7a39da9eefd4274147a1444860a12b",
       "files": {
         "learn/add-react-to-an-existing-project.md": {
           "content_hash": "45193ac21517d19f408acf915371ebaa3342d285d31ef85f91c278ee1bcc1c91",
@@ -356,9 +356,9 @@
           "last_synced": "2026-09-08T05:31:10.349323+00:00"
         },
         "reference/react/Fragment.md": {
-          "content_hash": "d6b39d41699a78af0344451ad99a4c02adbae60a5d7dea134c8c83b38ddd0d5c",
+          "content_hash": "36e8e72d69e42bde2a9e33190a6d4a3c5b6e1268686732d5da1079f3d626e9db",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:10.349325+00:00"
+          "last_synced": "2026-09-19T20:23:10.386804+00:00"
         },
         "reference/react/Profiler.md": {
           "content_hash": "7a2cc0599ae88d44f6ad5a533dd5faae3e3c800af22e992d0aaa7022db56e14e",
@@ -376,14 +376,14 @@
           "last_synced": "2026-09-08T05:31:10.349333+00:00"
         },
         "reference/react/Suspense.md": {
-          "content_hash": "1409c3a702a3b2aa6531397030851c7048ff889dc10cd4907bcc281acd3663a2",
+          "content_hash": "75188e93e57122b9aa7e12162476ec954dbd1bb0c3665c314999b299580cb51c",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:10.349335+00:00"
+          "last_synced": "2026-09-19T20:23:10.386835+00:00"
         },
         "reference/react/ViewTransition.md": {
-          "content_hash": "1f23d8f8b3e0b2e675ec4078a49e3004c9e6784d871a5bfbee4bbb3eacc9da73",
+          "content_hash": "4c524a66925b476eb2497cb5f4068030df6d1d27063bda81a99bdf6e6f802d9d",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:10.349337+00:00"
+          "last_synced": "2026-09-19T20:23:10.386843+00:00"
         },
         "reference/react/act.md": {
           "content_hash": "0f0c60bce7d3f41d25d27e976ba275ac88e4add7aefe2dff376a2fcd3a121ca7",
@@ -391,14 +391,14 @@
           "last_synced": "2026-09-08T05:31:10.349340+00:00"
         },
         "reference/react/addTransitionType.md": {
-          "content_hash": "2d1cbc38e8b0c2daf518985faac4ed4b2eacf82b9c34ce883c3f7219ca4f0c13",
+          "content_hash": "c1cf4e597e7ee202e735eae6b53573fbe7d13944794090a2a711498bb9de3594",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:10.349343+00:00"
+          "last_synced": "2026-09-19T20:23:10.386849+00:00"
         },
         "reference/react/apis.md": {
-          "content_hash": "beb462f12954a03209da9c2d6fbd3c4b024bcd69eba44c28081fb22600c643f6",
+          "content_hash": "711d5fa9cd5feba4a0bfc85df4d7b41ae3a852b69788848709a6ee618a7be42f",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:10.349345+00:00"
+          "last_synced": "2026-09-19T20:23:10.386856+00:00"
         },
         "reference/react/cache.md": {
           "content_hash": "4baaad18797562ed2f34bbae7df493e99db66902a51b738c6dbd7f43d24fdb21",
@@ -481,14 +481,14 @@
           "last_synced": "2026-09-08T05:31:10.349387+00:00"
         },
         "reference/react/startTransition.md": {
-          "content_hash": "29aeb28869ac4ec4e83969620c7688ba797069a795053b7a8f73d621ccfe6531",
+          "content_hash": "7d0092e80020dbba1c9a195ab973a0df0ef5b907200c9c152112265c5127917f",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:10.349389+00:00"
+          "last_synced": "2026-09-19T20:23:10.386862+00:00"
         },
         "reference/react/use.md": {
-          "content_hash": "55e6fba43de058540a141205c6737980e76e651ccc5dc9e4396b400f158981b1",
+          "content_hash": "997072a8d6d3f715b90672f082a1c4d53c34ade78262e407c86201d803d4b280",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:10.349392+00:00"
+          "last_synced": "2026-09-19T20:23:10.386869+00:00"
         },
         "reference/react/useActionState.md": {
           "content_hash": "73b57ece4abe4d4e65822b42b79c3f4bd1871a8ee354b96c90e11047cf9279c5",
@@ -541,9 +541,9 @@
           "last_synced": "2026-09-08T05:31:10.349418+00:00"
         },
         "reference/react/useLayoutEffect.md": {
-          "content_hash": "1709d4267d83a7a552f2a441930c3cf1fa011ce06bef31f30c6c46175287a63b",
+          "content_hash": "b1ba36c04d049fe1feb41eb9efe7fa179a66f3c143f13bccfc4e24672d41ba60",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:10.349420+00:00"
+          "last_synced": "2026-09-19T20:23:10.386873+00:00"
         },
         "reference/react/useMemo.md": {
           "content_hash": "fcc7d755826cea5b7b08db705c004e32191a78561e9e470d315dc881c478d902",
@@ -576,9 +576,9 @@
           "last_synced": "2026-09-08T05:31:10.349434+00:00"
         },
         "reference/react/useTransition.md": {
-          "content_hash": "01669f83769dcb3eb1e142bbc95760152dfd2b790b441476647c5f68bfcdd1fc",
+          "content_hash": "32f9ed969ea61b54243ba8f5ad7d76a1264fba5b7e3ea39b73973f3577e83d3f",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:10.349437+00:00"
+          "last_synced": "2026-09-19T20:23:10.386876+00:00"
         },
         "reference/react-compiler/compilationMode.md": {
           "content_hash": "a740c031d806a85931feee78d9606b0fe765ae4d5828e6ce4c56ed473b16a4bf",
@@ -631,9 +631,9 @@
           "last_synced": "2026-09-08T05:31:10.349462+00:00"
         },
         "reference/react-dom/browser.md": {
-          "content_hash": "e645f57fd063425fdc6c77f2e9877d5921bd2dfc6ab0b5339fac8a3c76fad168",
+          "content_hash": "ea3be90a33ddd15e03f326587858a838a1c2336d5ab1146610a0d26964d50513",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:10.349465+00:00"
+          "last_synced": "2026-09-19T20:23:10.386880+00:00"
         },
         "reference/react-dom/client/createRoot.md": {
           "content_hash": "c3458ec2c871b91304909ad44a4243d22b875d0171ece62217e2f621b9ae8b7a",
@@ -641,14 +641,14 @@
           "last_synced": "2026-09-08T05:31:10.349467+00:00"
         },
         "reference/react-dom/client/hydrateRoot.md": {
-          "content_hash": "b8924ab06c0c15a3c635080eb3e332bbc08f5f3f4e7c8eafeac362953085821d",
+          "content_hash": "01b552ea68e4e45a089fb2d00b528bfc56f206977ab88e1a125c9dd97c2618f6",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:10.349469+00:00"
+          "last_synced": "2026-09-19T20:23:10.386883+00:00"
         },
         "reference/react-dom/components/common.md": {
-          "content_hash": "c773e3cd947e61dd4a74be0e696ce08e645a09b7ed051b4354dbebefc59bd08b",
+          "content_hash": "703ef624e1256ab0b0d259aab589a8583359e47ee249efe41c41d9ecd173864d",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:10.349472+00:00"
+          "last_synced": "2026-09-19T20:23:10.386886+00:00"
         },
         "reference/react-dom/components/form.md": {
           "content_hash": "e72036fdb338e9f237d5bd00d7d36a479c496a9e62ddad04a8ff8ad1a7d0e838",
@@ -751,14 +751,14 @@
           "last_synced": "2026-09-08T05:31:10.349522+00:00"
         },
         "reference/react-dom/server/renderToPipeableStream.md": {
-          "content_hash": "0f9d6fe73ad6ae66d78167d7073bf985a31234b722f279d10bd69a2579264dc0",
+          "content_hash": "bc0eca74eaf337a7dab818d3dcad1ca5714f10cb15b75df6091d7617dd2c4cb3",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:10.349524+00:00"
+          "last_synced": "2026-09-19T20:23:10.386889+00:00"
         },
         "reference/react-dom/server/renderToReadableStream.md": {
-          "content_hash": "59f0a460b76bc3ebfea4d53a76907e333b10e69ba42bd61173966df4d0324e03",
+          "content_hash": "b1f6bb74e3de766688eb143fc5e4a8755f9d22012d9009daad32ffbd1fb3e754",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:10.349527+00:00"
+          "last_synced": "2026-09-19T20:23:10.386892+00:00"
         },
         "reference/react-dom/server/renderToStaticMarkup.md": {
           "content_hash": "f263ae43dc23f81ccee5f44b6ac0f2ccae01c292ff2c68ad2c6c84d6fe8b3b5a",
@@ -771,34 +771,34 @@
           "last_synced": "2026-09-08T05:31:10.349531+00:00"
         },
         "reference/react-dom/server/resume.md": {
-          "content_hash": "eaec4f0142f69d04ae07083150ac1bdc75f21290bfc94b1944ec9b7fa7b38697",
+          "content_hash": "0f3ac1228b196cd72c5cce75929e61a6eae8ed973722717f914876dbdd9f7313",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:10.349534+00:00"
+          "last_synced": "2026-09-19T20:23:10.386895+00:00"
         },
         "reference/react-dom/server/resumeToPipeableStream.md": {
-          "content_hash": "6f9a11436398dbbae1d5e356ce9459a402893e7e85463a8c56ec60a5a1c4d157",
+          "content_hash": "8facfeef96507353c2b0370cd010b82d92cd6b5b0ec58c4e0d1c5ea22d267be1",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:10.349536+00:00"
+          "last_synced": "2026-09-19T20:23:10.386898+00:00"
         },
         "reference/react-dom/static/prerender.md": {
-          "content_hash": "30cdfb7f643eed4f45fddd259c7ef380fed5482482b47d9508f3eeca5fbb12d0",
+          "content_hash": "791c79ac1c8bff923898256709292c3c026d4fe81b6c1e229bf3c2b526bb470d",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:10.349539+00:00"
+          "last_synced": "2026-09-19T20:23:10.386902+00:00"
         },
         "reference/react-dom/static/prerenderToNodeStream.md": {
-          "content_hash": "2584066e2f4c20ac21efd8d4d8a86025589e99400e90f170d69cb584dbcb0d7e",
+          "content_hash": "da7595312f34f2b76c836e7d8f0970a0aa63cef1b003f75f8b18d48f898d9a6e",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:10.349541+00:00"
+          "last_synced": "2026-09-19T20:23:10.386904+00:00"
         },
         "reference/react-dom/static/resumeAndPrerender.md": {
-          "content_hash": "8a1653514a5ea4fa0ddd2419e4c63d99bded4f3f7ca63c64454c964e5c4e52a4",
+          "content_hash": "7d8597dc9a84e9789eeba8ebad5cbb1679bd45cca9d6beb18598115a8892330a",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:10.349543+00:00"
+          "last_synced": "2026-09-19T20:23:10.386907+00:00"
         },
         "reference/react-dom/static/resumeAndPrerenderToNodeStream.md": {
-          "content_hash": "4a4a1de2e9764424680a0137b29804342ebe66b27f5acfc60e96d68e4b311f55",
+          "content_hash": "7c06b9c6193cbf89394055d6b16d876912b0a262c60bbeb9a7732afe25d1e744",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:10.349545+00:00"
+          "last_synced": "2026-09-19T20:23:10.386910+00:00"
         },
         "reference/rsc/directives.md": {
           "content_hash": "57c047d0d1fc9a12516b7f0ba822b9b682e746ce68b0e6b3e50fbf02f268a575",
@@ -806,9 +806,9 @@
           "last_synced": "2026-09-08T05:31:10.349548+00:00"
         },
         "reference/rsc/server-components.md": {
-          "content_hash": "b29f3a008821870b6098b042bfd891f7dddefe90aa142c4ef7ab45e339bbdd10",
+          "content_hash": "5d8a5ef362be2c2da52bcf0958e168fb8dcc7f560a23a411b4de9a39c7ee87a8",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:10.349551+00:00"
+          "last_synced": "2026-09-19T20:23:10.386914+00:00"
         },
         "reference/rsc/server-functions.md": {
           "content_hash": "4c394c0875935f19cf442c7982b1e7c632e8b02f074fdaffe9cb4b0a2d0fca66",
@@ -843,7 +843,7 @@
       }
     },
     "vue": {
-      "commit": "b75d188ab16bf83bd1f364a77dfd2315be8f3fa4",
+      "commit": "40aa88af0094f7bab4aaf786e55c748a6a251d88",
       "files": {
         "api/application.md": {
           "content_hash": "fd649a6270ee6e80e0f6610f4d6d9366eea1775a0664fe5aa6f1a58ea62234e8",
@@ -1026,14 +1026,14 @@
           "last_synced": "2026-09-08T05:31:11.432534+00:00"
         },
         "guide/built-ins/teleport.md": {
-          "content_hash": "5d4695b434ac5cb8270452ffbb714bb2ded24b077ea7801bc3e93b3e228cb69d",
+          "content_hash": "c6c2e6c18b8fb41cd28fb9ce768bda981b051444a1190c09093fa4c69a45b777",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:11.432538+00:00"
+          "last_synced": "2026-09-19T20:23:10.881451+00:00"
         },
         "guide/built-ins/transition-group.md": {
-          "content_hash": "799a27a1240198cf66660b1de4f77ca24177c49c1acae6bc21850b1d2aeb3210",
+          "content_hash": "7a87d16d2c190fe0bdb109bd4d5afb614d5363f761835b75ec2847d1ed9e3d81",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:11.432542+00:00"
+          "last_synced": "2026-09-19T20:23:10.881471+00:00"
         },
         "guide/built-ins/transition.md": {
           "content_hash": "3c88a010449a8a0e9f2a7f18c033a0fb9e86840ea3f2e0476f52827d190c5fa9",
@@ -1071,9 +1071,9 @@
           "last_synced": "2026-09-08T05:31:11.432570+00:00"
         },
         "guide/components/slots.md": {
-          "content_hash": "84f1957dbe2712b8dcb450b56cc5c0280a4e280be83ff789a3285cc17a9dcd79",
+          "content_hash": "81cc7e2cb528f6217fc7ff085e8919680e668fde26c3138ad193c801e4cb7854",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:11.432574+00:00"
+          "last_synced": "2026-09-19T20:23:10.881478+00:00"
         },
         "guide/components/v-model.md": {
           "content_hash": "68233cc55d754b4125ae048884960cccc94561d1b4655de24a2982ec73cb5fc6",
@@ -1091,9 +1091,9 @@
           "last_synced": "2026-09-08T05:31:11.432586+00:00"
         },
         "guide/essentials/component-basics.md": {
-          "content_hash": "8a40a19d6ab2d8fa71a01c06562bed55732f4cf0347b246cd2b2f2f456cc661e",
+          "content_hash": "174710241ea6d1a16300412c3347c063944d79c02d0cac0b728f7bd8b02802dc",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:11.432591+00:00"
+          "last_synced": "2026-09-19T20:23:10.881485+00:00"
         },
         "guide/essentials/computed.md": {
           "content_hash": "531504a4479b8fb03c0fa596e27a5489fb411d94a18dec4d9e6364abc781b5ea",
@@ -1116,9 +1116,9 @@
           "last_synced": "2026-09-08T05:31:11.432609+00:00"
         },
         "guide/essentials/lifecycle.md": {
-          "content_hash": "f3c0438ed71b13e7d1a601396db902ef2deb0b570385afb37d43b33b0a5396e7",
+          "content_hash": "9b62a0b5aee1d25593f00f24fe149806b5d597ee2a5be93509bf2c81ebe6e6e5",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:11.432614+00:00"
+          "last_synced": "2026-09-19T20:23:10.881491+00:00"
         },
         "guide/essentials/list.md": {
           "content_hash": "a6705b5569244e650fd208c2440bf80339b4027d718cc3a15e02ad36234faf99",
@@ -1166,9 +1166,9 @@
           "last_synced": "2026-09-08T05:31:11.432653+00:00"
         },
         "guide/extras/render-function.md": {
-          "content_hash": "318db9fcbfa35799aa2876941e8d674222d3a817a6214ae95f0e1cd14f26c9b0",
+          "content_hash": "5cca2455860d2e826b169876ca041ce17378388cdf175c9d901c5285564fd356",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:11.432657+00:00"
+          "last_synced": "2026-09-19T20:23:10.881496+00:00"
         },
         "guide/extras/rendering-mechanism.md": {
           "content_hash": "16706b35f614f541030c0a49a306b06c5f7d31841f88b9478c533ff177dee33e",
@@ -1263,7 +1263,7 @@
       }
     },
     "angular": {
-      "commit": "9a58353b1b680f162a55969965ae6a90ae20316d",
+      "commit": "7569a02d2961155cc32b9491918bde8ae4c47616",
       "files": {
         "best-practices/a11y.md": {
           "content_hash": "a1e10e793af00a6dfc7206643dd7ae2dceeb04e0ffcabc064e30152b89395772",
@@ -1336,9 +1336,9 @@
           "last_synced": "2026-09-08T05:31:15.895476+00:00"
         },
         "guide/animations/overview.md": {
-          "content_hash": "69df9e7c2cf7e6b4e4b950fb0018daec423239f502c3c8e236a516ffe963fd6d",
+          "content_hash": "405148aa52d647632cbcf3827c450d69273da8b7a06cb1f529f2cd41a9801b83",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:15.895480+00:00"
+          "last_synced": "2026-09-19T20:23:14.878802+00:00"
         },
         "guide/animations/reusable-animations.md": {
           "content_hash": "a986427ae775e760682537e15874f0d54f36f565283fd3de37fb28e29022cd74",
@@ -1436,9 +1436,9 @@
           "last_synced": "2026-09-08T05:31:15.895555+00:00"
         },
         "guide/components/host-elements.md": {
-          "content_hash": "8c47e44731f1df1c96e86ee9e2922a676caf0a81e0ec5bdd3a53786e2ae0b0bc",
+          "content_hash": "ceb1ab2de608c89f73bfa402bd0c6023edfa992fa6c0b4978ea3d646b4323474",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:15.895559+00:00"
+          "last_synced": "2026-09-19T20:23:14.878821+00:00"
         },
         "guide/components/inheritance.md": {
           "content_hash": "e217107d8e133a077cb18a9fd160a5182f1ef3c4247bf99f4e8441100bea3e5a",
@@ -1461,14 +1461,14 @@
           "last_synced": "2026-09-08T05:31:15.895573+00:00"
         },
         "guide/components/programmatic-rendering.md": {
-          "content_hash": "55ce568a2f4b9247cd4effbabac8c6b249363c616d55f07cefe1a7156f1b3808",
+          "content_hash": "a0d6482823fa2e764d69f6fb210b8ee4140212c43d08f0a3ce17fc2c47302236",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:15.895577+00:00"
+          "last_synced": "2026-09-19T20:23:14.878826+00:00"
         },
         "guide/components/queries.md": {
-          "content_hash": "a19d3ecec3aea5b2a4a4d63309f03b60c4e0aa03ee4e978b0e89db1850ec4789",
+          "content_hash": "a947bb2f171d10974ba2697acad2a7a281a1c5fe32311bb2b6aeeb33be47d15d",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:15.895581+00:00"
+          "last_synced": "2026-09-19T20:23:14.878830+00:00"
         },
         "guide/components/selectors.md": {
           "content_hash": "74a426bfd17f2fcead9e4b79a48584d1661f9f2d5f9db30ebc26ecfc39489e09",
@@ -1491,9 +1491,9 @@
           "last_synced": "2026-09-08T05:31:15.895597+00:00"
         },
         "guide/di/defining-dependency-providers.md": {
-          "content_hash": "34cfebe8f739726bba97ae59f7107e96ddf2f7fb79f019b3c87bd6e9ca18ce0b",
+          "content_hash": "112239e4cc98946fdc001f993efe8c79e33f40bfa0cdb04c1d42af224af5c9fc",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:15.895601+00:00"
+          "last_synced": "2026-09-19T20:23:14.878834+00:00"
         },
         "guide/di/dependency-injection-context.md": {
           "content_hash": "b0b39b35477af63252eaced536f3aaedbb4c2246d26b2c7687e136b86d583135",
@@ -1506,14 +1506,14 @@
           "last_synced": "2026-09-08T05:31:15.895609+00:00"
         },
         "guide/di/hierarchical-dependency-injection.md": {
-          "content_hash": "d3477fb7b13e3d8a1b52126f699925d64a3999c541c1136cc850bd8d1faf1b1e",
+          "content_hash": "3d773efa5ef4845b5d42d77e7858b29d40d94fe9d23301bc2e6382047b09e7e2",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:15.895613+00:00"
+          "last_synced": "2026-09-19T20:23:14.878842+00:00"
         },
         "guide/di/lazy-loading-services.md": {
-          "content_hash": "861bdd7bed7011cbd62f1deca3f405a1fedf42ff6044eb1e8175b24a83ce09e1",
+          "content_hash": "3722cb01fc750734dd760e9195e35ddc53b37978e9149a2c2941f1807f8c8a56",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:15.895617+00:00"
+          "last_synced": "2026-09-19T20:23:14.878849+00:00"
         },
         "guide/di/lightweight-injection-tokens.md": {
           "content_hash": "b9b53b98d22eb5c77d339c181632a463426e33434ec5bf3b4139795564b5c33b",
@@ -1571,9 +1571,9 @@
           "last_synced": "2026-09-08T05:31:15.895662+00:00"
         },
         "guide/forms/reactive-forms.md": {
-          "content_hash": "abf8cbfdc0c2575577efdc0d818a4d3e09f9dc2a08fb4ccbbfc43ccf899562fd",
+          "content_hash": "bb66ac1b9c6389af133b6f3c0b97a42c1e42dfd2e8a5f8389661f7a1817c9855",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:15.895667+00:00"
+          "last_synced": "2026-09-19T20:23:14.878856+00:00"
         },
         "guide/forms/signals/async-operations.md": {
           "content_hash": "28caaf2c53c9bf34414fd393083c30ecf55981a6faad69d9bef4f4de9fc9b7a8",
@@ -1586,9 +1586,9 @@
           "last_synced": "2026-09-08T05:31:15.895676+00:00"
         },
         "guide/forms/signals/cross-field-logic.md": {
-          "content_hash": "58bab5e67c8f79bd71d138bc8ec1c5c6b5830f61771de50e1a62ed50603df1dd",
+          "content_hash": "8aa1cf07fd2265b6a709f310899a3e60e6d32cc609194faa7942181658ea640b",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:15.895680+00:00"
+          "last_synced": "2026-09-19T20:23:14.878862+00:00"
         },
         "guide/forms/signals/custom-controls.md": {
           "content_hash": "f1d827b9b4321c91c1730d930cb54ab3c2853c8c244c50a91253ab929475f55d",
@@ -1606,14 +1606,14 @@
           "last_synced": "2026-09-08T05:31:15.895699+00:00"
         },
         "guide/forms/signals/field-metadata.md": {
-          "content_hash": "ea96d8874a9733a5316cc961d22cda44011b2cd2576266324cd479e71b59c353",
+          "content_hash": "687472fd44974f73d2c54234b2cb2a1a77151fcd7e7c7260d6a6f7f010fe28e6",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:15.895704+00:00"
+          "last_synced": "2026-09-19T20:23:14.878868+00:00"
         },
         "guide/forms/signals/field-state-management.md": {
-          "content_hash": "f7a5f966f6e190564fea0fdc5626fde49c72b2c260a7bf41bd525bb35eec3252",
+          "content_hash": "13b9d8acac09e5470e79351c8d9564a1bb6a5f0608f46d69e7cac2d4aeb0196e",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:15.895708+00:00"
+          "last_synced": "2026-09-19T20:23:14.878873+00:00"
         },
         "guide/forms/signals/form-logic.md": {
           "content_hash": "b73c90908ac32f01678baead5d341cd958a5c7aea24907ef07f51a2f529bb16c",
@@ -1651,14 +1651,14 @@
           "last_synced": "2026-09-08T05:31:15.895737+00:00"
         },
         "guide/forms/signals/validation.md": {
-          "content_hash": "64be930117cb1cba10de0924dec6a9f72309265d7e80cd116ee4ef8b76f22595",
+          "content_hash": "304e05d3282d08b55447ab970c9bd4d845021bf1731ec484ed4e5ae1a7a961f1",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:15.895741+00:00"
+          "last_synced": "2026-09-19T20:23:14.878878+00:00"
         },
         "guide/forms/template-driven-forms.md": {
-          "content_hash": "514683c1f84c773c649416df5f658b1e65b865473a96a1338e342b3f55dbbd1d",
+          "content_hash": "c48fa73c82ce9fd598451d245e4b791a38dc9ce851fdc2f90956196f3fbd39d1",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:15.895745+00:00"
+          "last_synced": "2026-09-19T20:23:14.878883+00:00"
         },
         "guide/forms/typed-forms.md": {
           "content_hash": "c7e24521ea64fe9fb963859e97acf189c2fa38d63cb22c6803752d42bf664830",
@@ -1676,9 +1676,9 @@
           "last_synced": "2026-09-08T05:31:15.895757+00:00"
         },
         "guide/http/making-requests.md": {
-          "content_hash": "84045e844c2e1b940308f549a38f6b07b401f1b9520c6b04ce497305d0bf58ec",
+          "content_hash": "aff5f2735edbafd1482e2314e125821b959f6baf8acf5e064af65cc86b37000d",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:15.895762+00:00"
+          "last_synced": "2026-09-19T20:23:14.878889+00:00"
         },
         "guide/http/overview.md": {
           "content_hash": "5c871306a3fd8556aedb4841de8afee02add2f3fa8e11cec6550a8cd2adf76ca",
@@ -1726,14 +1726,14 @@
           "last_synced": "2026-09-08T05:31:15.895806+00:00"
         },
         "guide/i18n/locale-id.md": {
-          "content_hash": "af6025e77e75a6847fbf457d9f41eea679cae79476e9326ae95c9efc7350f188",
+          "content_hash": "84ca72a458d96061ca694a075ee0ce7f0a2c3592d992865887de8ffcc0134fcb",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:15.895809+00:00"
+          "last_synced": "2026-09-19T20:23:14.878894+00:00"
         },
         "guide/i18n/manage-marked-text.md": {
-          "content_hash": "e8eecb0db0daf343b0399e03e4ba87a4422d00e0cf815f3751b9e7f936b386a3",
+          "content_hash": "efa3073d8cbc3ebc37ae73163ae383f51fe9e7ef03b13141fad3bceafca19624",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:15.895812+00:00"
+          "last_synced": "2026-09-19T20:23:14.878899+00:00"
         },
         "guide/i18n/merge.md": {
           "content_hash": "7c1d8a153f314cef3b1614773204b20ab7e15cae25b4462e4741d5facf959489",
@@ -1746,14 +1746,14 @@
           "last_synced": "2026-09-08T05:31:15.895817+00:00"
         },
         "guide/i18n/prepare.md": {
-          "content_hash": "472b9494d28a1c40ed2aac8d32ca85d2ad174d89c744f6553dca7dd8709d561e",
+          "content_hash": "0d9635801c046ed96f27b69fd9f2a649b8e9e0816a9519894035120a1f808d9d",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:15.895820+00:00"
+          "last_synced": "2026-09-19T20:23:14.878905+00:00"
         },
         "guide/i18n/translation-files.md": {
-          "content_hash": "834a1849a26fff0d1ec5e991987e793d3813c62f042c828d1f4d384642f61492",
+          "content_hash": "5e6cff366a980f8b7c96f84dca41d580947558bf8ad15a2dee031947dfd403a9",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:15.895823+00:00"
+          "last_synced": "2026-09-19T20:23:14.878910+00:00"
         },
         "guide/image-optimization.md": {
           "content_hash": "da771d864624471c5363008431827496197ec1dc65b0680055ad9dadd368643e",
@@ -1836,9 +1836,9 @@
           "last_synced": "2026-09-08T05:31:15.895866+00:00"
         },
         "guide/routing/route-guards.md": {
-          "content_hash": "8102931ccf44e7312ee08f9d4ffd53e9f1423e91bc2242b5cfe500c67e978fe4",
+          "content_hash": "4313593a3461b79792bac0f5fbd91f3b69c315d4ea156b13d2869d009314d72f",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:15.895869+00:00"
+          "last_synced": "2026-09-19T20:23:14.878915+00:00"
         },
         "guide/routing/route-transition-animations.md": {
           "content_hash": "bf6cf917cf508318387eff8237230beec3d393322a3d4b60a28ee09fb23ca2e1",
@@ -1866,9 +1866,9 @@
           "last_synced": "2026-09-08T05:31:15.895881+00:00"
         },
         "guide/security.md": {
-          "content_hash": "01baeacb079caf82219ce7d723594987f4016b7e2f09d099cb45b227da067129",
+          "content_hash": "cfa08ebc747c79496e80e5f4b478dba72bbad7393885fffa137689358d10c053",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:15.895883+00:00"
+          "last_synced": "2026-09-19T20:23:14.878921+00:00"
         },
         "guide/signals/debounced.md": {
           "content_hash": "567a23383eb96bf665dd99c4d37bc74bec47ccda7ade756d05b01d1b6852663b",
@@ -1876,9 +1876,9 @@
           "last_synced": "2026-09-08T05:31:15.895885+00:00"
         },
         "guide/signals/effect.md": {
-          "content_hash": "4a353af5212223faa543d5aa077229827f4cb27fb16ae21115f10987609396cd",
+          "content_hash": "c45560ef81f220bdc4e458ea5433ebb500930987a5fb1d428089cf5f4d3d5714",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:15.895888+00:00"
+          "last_synced": "2026-09-19T20:23:14.878926+00:00"
         },
         "guide/signals/linked-signal.md": {
           "content_hash": "ebca0f0398ad9205eac3bac3f75c656c6ab7ccfb0c9ee4081ca6c0371ff2540c",
@@ -1886,9 +1886,9 @@
           "last_synced": "2026-09-08T05:31:15.895890+00:00"
         },
         "guide/signals/overview.md": {
-          "content_hash": "5f6ae0e01a544c62a40b5eb8a5dc6ad30794d7bbdc3c12193a2804743cfa7402",
+          "content_hash": "267eda841fa19742a4d49a5ebbdd93c343ca5e72c55766f8fd0a06472cb54cb4",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:15.895893+00:00"
+          "last_synced": "2026-09-19T20:23:14.878931+00:00"
         },
         "guide/signals/resource.md": {
           "content_hash": "548c32e936ed46d008b4e1e83448d6e4055eb7481a0cbfa4bc6a39256b3ae500",
@@ -1896,9 +1896,9 @@
           "last_synced": "2026-09-08T05:31:15.895895+00:00"
         },
         "guide/ssr.md": {
-          "content_hash": "a7376d6918a0868ab4eb6a31ebf9df7a9fa94b0f53eb7a47cddbe190bab6ae20",
+          "content_hash": "07380b3fb5a49527b08fe84eceedc0aaa889e9d2be0899eed3a1c95521f56a31",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:15.895898+00:00"
+          "last_synced": "2026-09-19T20:23:14.878936+00:00"
         },
         "guide/tailwind.md": {
           "content_hash": "d059bf6c165cb24f1c2f3b14ba44b9b0b2eb6a061f63bbff1f47f9626b2e2733",
@@ -1911,14 +1911,14 @@
           "last_synced": "2026-09-08T05:31:15.895903+00:00"
         },
         "guide/templates/control-flow.md": {
-          "content_hash": "dc4553d8bf35f6a08fd94a385389cb6059af2a50646b5972ec35f94248838f7a",
+          "content_hash": "cb55fab0eb4d423baf0e869779ae95108b6638d69befcdeaacc8cadc36d18679",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:15.895905+00:00"
+          "last_synced": "2026-09-19T20:23:14.878942+00:00"
         },
         "guide/templates/defer.md": {
-          "content_hash": "b89e44d7eba2f5874df50a7cf3bc31625ebb71b66ce88d8bc5efb21320d8b6ad",
+          "content_hash": "1fba0b65edfc5bd497f2c1a84f411975324d3b7fc751b8eae84f14d2d667e5b8",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:15.895908+00:00"
+          "last_synced": "2026-09-19T20:23:14.878947+00:00"
         },
         "guide/templates/event-listeners.md": {
           "content_hash": "ccf58993c8d46860b2a9260e5adbd3b09cd4b8d58cbe6218ff5637b3154211a5",
@@ -1941,9 +1941,9 @@
           "last_synced": "2026-09-08T05:31:15.895918+00:00"
         },
         "guide/templates/ng-template.md": {
-          "content_hash": "649e54698e2e89b2598b4f552c97a6f5feb1e7c039cb8ff5baeefe4ddee90cc4",
+          "content_hash": "3c7e430279d4e51e3eccedc39aad9aa81a3d4f92ce37492178801f5d9eeb32cd",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:15.895920+00:00"
+          "last_synced": "2026-09-19T20:23:14.878952+00:00"
         },
         "guide/templates/overview.md": {
           "content_hash": "7b5acf125d5232d5ed6172ca6e95675fe247dc4072b36e4bd5928b317a39f0d8",
@@ -1951,9 +1951,9 @@
           "last_synced": "2026-09-08T05:31:15.895923+00:00"
         },
         "guide/templates/pipes.md": {
-          "content_hash": "a1ed205d38f2541511ce79feadc9e6ee780cd7abeb8f2a9b5a69e1f226d14739",
+          "content_hash": "20cb606d2189bac0d7aafd281a5772eab714f9f96adea08fd8d46103917f9a52",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:15.895925+00:00"
+          "last_synced": "2026-09-19T20:23:14.878957+00:00"
         },
         "guide/templates/two-way-binding.md": {
           "content_hash": "da47f5336d9716755cd022ce28c4332caeffa276cd3dc0e5199e098f9e480b9d",
@@ -1996,9 +1996,9 @@
           "last_synced": "2026-09-08T05:31:15.895946+00:00"
         },
         "guide/testing/components-scenarios.md": {
-          "content_hash": "74c1bab0ca256079fb7378d8a4595d4ef9a4b2fc47bf7066c3a048b8daccde2e",
+          "content_hash": "ea02b149260106dea400f393f5a2a83a185422d32ca04405e1db7c4cf52b2628",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:15.895949+00:00"
+          "last_synced": "2026-09-19T20:23:14.878962+00:00"
         },
         "guide/testing/creating-component-harnesses.md": {
           "content_hash": "c6cdcd75a22940ec705cf272cc669f414a3ba0bb89da7946617216acda7ea6de",
@@ -2056,9 +2056,9 @@
           "last_synced": "2026-09-08T05:31:15.895978+00:00"
         },
         "introduction/essentials/components.md": {
-          "content_hash": "a0778ab97cc6e683c866c27268624172588e1c8dc0754226f8ad5cfcfa0e3373",
+          "content_hash": "a93df1d72f825f5d5549d576b960ec5a831b18200c81aca40ca8789a98122f57",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:15.895981+00:00"
+          "last_synced": "2026-09-19T20:23:14.878968+00:00"
         },
         "introduction/essentials/dependency-injection.md": {
           "content_hash": "4c77b97ae4de4dd0fa1ba921aa05ead82a4fd4c685fabd8c13088efdb57a364d",
@@ -2106,9 +2106,9 @@
           "last_synced": "2026-09-08T05:31:15.896003+00:00"
         },
         "reference/configs/angular-compiler-options.md": {
-          "content_hash": "5fc5a29b3bd9b79f7bf520efd4d08d83a572541f6a5e29a6d120354d22a154d6",
+          "content_hash": "4ee9197eb0b04998b0c35c530d82326358b23260d4e761c2d9ccb19da25b7aa1",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:15.896005+00:00"
+          "last_synced": "2026-09-19T20:23:14.878975+00:00"
         },
         "reference/configs/file-structure.md": {
           "content_hash": "3cc38600f5418103507d49a2f82b644a865ab05bcc7d8b30c76969657234f4ed",
@@ -2116,14 +2116,14 @@
           "last_synced": "2026-09-08T05:31:15.896008+00:00"
         },
         "reference/configs/npm-packages.md": {
-          "content_hash": "b4f42761c9b3866034b39366a8f61d8e85ed268846046d1659a19fa2f3869e55",
+          "content_hash": "3fd0f43e77b4a1823d41972b3df0d3efea7c3f19ef9a62299ba424d963a3aa05",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:15.896010+00:00"
+          "last_synced": "2026-09-19T20:23:14.878982+00:00"
         },
         "reference/configs/workspace-config.md": {
-          "content_hash": "9f0923e63e807821655070d1e138d2545acd4bcdbc5e85cc74b56919f00850ab",
+          "content_hash": "35da24d45377944ef7d16e51854ba20cb3c263ef4b12cd4fd7c2fcecfdb93032",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:15.896014+00:00"
+          "last_synced": "2026-09-19T20:23:14.878988+00:00"
         },
         "reference/errors/NG0100.md": {
           "content_hash": "a7bcbd676ba5377b8a572d890ac17fd299593e2c8d62c4d513721d5750a7a03c",
@@ -2251,9 +2251,9 @@
           "last_synced": "2026-09-08T05:31:15.896079+00:00"
         },
         "reference/errors/NG0501.md": {
-          "content_hash": "7ee88c4f1b18910e6bc40fc33a76186cde31fe007ad81dad46db1080d8f7b59c",
+          "content_hash": "6d7c1c9182fe9e8ae673067a4aac44a30579784661e28a0f1ec7226db07d24a0",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:15.896082+00:00"
+          "last_synced": "2026-09-19T20:23:14.878991+00:00"
         },
         "reference/errors/NG0502.md": {
           "content_hash": "ada12ea25c32f14761524724568560ca6df27ecb26ea512be5f2ffc3313e2f82",
@@ -2426,9 +2426,9 @@
           "last_synced": "2026-09-08T05:31:15.896204+00:00"
         },
         "reference/errors/overview.md": {
-          "content_hash": "e8c29e8e0467167169476846f9f3681c065da18b4bf955d308ab37e4aa191a2c",
+          "content_hash": "b3ca40e7863bc21960ebbfae9fc1b5caac98efe422e0640ccfddd92579c9cfae",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:15.896206+00:00"
+          "last_synced": "2026-09-19T20:23:14.878994+00:00"
         },
         "reference/extended-diagnostics/NG8021.md": {
           "content_hash": "0258f7f076026cab9fb256c4e1b05f716add08e08256fe4a3f3c874d1ca226d4",
@@ -2561,9 +2561,9 @@
           "last_synced": "2026-09-08T05:31:15.896271+00:00"
         },
         "reference/migrations/route-lazy-loading.md": {
-          "content_hash": "9566415b436f7432c83b8afd1f34545c52519c4bd816cbd18e1ab1d4bd1cf24d",
+          "content_hash": "b76109fa1208c51da4ad7345e6c3afd7ae0ea98995e77c92e4d45364329f9fbe",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:15.896273+00:00"
+          "last_synced": "2026-09-19T20:23:14.878997+00:00"
         },
         "reference/migrations/router-testing-module-migration.md": {
           "content_hash": "5e187b42e809dd283eb528ecf4cf34663bd8d096ee74db46ee4793527255dbb2",
@@ -2576,9 +2576,9 @@
           "last_synced": "2026-09-08T05:31:15.896278+00:00"
         },
         "reference/migrations/signal-inputs.md": {
-          "content_hash": "b0ead109395e1d4c1f552e6a14debc22797a25676b0497308d7ee7083d03816a",
+          "content_hash": "e72c8a794db4595e89663a2939e3483f4103409aed816c293c47e28cafea288f",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:15.896280+00:00"
+          "last_synced": "2026-09-19T20:23:14.879001+00:00"
         },
         "reference/migrations/signal-queries.md": {
           "content_hash": "b7156a0ef7096dd96222169ff163acc6327ac0f3a41481d80e7cfd497d2917fc",
@@ -2586,9 +2586,9 @@
           "last_synced": "2026-09-08T05:31:15.896282+00:00"
         },
         "reference/migrations/standalone.md": {
-          "content_hash": "b51f9818bf892ae0adaddaf50caf6cf8ad415e94f78172de11d799311897115a",
+          "content_hash": "94795057b45cc77a49511ecc3d6068282a480214a202879a5b49710eac881638",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:15.896285+00:00"
+          "last_synced": "2026-09-19T20:23:14.879003+00:00"
         },
         "reference/press-kit.md": {
           "content_hash": "8b4fdd743102125c39439425a8e29411fc19e9a5cf3feb6c7eeeff31e0b430ec",
@@ -2596,9 +2596,9 @@
           "last_synced": "2026-09-08T05:31:15.896287+00:00"
         },
         "reference/releases.md": {
-          "content_hash": "44c7ba364ae946e799a240b1927c5de254ab5d613034a80f826209528999de45",
+          "content_hash": "bab03f63e263559bfb8ad93cd16d439248d9c9592d9122f8e6ea10cc49ebe3d9",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:15.896290+00:00"
+          "last_synced": "2026-09-19T20:23:14.879006+00:00"
         },
         "reference/roadmap.md": {
           "content_hash": "2531914335130d3c3bf613827fbe0e8a073e9cb8b5b594688a44397c7f219526",
@@ -2609,11 +2609,21 @@
           "content_hash": "875d43ccefd6435b157f9766e9ffdbab7a2efce407425bc97899bcf974b869e5",
           "chunk_ids": [],
           "last_synced": "2026-09-08T05:31:15.896295+00:00"
+        },
+        "guide/templates/error-boundaries.md": {
+          "content_hash": "b30bb2562ae5f8c3a102be759cf1869be2e181b7e2e787ad009d6a56eca62a11",
+          "chunk_ids": [],
+          "last_synced": "2026-09-19T20:23:14.879009+00:00"
+        },
+        "reference/errors/NG0600.md": {
+          "content_hash": "fc0389933e4a9132dc10576d08a00e6098d538e9dfa375ee975d6be4487364da",
+          "chunk_ids": [],
+          "last_synced": "2026-09-19T20:23:14.879013+00:00"
         }
       }
     },
     "javascript": {
-      "commit": "d9b48f268f04264e420388135f53db136e5d9272",
+      "commit": "5a81c288fb7213b2ca2180cda687500981ecf9e1",
       "files": {
         "guide/closures/index.md": {
           "content_hash": "ae1a6ecd7f8e446bef7a1a689c082a88569e8b506f61e93b7dfdf2768a896fdd",
@@ -2756,9 +2766,9 @@
           "last_synced": "2026-09-08T05:31:24.688853+00:00"
         },
         "guide/resource_management/index.md": {
-          "content_hash": "f3b88d05718b7c821929b362e352cce056d4700310035d5df95d52a1160bbb1c",
+          "content_hash": "67e9ada2e0e02ff3639034d46e5c8ffaffecc1720935b4911ac3b852d819b29e",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:24.688857+00:00"
+          "last_synced": "2026-09-19T20:23:23.220366+00:00"
         },
         "guide/typed_arrays/index.md": {
           "content_hash": "3fb76ce04e469f1e142db10e5652f0e398242d081c21cc332b1166a440b83c9f",
@@ -2896,9 +2906,9 @@
           "last_synced": "2026-09-08T05:31:24.688943+00:00"
         },
         "reference/errors/bad_super_call/index.md": {
-          "content_hash": "0c8900a7f779029fc9dd6b173234a554bc4eb0e98c31e6ad314d7105e73ffa63",
+          "content_hash": "18b34b69df49fe275b97e1d564785e5c0a533fbea92015806212cef93502a64a",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:24.688945+00:00"
+          "last_synced": "2026-09-19T20:23:23.220390+00:00"
         },
         "reference/errors/bad_super_prop/index.md": {
           "content_hash": "c04301a3a78b2a339fe5bfa5bed6a5be96c3455853d99df2812db24775e866ab",
@@ -3526,9 +3536,9 @@
           "last_synced": "2026-09-08T05:31:24.689568+00:00"
         },
         "reference/functions/index.md": {
-          "content_hash": "5b34e5f96378c0645c671bfcc1309f2d9946eef9b546c72032ce2fde33e15bb7",
+          "content_hash": "bc0c36092b594da925c80299b81a1fd787fa0c957a67295567f7cf7b12565eee",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:24.689570+00:00"
+          "last_synced": "2026-09-19T20:23:23.220399+00:00"
         },
         "reference/functions/method_definitions/index.md": {
           "content_hash": "5ef956bd201fb93cd80ab4c413bb1936c060068eec01a0204b4cb1fa4c033876",
@@ -4621,9 +4631,9 @@
           "last_synced": "2026-09-08T05:31:24.690086+00:00"
         },
         "reference/global_objects/index.md": {
-          "content_hash": "4f467a30e0c902740ce2cedfbfdfcbb53320506a5bd6a4f7a1273bcfd8d21b1d",
+          "content_hash": "1e27fc72af1dcccdbfc84f492454bf97c35d31cca841ce7114b0f43fb5375c4a",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:24.690088+00:00"
+          "last_synced": "2026-09-19T20:23:23.220407+00:00"
         },
         "reference/global_objects/infinity/index.md": {
           "content_hash": "cfc39883804860ee9502111c09d370e96c15137051b132ba8d05c80d3ab2ed1a",
@@ -5146,14 +5156,14 @@
           "last_synced": "2026-09-08T05:31:24.690341+00:00"
         },
         "reference/global_objects/iterator/includes/index.md": {
-          "content_hash": "689a9981ccf5633825c490f14dfe1a829643d2d8ab887fb8c188ee600fa97406",
+          "content_hash": "a4a9317f42012993975a6de936587378a0217dba608c517eebbefad3b5fb00d3",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:24.690344+00:00"
+          "last_synced": "2026-09-19T20:23:23.220413+00:00"
         },
         "reference/global_objects/iterator/index.md": {
-          "content_hash": "66597ce8a4cebd1380699fb623439df7193a6c477f537ce1a6f56c05475adaef",
+          "content_hash": "d0968b746e72c95706813e55f9bdd42440f74522ce5655cbcdcbdcf430f37010",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:24.690346+00:00"
+          "last_synced": "2026-09-19T20:23:23.220420+00:00"
         },
         "reference/global_objects/iterator/iterator/index.md": {
           "content_hash": "dfaabea0070fc59e90d338f24273be91567b8ada96f0fa1b1410fa86985e0f91",
@@ -5851,9 +5861,9 @@
           "last_synced": "2026-09-08T05:31:24.690676+00:00"
         },
         "reference/global_objects/object/values/index.md": {
-          "content_hash": "53f65c86e4c42c6cec4cb993d6732434b200de1113a54bec992a81cb3ec3d2ee",
+          "content_hash": "c5962712fd549f80676490bf5541a9d0d3d797f922404b85c374e7cf9495d092",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:24.690679+00:00"
+          "last_synced": "2026-09-19T20:23:23.220427+00:00"
         },
         "reference/global_objects/parsefloat/index.md": {
           "content_hash": "e6160d4bb0a12583a6b08c9a2ab34f3171cdf54fe24f2be313b020fc37a31c9c",
@@ -5871,9 +5881,9 @@
           "last_synced": "2026-09-08T05:31:24.690685+00:00"
         },
         "reference/global_objects/promise/allkeyed/index.md": {
-          "content_hash": "3ce576108a8c93666cbe70472b0783dcab6c79f112ebd77971d12e519f7d89ff",
+          "content_hash": "fd074db71f1dd49e0d98a574b44b6536b1e04ab8da8028ed24b1c52843f50d9d",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:24.690688+00:00"
+          "last_synced": "2026-09-19T20:23:23.220433+00:00"
         },
         "reference/global_objects/promise/allsettled/index.md": {
           "content_hash": "0e81cd6624d43b85f7e58ea886a8c09b3062718ed0e29e8fe3b61e636c9b8e61",
@@ -5881,9 +5891,9 @@
           "last_synced": "2026-09-08T05:31:24.690690+00:00"
         },
         "reference/global_objects/promise/allsettledkeyed/index.md": {
-          "content_hash": "260527b5c562c86a6ecc791672e227e2fd18199fd192efb13b3785afff35b121",
+          "content_hash": "e80ed2adc43a1f52a2e541a98a6b9167a778641039d31e1b1001269e1afca26f",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:24.690692+00:00"
+          "last_synced": "2026-09-19T20:23:23.220439+00:00"
         },
         "reference/global_objects/promise/any/index.md": {
           "content_hash": "04c82817f761a5b94c7decd2f9983f0a456515276756e4b06f74af832e9e3b85",
@@ -5901,9 +5911,9 @@
           "last_synced": "2026-09-08T05:31:24.690699+00:00"
         },
         "reference/global_objects/promise/index.md": {
-          "content_hash": "8e990d859df4e5dc2fb2ae0bf4f9803827a499698ce3b6219d282034be20534a",
+          "content_hash": "6f09ec515fd7130f4ba9dc164bb064532f4ac639f24e34cb22d42769af7bef3d",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:24.690701+00:00"
+          "last_synced": "2026-09-19T20:23:23.220444+00:00"
         },
         "reference/global_objects/promise/promise/index.md": {
           "content_hash": "f69cc829ed7021078f8cea2070cea897554e6632339cf2d640b9f9d4233c11de",
@@ -5916,14 +5926,14 @@
           "last_synced": "2026-09-08T05:31:24.690705+00:00"
         },
         "reference/global_objects/promise/reject/index.md": {
-          "content_hash": "445042b10573412b14551465b8ccb19a421cc26916a8be4985b173dc6dd7f90b",
+          "content_hash": "8230a28e2c6cc5c4fab6faea0d514d6c3f12fd6d433531a54463f23cd117f260",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:24.690707+00:00"
+          "last_synced": "2026-09-19T20:23:23.220450+00:00"
         },
         "reference/global_objects/promise/resolve/index.md": {
-          "content_hash": "9c19f39fef8b7d3ce048986aa62a8ff21db34e8dae9244fe6fb6f700090f8633",
+          "content_hash": "f7fd4027607fef9e771b7470cebdc713333e574bef78c77fdfb77b80b6d8cd66",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:24.690710+00:00"
+          "last_synced": "2026-09-19T20:23:23.220456+00:00"
         },
         "reference/global_objects/promise/symbol.species/index.md": {
           "content_hash": "dfb44b240a7288a5f6b50628eb397d7e7623880dd23aeeef303fb263fdb49771",
@@ -5936,14 +5946,14 @@
           "last_synced": "2026-09-08T05:31:24.690714+00:00"
         },
         "reference/global_objects/promise/try/index.md": {
-          "content_hash": "e4162742190b93dbc03df503bbd9366243b857d6fa8e2d09fce81c6f7b7ffbad",
+          "content_hash": "8dca0986013070d8ac314c161e311feb51c9c46735dd392a5774d82368008280",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:24.690716+00:00"
+          "last_synced": "2026-09-19T20:23:23.220461+00:00"
         },
         "reference/global_objects/promise/withresolvers/index.md": {
-          "content_hash": "66f595d629ca2c2b4d233a83b468f65488d0b9e68a0f7360adda754107473e64",
+          "content_hash": "ea3200fb73ee946a841f6bcc87117f69aa729cd3534284dc987157024944d78e",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:24.690719+00:00"
+          "last_synced": "2026-09-19T20:23:23.220466+00:00"
         },
         "reference/global_objects/proxy/index.md": {
           "content_hash": "1f51be2b4917883a686bf34fa7c6ca9c6c7d3a91ce327cc2ba504a3eae5b87b4",
@@ -6256,9 +6266,9 @@
           "last_synced": "2026-09-08T05:31:24.690868+00:00"
         },
         "reference/global_objects/regexp/unicodesets/index.md": {
-          "content_hash": "c9e6b5ae7aa5652e1b441bdc1654244e2721464c4ed95700af985d749e9a8b50",
+          "content_hash": "eb4c8cd81de43effa562a5af13cbf0c5262bece3462a0eaeb88a9a4e8d02ca01",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:24.690870+00:00"
+          "last_synced": "2026-09-19T20:23:23.220471+00:00"
         },
         "reference/global_objects/set/add/index.md": {
           "content_hash": "f77dd83bafbae565e26e3c4771ff490d5fb8967f70c78a2729b7adc17908fe64",
@@ -6681,9 +6691,9 @@
           "last_synced": "2026-09-08T05:31:24.691057+00:00"
         },
         "reference/global_objects/suppressederror/index.md": {
-          "content_hash": "cd29dafefae92e044b4e8e00375f7caa2c69fa11e1e0adb5fde4fbcf9ed631a0",
+          "content_hash": "ecfb8bc2c50947211bdd0292a6dacc12c153e627ed04a54e466dd0444daaeb1f",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:24.691059+00:00"
+          "last_synced": "2026-09-19T20:23:23.220477+00:00"
         },
         "reference/global_objects/suppressederror/suppressed/index.md": {
           "content_hash": "bbaa70ca2ddae5497afb0618d1acf02240769741f974e1eeaf49295474ff9812",
@@ -7181,9 +7191,9 @@
           "last_synced": "2026-09-08T05:31:24.691311+00:00"
         },
         "reference/index.md": {
-          "content_hash": "b09ca061c0ba3bf24daf5e81046f7973bfe4b80757d5e3fa2ae5e353d084f598",
+          "content_hash": "cee94605efd5429be7427e22c573accde1efa5be905d5161056d76029bcb3b99",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:24.691313+00:00"
+          "last_synced": "2026-09-19T20:23:23.220482+00:00"
         },
         "reference/iteration_protocols/index.md": {
           "content_hash": "3726bc0d37fff2d10c6827ddab8690076f0d618e4636e152c937b65f5bd33b29",
@@ -7196,9 +7206,9 @@
           "last_synced": "2026-09-08T05:31:24.691318+00:00"
         },
         "reference/lexical_grammar/index.md": {
-          "content_hash": "b4d347e4e707a8ba3c30cf89935ec2dc721649a4ce970b3259749160b29ba026",
+          "content_hash": "50c74f33add9f6ec58ec35a4c59df2d116b3196a479f362603db56073059901a",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:24.691320+00:00"
+          "last_synced": "2026-09-19T20:23:23.220488+00:00"
         },
         "reference/operators/addition/index.md": {
           "content_hash": "9672967fc2c0b4431e40d66fa52176888d6d1335f9c83ea2cf8cdf0f0d21cae2",
@@ -7346,9 +7356,9 @@
           "last_synced": "2026-09-08T05:31:24.691384+00:00"
         },
         "reference/operators/import/index.md": {
-          "content_hash": "1d7ec95fdfab3302e8905bb1587e8506aa17b8e0adcee80aef5956c729873de5",
+          "content_hash": "449bdc66129d131676427c7b594ea26334df5f3968fbc833dd42141ab5fdedf8",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:24.691387+00:00"
+          "last_synced": "2026-09-19T20:23:23.220493+00:00"
         },
         "reference/operators/import.meta/index.md": {
           "content_hash": "931ca41faac3c1b0a54788e6e60002d44e06eb0761638b1778f09f6fcb172b35",
@@ -7371,9 +7381,9 @@
           "last_synced": "2026-09-08T05:31:24.691396+00:00"
         },
         "reference/operators/index.md": {
-          "content_hash": "88d82212e452a5e7bc0a553c4a7f49a7a915af6db51d0f6c7e5b707ebb3b81bd",
+          "content_hash": "c3e86cd43fafa294fad4f2c2fba271642588785f54cb94069bdca34ebb9185e6",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:24.691398+00:00"
+          "last_synced": "2026-09-19T20:23:23.220499+00:00"
         },
         "reference/operators/inequality/index.md": {
           "content_hash": "9b9bd28efaf0c2b1924acce6f6eeba4387ed1c07ad361e4fc34b7be336354a59",
@@ -7736,9 +7746,9 @@
           "last_synced": "2026-09-08T05:31:24.691562+00:00"
         },
         "reference/statements/export/index.md": {
-          "content_hash": "a194dedda3315a3d96053894c0dd8ea0d9511e7181061795e2fa459affcd2d16",
+          "content_hash": "a52940b97459225445ba0cde1ba871ef02424f62528f913f4d1c13d5c12a3e8d",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:24.691564+00:00"
+          "last_synced": "2026-09-19T20:23:23.220504+00:00"
         },
         "reference/statements/expression_statement/index.md": {
           "content_hash": "0fa815c57ad6aecc18671a590198474f20952ca9da1766b1c951fcdbc772806c",
@@ -7781,14 +7791,14 @@
           "last_synced": "2026-09-08T05:31:24.691582+00:00"
         },
         "reference/statements/import/index.md": {
-          "content_hash": "e18769366a3dbe8f5363737234a65fdb6d8da25658050d6958c755aad61da99f",
+          "content_hash": "13b211864bd60b6955c33106bed5741a8fc3e94d57f029e4ca577311728d29d5",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:24.691584+00:00"
+          "last_synced": "2026-09-19T20:23:23.220509+00:00"
         },
         "reference/statements/index.md": {
-          "content_hash": "91615ee29070532e6d722933fac41635c8bc2b27b5a522f42e9bade28b49465a",
+          "content_hash": "d636db91da4e2d6ece2c77b173194b5d26b1915d0363a26b5aa29ed2d3c61d63",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:24.691586+00:00"
+          "last_synced": "2026-09-19T20:23:23.220515+00:00"
         },
         "reference/statements/label/index.md": {
           "content_hash": "944717f6b8db9dbdfb4e9e58d5fb9ac17b2f358b5730638d6c9c309c7a8a83fa",
@@ -7849,11 +7859,36 @@
           "content_hash": "2848801ee4651e426d3d8027c9f138e7e07d44889bc33311aff15e6357f6949e",
           "chunk_ids": [],
           "last_synced": "2026-09-08T05:31:24.691614+00:00"
+        },
+        "reference/global_objects/abstractmodulesource/index.md": {
+          "content_hash": "21c56ea4c03e6dc4ec380ee2da660ed1af14bb2e1e50f0d5deb726792e733215",
+          "chunk_ids": [],
+          "last_synced": "2026-09-19T20:23:23.220520+00:00"
+        },
+        "reference/operators/import/defer/index.md": {
+          "content_hash": "28546045f0b1288cd5e83db379342288131077b4c09e95bc5422fd3a42832e23",
+          "chunk_ids": [],
+          "last_synced": "2026-09-19T20:23:23.220525+00:00"
+        },
+        "reference/operators/import/source/index.md": {
+          "content_hash": "842893d81bbb34b8e548d6aca90066889bab374eaf1e0cb909084de279789eea",
+          "chunk_ids": [],
+          "last_synced": "2026-09-19T20:23:23.220531+00:00"
+        },
+        "reference/statements/import/defer/index.md": {
+          "content_hash": "b7c0135ac3b08a30ce586f383c7a5db7d2a5b4681e3a2f5d1260bbe6e644450e",
+          "chunk_ids": [],
+          "last_synced": "2026-09-19T20:23:23.220536+00:00"
+        },
+        "reference/statements/import/source/index.md": {
+          "content_hash": "276e57eec0f9936d9be96ce95108c1ba0f536f2ece9493079b222bef00b6031b",
+          "chunk_ids": [],
+          "last_synced": "2026-09-19T20:23:23.220541+00:00"
         }
       }
     },
     "typescript": {
-      "commit": "0a8e87a4fdaa28512f7db2a716de7425b5f9a3b7",
+      "commit": "042c248fee502940b5817ba6232c090c21a1358d",
       "files": {
         "declaration-files/By Example.md": {
           "content_hash": "28a47f8c960a80de8d26e402f57ce45c0758507e614662e891df15c28fda6c63",
@@ -8206,9 +8241,9 @@
           "last_synced": "2026-09-08T05:31:26.410647+00:00"
         },
         "tutorials/DOM Manipulation.md": {
-          "content_hash": "4e9deba1a36f773f22544c75b5182b1259051cf7a687b3da33f560c7df8d8ce1",
+          "content_hash": "92a80601fd133df4c094125910fa6eed574055d79ddc3a50ccbf3281ee95d026",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:26.410651+00:00"
+          "last_synced": "2026-09-19T20:23:24.057721+00:00"
         },
         "tutorials/Gulp.md": {
           "content_hash": "da7b54ffdbf41f3a6e46d9b47dc6e21f7fde49ae09ae72427d2b273fedc7b019",
@@ -8233,7 +8268,7 @@
       }
     },
     "html": {
-      "commit": "d9b48f268f04264e420388135f53db136e5d9272",
+      "commit": "5a81c288fb7213b2ca2180cda687500981ecf9e1",
       "files": {
         "a/index.md": {
           "content_hash": "5227807f78dd1da9841b9398afa6ebd5d1622f7b435fb3ecb64acff5a9e59079",
@@ -8261,14 +8296,14 @@
           "last_synced": "2026-09-08T05:31:33.985014+00:00"
         },
         "article/index.md": {
-          "content_hash": "e839677f90ee4dd1473057541f376bfa15a6f4789b8c7acc38ecffa8dc1db786",
+          "content_hash": "b6e55b0401c51edf764b7b31c8a35df4f1bb85f4adb2e4bb839e1a999b61ec9f",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:33.985023+00:00"
+          "last_synced": "2026-09-19T20:23:31.896289+00:00"
         },
         "aside/index.md": {
-          "content_hash": "5b8ab57a99a5a2dda208be3df186182c327eb5151361ee492a806a9c5dfc2d5b",
+          "content_hash": "8e975e937eccf16af46f933182d2b8d51419448650ca051ac7e5b51d5fb1e0c5",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:33.985027+00:00"
+          "last_synced": "2026-09-19T20:23:31.896313+00:00"
         },
         "audio/index.md": {
           "content_hash": "e6dcd37f79fff18a79df9867fddd4839c9e1e4a59e56535efa1c44c5c0bdb587",
@@ -8291,9 +8326,9 @@
           "last_synced": "2026-09-08T05:31:33.985040+00:00"
         },
         "bdo/index.md": {
-          "content_hash": "2400610ecce22e9c8bfede3fd264e77f049834d41ccc09e6f0b65527be619050",
+          "content_hash": "6f4b151d296e8fb7b6d91ab3b1ffa3a8bf6864bc7cdf148aa75120ee706dbdc8",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:33.985044+00:00"
+          "last_synced": "2026-09-19T20:23:31.896321+00:00"
         },
         "big/index.md": {
           "content_hash": "5c74724eaae96a122e37fa7139b537961bdeb9b34621725ec3987f975980c0d9",
@@ -8371,9 +8406,9 @@
           "last_synced": "2026-09-08T05:31:33.985099+00:00"
         },
         "del/index.md": {
-          "content_hash": "5534d196765572cedc4e74c8ab255de24fc9205fe4fef51e6f6b91a3cbbfe009",
+          "content_hash": "6eb29491896bf846af8a9ed6dc680f6799ad0c88ffd522d43b23b9c7497e751d",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:33.985103+00:00"
+          "last_synced": "2026-09-19T20:23:31.896327+00:00"
         },
         "details/index.md": {
           "content_hash": "d22214faf1e531ff94c77aa5d1c6d075a7410f484645ce983e031b1624806b17",
@@ -8396,9 +8431,9 @@
           "last_synced": "2026-09-08T05:31:33.985116+00:00"
         },
         "div/index.md": {
-          "content_hash": "993cdd7fe9ffe69e398f53adf7a5c54d0540cf5a7faa80d53167f74a89648bbb",
+          "content_hash": "3d60849e5a2cd755c973f1b5120acac6ce374c594aa22ab6b46b718d04488d5a",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:33.985120+00:00"
+          "last_synced": "2026-09-19T20:23:31.896332+00:00"
         },
         "dl/index.md": {
           "content_hash": "9837bb6df8f649b1755990d204ff341d6a91f792dcb82f813d0a94fd053a005f",
@@ -8416,9 +8451,9 @@
           "last_synced": "2026-09-08T05:31:33.985131+00:00"
         },
         "embed/index.md": {
-          "content_hash": "2caba01ca9e0bd1ff5c989f8ff5f33971d895d8b3a9c07d44de261d41f0196c3",
+          "content_hash": "4e19fa1c7e6d7178b36ee8e94d52cf3bff79034c93d1c7ea5c0621d5c9bcdc3c",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:33.985133+00:00"
+          "last_synced": "2026-09-19T20:23:31.896338+00:00"
         },
         "fencedframe/index.md": {
           "content_hash": "e82e9d1b4c028e58bdc80695edd203c8458613a2e6961c6f5dec898673306445",
@@ -8451,9 +8486,9 @@
           "last_synced": "2026-09-08T05:31:33.985147+00:00"
         },
         "form/index.md": {
-          "content_hash": "a34de4f44107811ecc7743c22c562cc041c3573f7f66554369618f1dc15f2bf8",
+          "content_hash": "cce58f18fe43dfdbc51efa48b1d4945c8d0628a6ec9a57fdb1a2c7caec57db8b",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:33.985150+00:00"
+          "last_synced": "2026-09-19T20:23:31.896344+00:00"
         },
         "frame/index.md": {
           "content_hash": "a3f5141cc168aa82fd4e30aaebd1b0a58610e53c9a66130fb49e911cd56a37d8",
@@ -8506,19 +8541,19 @@
           "last_synced": "2026-09-08T05:31:33.985189+00:00"
         },
         "iframe/index.md": {
-          "content_hash": "3b63be4037451bbe4b1a8c616640a380014a53d15470211576cc097ca2802d9f",
+          "content_hash": "1bcf9eaf0a3eab55263487552abac25f998246d6cf55e1506c2c4e29bbf4ecde",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:33.985194+00:00"
+          "last_synced": "2026-09-19T20:23:31.896351+00:00"
         },
         "img/index.md": {
-          "content_hash": "01cb1d8b729c66e33f7d6d928b91dbb0036dd23e142e826a418ecf6ccdb60bb0",
+          "content_hash": "5aed40cb5d72a7f3f8be0dd2f95d047af87ca3773702d248c2f29fa82a49ab98",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:33.985196+00:00"
+          "last_synced": "2026-09-19T20:23:31.896357+00:00"
         },
         "index.md": {
-          "content_hash": "d62e0af1a186d230e6495070a64fac95613b5d507a8d21b791113b1ba0e89306",
+          "content_hash": "868d7489b299b736421e78c365683f9d525324edbcc8c899998dda8513349c15",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:33.985198+00:00"
+          "last_synced": "2026-09-19T20:23:31.896363+00:00"
         },
         "input/button/index.md": {
           "content_hash": "f2793265c2e550bd268ea4d9b549bc7050dc6b971c0e13e77af37b17d608c885",
@@ -8541,19 +8576,19 @@
           "last_synced": "2026-09-08T05:31:33.985208+00:00"
         },
         "input/datetime-local/index.md": {
-          "content_hash": "41dc7ceb7e27b3452b507efba8c697587ae708a1fc1223c5df87c23394bd5d70",
+          "content_hash": "59d505c2a307205aa092fe15a38c695a979d2b4d4346c5bf1c658df3009b676f",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:33.985210+00:00"
+          "last_synced": "2026-09-19T20:23:31.896370+00:00"
         },
         "input/email/index.md": {
-          "content_hash": "59ef27629ca865f346b3965e5e70ffaa01465a9bd573c0bf6e2f5e846f99cb12",
+          "content_hash": "e93d6600833511e524329ca37521a648c3182e3ff7b40f17db6bb15e6b064632",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:33.985212+00:00"
+          "last_synced": "2026-09-19T20:23:31.896376+00:00"
         },
         "input/file/index.md": {
-          "content_hash": "8699c8dd60cdb029f05fde5dc3086db3f14b9eb42d9cf8300c321cee189201a0",
+          "content_hash": "86c2758a63ad08f7e8dc81ca2c88af1943d534fe3bb489f1816f9d0e66616e36",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:33.985214+00:00"
+          "last_synced": "2026-09-19T20:23:31.896382+00:00"
         },
         "input/hidden/index.md": {
           "content_hash": "98b45975350755cca22ac91d30dba3314ae388415683d105b8577ab8eb996d95",
@@ -8566,9 +8601,9 @@
           "last_synced": "2026-09-08T05:31:33.985219+00:00"
         },
         "input/index.md": {
-          "content_hash": "9a31ef001ad9b0da84ff2987c43bb538f3986148d41068444dde3e0272f516cb",
+          "content_hash": "07451d0fc845081fa502ae992875c272b02d5289f770745e26b26c1cec093f0c",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:33.985221+00:00"
+          "last_synced": "2026-09-19T20:23:31.896388+00:00"
         },
         "input/month/index.md": {
           "content_hash": "d10fcb10b6ee0ab571d79db88af4a40090d008e910c6afda52320f2c7f1b030e",
@@ -8576,9 +8611,9 @@
           "last_synced": "2026-09-08T05:31:33.985223+00:00"
         },
         "input/number/index.md": {
-          "content_hash": "06d637abe6014e81d85eb4e858e0489aabb3ea4ae275b8b6df7c8cffc9f8292a",
+          "content_hash": "fabd9ca3e19d746f2fe2cccd4c378d79b1dbcafeb365555cbb87467280b0f7c9",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:33.985225+00:00"
+          "last_synced": "2026-09-19T20:23:31.896394+00:00"
         },
         "input/password/index.md": {
           "content_hash": "d10827d326073d33c96c12b3ca92912fe442157a78b3958887fa1d582e84b28d",
@@ -8591,9 +8626,9 @@
           "last_synced": "2026-09-08T05:31:33.985230+00:00"
         },
         "input/range/index.md": {
-          "content_hash": "87949c2467db9cb221245f7e4015a672b31d371adc2f46adcbc8975e6de330ce",
+          "content_hash": "1d534bc07c4d80326b8f3d2e29638c7529dc8f4082af70c7bfd56fa6b157aed7",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:33.985232+00:00"
+          "last_synced": "2026-09-19T20:23:31.896400+00:00"
         },
         "input/reset/index.md": {
           "content_hash": "ed3d20ba73524d089913023df7b43cff7a098465cbfef1af4e46fff9e899f6da",
@@ -8626,9 +8661,9 @@
           "last_synced": "2026-09-08T05:31:33.985245+00:00"
         },
         "input/url/index.md": {
-          "content_hash": "9008ac79522471ca20c57fbe40edc0479cf1af36848e5dff333d2aa19ad3eab1",
+          "content_hash": "a42f780f445e3e21df7b5354dcae6fac0ea3d1d51e4c2f97e88a53cb71aad616",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:33.985248+00:00"
+          "last_synced": "2026-09-19T20:23:31.896404+00:00"
         },
         "input/week/index.md": {
           "content_hash": "85b775f3e15bbf97d74eb23c2442ae577e1f30609ea6f87e07f999394367033a",
@@ -8666,9 +8701,9 @@
           "last_synced": "2026-09-08T05:31:33.985263+00:00"
         },
         "main/index.md": {
-          "content_hash": "b819636d4d18b868f39437c44576b4157de07a57b726fe34759c41d8f3bcb43e",
+          "content_hash": "c0c36949dcc9b4531efde076e743ce6f18e482c94a3dc3c7a379bc0488a6209b",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:33.985267+00:00"
+          "last_synced": "2026-09-19T20:23:31.896407+00:00"
         },
         "map/index.md": {
           "content_hash": "9aa8cb3fbc06b0d5b6b3f4dc2c538b2e011acda40f1632199aa7f4525efdb97b",
@@ -8771,9 +8806,9 @@
           "last_synced": "2026-09-08T05:31:33.985341+00:00"
         },
         "object/index.md": {
-          "content_hash": "b8206632f644bfd213869941c696168434f536659e75e9829e9bf1f9a41db9cf",
+          "content_hash": "1628fd8d45d944e00134551f42969dedd9de7962a0d3291c1ff3157efe09df81",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:33.985343+00:00"
+          "last_synced": "2026-09-19T20:23:31.896410+00:00"
         },
         "ol/index.md": {
           "content_hash": "af460ad160d742ef50f12d2a1538e3f7dbe0bbe0d3895318e67694e506cbeade",
@@ -8791,9 +8826,9 @@
           "last_synced": "2026-09-08T05:31:33.985350+00:00"
         },
         "output/index.md": {
-          "content_hash": "98b7c1a7c09c3d3bc62008beb06347e260ce8b2065ce07e72be3972464c47a95",
+          "content_hash": "cab86b3dd6d5b7436f3e45f43e11f75fbc2b17b2a14aedccdb8e1e82912d10d4",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:33.985352+00:00"
+          "last_synced": "2026-09-19T20:23:31.896413+00:00"
         },
         "p/index.md": {
           "content_hash": "4f9a4afcd42a559800f70b2bc26996a777f58b218350ebf758ae5a51dd9da0bd",
@@ -8841,9 +8876,9 @@
           "last_synced": "2026-09-08T05:31:33.985371+00:00"
         },
         "rt/index.md": {
-          "content_hash": "d211d54fe5e9caed5628c7e3caf50f229fb57f60ebc48f38060188a81182a443",
+          "content_hash": "715b643c4d9e69e3cc02ccf84072a52d0bfbf19615ed1241580e2023f9e4c7c2",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:33.985374+00:00"
+          "last_synced": "2026-09-19T20:23:31.896416+00:00"
         },
         "rtc/index.md": {
           "content_hash": "19f6b0fc626777375e33746eb43a3449e3216fa6d5de6457a7a6bb6fe7bb0ea4",
@@ -8896,9 +8931,9 @@
           "last_synced": "2026-09-08T05:31:33.985397+00:00"
         },
         "select/index.md": {
-          "content_hash": "2a923d52cc7323bcb5322306648678bf6c838d2b5f30ea837b14d9830f8ec0e9",
+          "content_hash": "1e71166acffaf5117bd0aa67356bdfe0b6579d4f5117c1c76832d0eb260d115b",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:33.985399+00:00"
+          "last_synced": "2026-09-19T20:23:31.896419+00:00"
         },
         "selectedcontent/index.md": {
           "content_hash": "f4ba078fbfb2045ee4852ec45494c3d60a2969e1b1718a13f54db14df25ef873",
@@ -9053,7 +9088,7 @@
       }
     },
     "accessibility": {
-      "commit": "d9b48f268f04264e420388135f53db136e5d9272",
+      "commit": "5a81c288fb7213b2ca2180cda687500981ecf9e1",
       "files": {
         "aria/guides/index.md": {
           "content_hash": "f35395f3db8bd9dc73a39aa0960b6d4a18f50fde90ed11cec9df692a9d17c74f",
@@ -9061,9 +9096,9 @@
           "last_synced": "2026-09-08T05:31:41.678497+00:00"
         },
         "aria/guides/live_regions/index.md": {
-          "content_hash": "ef580299a98151be9e95c5927d2c46e3e2e256b8485d462f0a44e6a177ef3d0b",
+          "content_hash": "7e7aa6429f7d2fee96ca0a7737a7d5bb7f4a1363c0a024f1d162b0e2b8554736",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:41.678523+00:00"
+          "last_synced": "2026-09-19T20:23:39.659584+00:00"
         },
         "aria/guides/multipart_labels/index.md": {
           "content_hash": "2ba43b39c0925f9df0b675070349f24f5ed57169b56362d4e22a1fd33a65a552",
@@ -9181,9 +9216,9 @@
           "last_synced": "2026-09-08T05:31:41.678613+00:00"
         },
         "aria/reference/attributes/aria-expanded/index.md": {
-          "content_hash": "6f2d69c255086b3c7eb1c518e65a07a2424cac8f03cf702a62b0e74b1321aa85",
+          "content_hash": "9df1383b3175d147543cda8cbea6c1a66d31164f6fdd7c8295ac0eb802610ca1",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:41.678617+00:00"
+          "last_synced": "2026-09-19T20:23:39.659602+00:00"
         },
         "aria/reference/attributes/aria-flowto/index.md": {
           "content_hash": "0113175edc80cf0a1d37871db6b6a2060cb9b2037ee32829445697b56810dc37",
@@ -9421,9 +9456,9 @@
           "last_synced": "2026-09-08T05:31:41.678724+00:00"
         },
         "aria/reference/roles/complementary_role/index.md": {
-          "content_hash": "ef8e59f03c0611e667f5f3da2c7175c27cacebafb26773f414fa2760f4592632",
+          "content_hash": "75ea1edfee505a0bb173d4c556d1f3d5c9543d1872a8d8f62579a4f900390a5e",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:41.678726+00:00"
+          "last_synced": "2026-09-19T20:23:39.659606+00:00"
         },
         "aria/reference/roles/composite_role/index.md": {
           "content_hash": "25c4deca886b983d88b3b26c638fe7bcf0691f79d9229642840bb1c24c8f1c95",
@@ -9436,9 +9471,9 @@
           "last_synced": "2026-09-08T05:31:41.678731+00:00"
         },
         "aria/reference/roles/definition_role/index.md": {
-          "content_hash": "f9eee9a24ceef8eda4c39ebae064e331b0023e858bd99c2187a87b4a65ef22b7",
+          "content_hash": "2d48d8ce37f6b320c559b42fb4202fb7ede985d22431163a9328449334ac0b8b",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:41.678733+00:00"
+          "last_synced": "2026-09-19T20:23:39.659610+00:00"
         },
         "aria/reference/roles/dialog_role/index.md": {
           "content_hash": "110668f95585988aca11e2d369fc98b290ff9f4d9e3a2cae75e220b48b964506",
@@ -9746,9 +9781,9 @@
           "last_synced": "2026-09-08T05:31:41.678903+00:00"
         },
         "aria/reference/roles/tabpanel_role/index.md": {
-          "content_hash": "c64b665a94131463add042a2a8f2e0a705fe56179b88f09fa8e815480391b286",
+          "content_hash": "3dd962bae29cadc3107b96d3eb84db9203d997d77aa5468012f57e7570a97e67",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:41.678906+00:00"
+          "last_synced": "2026-09-19T20:23:39.659614+00:00"
         },
         "aria/reference/roles/term_role/index.md": {
           "content_hash": "a653d4dce55d50f3f8b86975410be6292207a76baf232025749a1afe79f600db",
@@ -9771,9 +9806,9 @@
           "last_synced": "2026-09-08T05:31:41.678914+00:00"
         },
         "aria/reference/roles/tooltip_role/index.md": {
-          "content_hash": "c8cac877afab2d630d390df938e5ab6c46886a4c48a583f238e7c32db460d356",
+          "content_hash": "cfda76ca35e0ae7ced8c4cb283808f8c961abb0ff88bc8d0a82a5337236529be",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:41.678917+00:00"
+          "last_synced": "2026-09-19T20:23:39.659617+00:00"
         },
         "aria/reference/roles/tree_role/index.md": {
           "content_hash": "fb038691dec3ebf29ad0541fac03e8d8cf24279c6091f6b4908a547205248cfb",
@@ -9846,9 +9881,9 @@
           "last_synced": "2026-09-08T05:31:41.678949+00:00"
         },
         "guides/seizure_disorders/index.md": {
-          "content_hash": "2817935547e84861b8e24645ac16658bf8a28e6061a9529d50ab6135597377b9",
+          "content_hash": "3240a7be199fec1c6f8030c1f68d43365ef23f94072248e01d79c7d840717ff3",
           "chunk_ids": [],
-          "last_synced": "2026-09-08T05:31:41.678951+00:00"
+          "last_synced": "2026-09-19T20:23:39.659621+00:00"
         },
         "guides/understanding_wcag/index.md": {
           "content_hash": "c760558ff9a7365db03d2ea48e2bb1a86d2c576ed9413cfce2603c370ff0e8f2",
