@@ -194,6 +194,6 @@ scripts/
   pr_summary.py            # generate PR body from sync summary
   manifest.py              # manifest read/write helpers
 .github/workflows/
-  sync-docs.yml            # weekly scrape + PR creation
+  sync-docs.yml            # trigger scrape + PR creation
   release-docs-corpus.yml  # rebuild + publish precomputed index on merge
 ```
