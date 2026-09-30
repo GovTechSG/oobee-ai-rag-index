@@ -4,11 +4,6 @@ Scrape framework documentation from GitHub, chunk it, and publish a precomputed
 local RAG index consumed by the Oobee VS Code extension and oobee-desktop.
 This repo keeps a manifest of file hashes so each sync only updates what changed.
 
-> **Note:** the corpus used to be pushed to Pinecone. Pinecone has been removed;
-> the only retrieval path is now the precomputed `sentence-transformers/all-MiniLM-L6-v2`
-> index built by `scripts/build_local_index.py` and released by
-> `.github/workflows/release-docs-corpus.yml`.
-
 ## Flow
 
 ```
@@ -72,8 +67,6 @@ GitHub Release (latest-precompute) — downstream consumers pull from here
 - per-file SHA256 hash (change detection)
 - last synced timestamp
 - framework commit SHA
-- `chunk_ids` — legacy field, unused since Pinecone removal; kept so old
-  manifests still round-trip cleanly.
 
 This is the state used to decide NEW / MODIFIED / DELETED / UNCHANGED.
 
