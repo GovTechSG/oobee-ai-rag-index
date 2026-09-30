@@ -21,7 +21,7 @@ scripts/scrape.py  -> docs/<framework>/*
 scripts/sync.py (diff vs manifest.json)
     |
     v
-[Weekly: open PR]
+[Manual trigger wowrkflow to open PR]
     |
     v
 Human reviews & merges PR
@@ -38,7 +38,7 @@ GitHub Release (latest-precompute) — downstream consumers pull from here
 
 ## How the sync works
 
-1. **Weekly scrape** (GitHub Action: `sync-docs.yml`)
+1. **Manually triggered scrape** (GitHub Action: `sync-docs.yml`)
    - Scrapes docs from all configured repos
    - Diffs against `manifest.json` to find new/modified/deleted files
    - Creates a `sync/YYYY-MM-DD` branch with the changes
