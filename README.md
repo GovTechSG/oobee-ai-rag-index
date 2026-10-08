@@ -1,8 +1,35 @@
 # oobee-ai-rag-index
 
-Scrape framework documentation from GitHub, chunk it, and publish a precomputed
-local RAG index consumed by the Oobee VS Code extension and oobee-desktop.
-This repo keeps a manifest of file hashes so each sync only updates what changed.
+A precomputed documentation index for retrieval-augmented generation (RAG), used by Oobee's AI features to ground accessibility fix suggestions in official framework and WCAG documentation.
+
+## Purpose
+
+This repo scrapes documentation from upstream sources (React, Vue, Angular, MDN, TypeScript, WCAG), chunks and sanitises it, and publishes a ready-to-use local index as a GitHub Release. Downstream apps download the release instead of scraping and embedding docs themselves. A manifest of file hashes means each sync only picks up what changed.
+
+## Audience
+
+- **Oobee maintainers** who refresh the docs corpus or change how it is chunked and indexed.
+- **Developers of downstream consumers:** the [Oobee Dev Suite](https://github.com/GovTechSG/oobee-dev-suite-vscode-oss) VS Code extension and [Oobee Desktop](https://github.com/GovTechSG/oobee-desktop).
+
+End users of Oobee don't need this repo. Their apps fetch the index automatically.
+
+## Usage
+
+**Consume the index:** download `docs-index.zip` (index only) or `docs-precompute.zip` (index and markdown) from the [`latest-precompute`](https://github.com/GovTechSG/oobee-ai-rag-index/releases/tag/latest-precompute) release. Each archive contains `chunks.jsonl`, `vectors.bin` and `meta.json`.
+
+**Refresh the corpus:** run the *Sync docs* workflow, review and merge the PR it opens, and the *Release precomputed RAG index* workflow publishes a new release. Details are below.
+
+## Status
+
+Active. The corpus is refreshed on demand (manual workflow trigger) and released on every merge to `master`. The repo carries the `govtech-active` lifecycle topic.
+
+## Owner
+
+Maintained by the Oobee team at [GovTech Singapore](https://www.tech.gov.sg/) (Government Technology Agency of Singapore). Report security issues as described in [SECURITY.md](SECURITY.md). Open other issues in this repo.
+
+## Licence
+
+The code in this repo is released under the [MIT Licence](LICENSE). Scraped documentation under `docs/` stays under the licence of its upstream project (see `config.yaml` for sources).
 
 ## Flow
 
@@ -16,7 +43,7 @@ scripts/scrape.py  -> docs/<framework>/*
 scripts/sync.py (diff vs manifest.json)
     |
     v
-[Manual trigger wowrkflow to open PR]
+[Manual workflow trigger opens PR]
     |
     v
 Human reviews & merges PR
@@ -56,7 +83,7 @@ GitHub Release (latest-precompute) — downstream consumers pull from here
 
 | Tag | Description |
 |-----|-------------|
-| `synced/YYYY-MM-DD` | Permanent — marks each weekly scrape |
+| `synced/YYYY-MM-DD` | Permanent — marks each scrape |
 | `latest-sync` | Floating — most recent scrape |
 | `precompute/YYYY-MM-DD` | Permanent — marks each precomputed-index release |
 | `latest-precompute` | Floating — most recent released index |
@@ -133,11 +160,11 @@ Build the precomputed index locally (requires torch + sentence-transformers):
 
 ## GitHub Actions
 
-### Sync docs (weekly)
+### Sync docs (manual)
 
-Runs every Sunday 2AM SGT. Creates a PR for review.
+Run on demand. Creates a PR for review.
 
-Manual trigger:
+Trigger:
 ```bash
 # Normal trigger
 gh workflow run "Sync docs"
